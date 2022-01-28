@@ -1,70 +1,174 @@
-# Getting Started with Create React App
+# Portfolio Yo - Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## 🤗 Getting Started
 
-In the project directory, you can run:
+### Get the project
 
-### `npm start`
+First, you need to download the project in your computer and install all the dependencies:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+git clone 
+cd webapp
+npm install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Add environment variables
 
-### `npm test`
+You have to create a .env file at the root of the project (directly under the server folder) :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```dotenv
+####### COMMUNICATION WITH THE SERVER
 
-### `npm run build`
+# the URL of the server
+# we need it to communicate with the server
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+REACT_APP_API_URL=http://localhost:9000
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Run the client
 
-### `npm run eject`
+Then, you can run the development client:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the running client.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🤔 Understanding the architecture
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+public/
+   assets/
+       img/
+       # static images used in the website
+       
+       logo/
+       # logo used for the website
+       
+   index.html
+   # the HTML template in which the React app will be compiled
+   
+   robots.html
+   # help search engines to find pages in the website
+   # see more : https://developers.google.com/search/docs/advanced/robots/intro
 
-## Learn More
+src/
+   actions/
+   # define redux actions
+   # plain objects that have a type field
+   # see more : https://redux.js.org/tutorials/fundamentals/part-3-state-actions-reducers
+   
+   components/
+   # react components used by multiple scenes
+   # see more : https://reactjs.org/docs/components-and-props.html
+   
+   config/
+   # application configuration
+   # for now, there is just route configuration
+   # you can choose whether it is mandatory to be connected to access a route or not
+   
+   constants/
+   # all kind of constants (including redux constants)
+   
+   containers/
+   # higher level react components which connect a component to the redux state
+   # used by multiple scenes
+   
+   reducers/
+   # define the redux state and how each redux action can influence it
+   # acts as a model and a controller at the same time
+   # see more : https://redux.js.org/tutorials/fundamentals/part-3-state-actions-reducers
+   
+   routes/
+   # define how routes are generated
+   # for now, it gets the configuration for the config folder, then decide if each route is
+   # accessible to the user or not
+   
+   scenes/
+   # a page <=> a scene
+   
+      # for every scene
+         components/
+         # react components used by this scene only
+         # see more : https://reactjs.org/docs/components-and-props.html
+         
+         containers/
+         # higher level react components which connect a component to the redux state
+         # used by this scene only
+         
+         services/
+         # functions which call the server and return the result
+         # used by this scene only
+         
+         index.js
+         # main file of the scene
+         # connect everything together
+   
+   selectors/
+   # define redux selectors (used to access to the redux store)
+   # see more : https://medium.com/@matthew.holman/what-is-a-redux-selector-a517acee1fe8#:~:text=A%20selector%20is%20a%20function,encapsulate%20your%20global%20state%20tree.
+   
+   services/
+   # functions which call the server and return the result
+   # used by multiple scenes
+   
+   utils/
+   # custom functions
+   
+   App.js
+   # main component
+   # generates routes
+   
+   general.css
+   # main style
+   
+   index.js
+   # entry point of the application
+   
+   serviceWorker.js
+   # can be used to create a PWA application
+   # see more : https://developers.google.com/web/fundamentals/primers/service-workers/
+   
+   theme.js
+   # main theme
+   # used by MaterialUI components and custom styles
+   
+package.json
+# define all the dependencies + scripts that you can use (command: npm run <script-name>)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+server.js
+# can be used for deployment to optimize performances if necessary
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📖 Tutorials
 
-### Code Splitting
+- [Add a secondary filter](tutorials/ADD_SECONDARY_FILTER.md)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+You can also check out our commit history, to understand better how we worked :
 
-### Analyzing the Bundle Size
+[Commit history](https://gitlab.com/projet-m2-wgy/webapp/-/commits/develop/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📚 Learn More
 
-### Making a Progressive Web App
+To learn more about the technologies, take a look at the following resources:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- [React.js Documentation](https://reactjs.org/) - learn about React.js.
+- [Redux.js Documentation](https://redux.js.org/) - learn about Express.js.
+- [Material UI Documentation](https://material-ui.com/) - learn about Material UI, used for styling.
+- [Notistack Documentation](https://github.com/iamhosseindhv/notistack) - learn about Notistack.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📝 Contributors
 
-### Deployment
+Some people have contributed to the project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* 🧑 Clement Grandvaux
+  - [GitLab] - [GitHub](https://github.com/GrandvauxClement)
+* 🧑 Vincent Brozzoni
+  - [GitLab]
