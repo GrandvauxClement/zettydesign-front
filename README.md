@@ -9,8 +9,8 @@
 First, you need to download the project in your computer and install all the dependencies:
 
 ```bash
-git clone 
-cd webapp
+git clone https://github.com/GrandvauxClement/YoPortoflio-FrontEnd.git frontEnd
+cd frontEnd
 npm install
 ```
 
@@ -33,9 +33,9 @@ REACT_APP_API_URL=http://localhost:9000
 Then, you can run the development client:
 
 ```bash
-npm run dev
+npm run start
 # or
-yarn dev
+yarn start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the running client.
@@ -146,13 +146,6 @@ server.js
 # can be used for deployment to optimize performances if necessary
 ```
 
-## 📖 Tutorials
-
-- [Add a secondary filter](tutorials/ADD_SECONDARY_FILTER.md)
-
-You can also check out our commit history, to understand better how we worked :
-
-[Commit history](https://gitlab.com/projet-m2-wgy/webapp/-/commits/develop/)
 
 ## 📚 Learn More
 
