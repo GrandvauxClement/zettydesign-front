@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from "./components/Navbar/navbar";
 import Footer from "./components/Footer/footer";
 import React from "react";
+import IndexProject from "./components/Project";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         >
           Learn React
         </a>
+          <IndexProject />
       </header>
       <Footer/>
     </div>
