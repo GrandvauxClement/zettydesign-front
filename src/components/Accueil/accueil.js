@@ -10,6 +10,7 @@ import * as React from "react";
 import ServiceService from "../../services/service.service";
 import {useEffect, useState} from "react";
 import ServiceList from "./servicesList";
+import BannerDisplayNumber from "./bannerDisplayNumber";
 
 
 const Accueil = () => {
@@ -33,14 +34,17 @@ const Accueil = () => {
         );
     }else{
         return(
-            <Container>
-                <Typography variant="h2">Travaillez avec un freelance de confiance dans tous l'Est de la France,
-                    pour tous vos projets de communication !
-                </Typography>
-                {appState.services.map((service, index) => (
-                    <ServiceList service={service} index={index}/>
-                ))}
-            </Container>
+            <>
+                <Container>
+                    <Typography variant="h3">Travaillez avec un freelance de confiance dans tous l'Est de la France,
+                        pour tous vos projets de communication !
+                    </Typography>
+                    {appState.services.map((service, index) => (
+                        <ServiceList key={index} service={service} index={index}/>
+                    ))}
+                </Container>
+                <BannerDisplayNumber/>
+            </>
         );
     }
 

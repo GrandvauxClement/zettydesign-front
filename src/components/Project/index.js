@@ -1,6 +1,8 @@
 import * as React from "react";
 import ProjectService from "../../services/project.service";
 import {useEffect, useState} from "react";
+import ImageMasonry from "./ImageMasonryDisplay";
+import {Container} from "@mui/material";
 
 const IndexProject = () => {
     const [appState, setAppState] = useState({
@@ -21,14 +23,9 @@ const IndexProject = () => {
         )
     }else {
         return (
-            <div>
-                <h1>Mes projects</h1>
-                <ul>
-                    {appState.projects.map((project) => (
-                        <li>{project.title}</li>
-                    ))}
-                </ul>
-            </div>
+            <Container>
+               <ImageMasonry projects={appState.projects}/>
+            </Container>
         );
     }
 

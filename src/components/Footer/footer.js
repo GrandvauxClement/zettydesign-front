@@ -65,7 +65,7 @@ const Footer = () => {
         <Root className={classes.root}>
             <Container>
                 <Grid item xs={12}>
-                    <img src={logo} className="App-logo" alt="logo" />
+                    <img src={logo} style={{width:'50px'}} alt="logo" />
                 </Grid>
                 <Grid item xs={12}>
                     <Typography align='center'>
