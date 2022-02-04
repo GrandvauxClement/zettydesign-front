@@ -4,6 +4,8 @@ import {
     IconButton,
     Typography,
 } from "@mui/material";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 import * as React from "react";
 import ServiceService from "../../services/service.service";
 import {useEffect, useState} from "react";
@@ -23,16 +25,25 @@ const Accueil = () => {
         });
     }, [setAppState]);
 
-    return(
-        <Container>
-            <Typography variant="h2">Travaillez avec un freelance de confiance dans tous l'Est de la France,
-                pour tous vos projets de communication !
-            </Typography>
-            {appState.services.map((service, index) => (
-                <ServiceList service={service} index={index}/>
-            ))}
-        </Container>
-    );
+    if ( appState.services == null){
+        return (
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <CircularProgress />
+            </Box>
+        );
+    }else{
+        return(
+            <Container>
+                <Typography variant="h2">Travaillez avec un freelance de confiance dans tous l'Est de la France,
+                    pour tous vos projets de communication !
+                </Typography>
+                {appState.services.map((service, index) => (
+                    <ServiceList service={service} index={index}/>
+                ))}
+            </Container>
+        );
+    }
+
 }
 
 export default Accueil;

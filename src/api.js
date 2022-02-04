@@ -1,5 +1,13 @@
 import axios from 'axios';
 
-export default axios.create({
-    baseURL:"http://localhost:9000/"
-})
+class Api {
+    functionAxios = () => {
+       return axios.create({
+            baseURL:"http://localhost:9000/"
+        })
+    }
+    baseUrl = "http://localhost:9000/";
+}
+
+
+export default new Api();

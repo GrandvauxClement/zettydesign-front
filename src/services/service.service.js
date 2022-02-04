@@ -1,13 +1,13 @@
-import AxiosApiUrl from "../api";
+import Api from "../api";
 
 class ServiceService {
 
     getAllService() {
-        return AxiosApiUrl.get('api/service');
+        return Api.functionAxios().get('api/service');
     }
 
     getOneService(id){
-        return AxiosApiUrl.get('api/service/' + id,)
+        return Api.functionAxios().get('/api/service' + id,)
     }
 }
 export default new ServiceService();
