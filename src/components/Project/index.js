@@ -2,7 +2,10 @@ import * as React from "react";
 import ProjectService from "../../services/project.service";
 import {useEffect, useState} from "react";
 import ImageMasonry from "./ImageMasonryDisplay";
-import {Container} from "@mui/material";
+import {Container, Typography} from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+import theme from "../../theme";
 
 const IndexProject = () => {
     const [appState, setAppState] = useState({
@@ -19,11 +22,14 @@ const IndexProject = () => {
 
     if (appState.loading){
         return (
-            <h2 className='text-center text-primary'>En chargement</h2>
+            <Box sx={{ display: 'flex', alignItems: 'center', mt: 3 }}>
+                <CircularProgress />
+            </Box>
         )
     }else {
         return (
-            <Container>
+            <Container sx={{mt: 3}}>
+               <Typography variant="h2" color={theme.palette.primary.main}>Mes Réalisations</Typography>
                <ImageMasonry projects={appState.projects}/>
             </Container>
         );
