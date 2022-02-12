@@ -16,7 +16,6 @@ const classes = {
 
 const Root = styled('div')(({theme}) => ({
     [`&.${classes.root}`]: {
-        width: "100%",
     },
     [`& .${classes.image}`]: {
         transition: "all 1s ease",
@@ -29,7 +28,7 @@ const Root = styled('div')(({theme}) => ({
     }
 }))
 
-export default function ImageMasonry({projects}) {
+export default function ImageMasonry({project}) {
     const urlImage = Api.baseUrl + 'public/images/projets/';
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -37,23 +36,17 @@ export default function ImageMasonry({projects}) {
 
     return (
         <Root className={classes.root}>
-            <Masonry columns={3} spacing={1}>
-                {projects.map((item, index) => (
-                    <>
-                        <Stack key={index} onClick={handleOpen}>
-                            <img
-                                src={`${urlImage}${item.principalImage}`}
-                                srcSet={`${urlImage}${item.principalImage}`}
-                                alt={item.title}
-                                loading="lazy"
-                                className={classes.image}
-                            />
-                        </Stack>
-                        <ModalProject open={open} onClose={handleClose} project={item}/>
-                    </>
-                ))}
-            </Masonry>
+             <Stack onClick={handleOpen}>
+                  <img
+                      src={`${urlImage}${project.principalImage}`}
+                      srcSet={`${urlImage}${project.principalImage}`}
+                      alt={project.title}
+                      loading="lazy"
+                      className={classes.image}
+                  />
 
+             </Stack>
+            <ModalProject open={open} onClose={handleClose} project={project}/>
         </Root>
     );
 }
