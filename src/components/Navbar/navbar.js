@@ -7,13 +7,13 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-// import Avatar from '@mui/material/Avatar';
+ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-// import Tooltip from '@mui/material/Tooltip';
+ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-
+import { Link } from "react-router-dom";
 const pages = ['Mes Services', 'Mes réalisations', 'Contact'];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,14 +38,16 @@ const NavBar = () => {
         <AppBar position="sticky">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                    >
-                        Yo Free
-                    </Typography>
+                   <Link to="/">
+                       <Typography
+                           variant="h6"
+                           noWrap
+                           component="div"
+                           sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                       >
+                           Yo Free
+                       </Typography>
+                   </Link>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
@@ -103,7 +105,7 @@ const NavBar = () => {
                         ))}
                     </Box>
 
-                    {/*<Box sx={{ flexGrow: 0 }}>
+                    {<Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -131,7 +133,7 @@ const NavBar = () => {
                                 </MenuItem>
                             ))}
                         </Menu>
-                    </Box>*/}
+                    </Box>}
                 </Toolbar>
             </Container>
         </AppBar>

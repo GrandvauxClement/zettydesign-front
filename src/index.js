@@ -4,15 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from "@mui/material";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import theme from "./theme";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <React.StrictMode>
-      <ThemeProvider theme={theme}>
-          <App />
-      </ThemeProvider>
-  </React.StrictMode>,
+    <BrowserRouter>
+        <React.StrictMode>
+            <ThemeProvider theme={theme}>
+                <App />
+            </ThemeProvider>
+        </React.StrictMode>
+    </BrowserRouter>,
   document.getElementById('root')
 );
 

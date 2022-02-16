@@ -5,8 +5,9 @@ import {
 import Button from '@mui/material/Button';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Api from "../../api";
-import Link from '@mui/material/Link';
 import { styled } from '@mui/material/styles';
+
+import { Link } from "react-router-dom";
 
 
 
@@ -20,13 +21,17 @@ const ServiceList = ({service, index}) => {
                 </Grid>
                 <Grid item md={6} xs={12} sx={{display: 'flex', flexDirection:'column', alignItems:{xs:'center', md:'flex-start'}}}>
 
-                    <Link href="#" underline="hover" variant="h3" sx={{mt: 3, textAlign:{xs:'center', md:'left'}}}>{service.title} </Link>
+                    <Link to="/creation-graphique">
+                        <Typography  underline="hover" variant="h3" sx={{mt: 3, textAlign:{xs:'center', md:'left'}}}> {service.title} </Typography>
+                    </Link>
 
                     <Typography variant="h5" sx={{fontStyle: 'italic', color: '#ea8d2a'}}> {service.subTitle}</Typography>
                     <Typography paragraph sx={{textAlign: 'justify'}}> {service.description}</Typography>
-                    <Button variant="contained" endIcon={<AddCircleIcon />}>
-                        En Savoir
-                    </Button>
+                    <Link to="/creation-graphique">
+                        <Button variant="contained" endIcon={<AddCircleIcon />}>
+                            En Savoir
+                        </Button>
+                    </Link>
                 </Grid>
             </Grid>
         )
@@ -35,7 +40,9 @@ const ServiceList = ({service, index}) => {
             <Grid container item xs={12} direction="row">
 
                 <Grid item md={6} xs={12} order={{ xs:2, md:1}} sx={{display: 'flex', flexDirection:'column', alignItems:{xs:'center', md:'flex-end'}}}>
-                    <Link href="#" underline="hover" variant="h3" sx={{mt: 3, textAlign:{xs:'center', md:'right'} }}>{service.title} </Link>
+                    <Link to="/creation-graphique">
+                        <Typography  underline="hover" variant="h3" sx={{mt: 3, textAlign:{xs:'center', md:'left'}}}> {service.title} </Typography>
+                    </Link>
                     <Typography variant="h5" sx={{fontStyle: 'italic', color: '#ea8d2a'}}> {service.subTitle}</Typography>
                     <Typography paragraph sx={{textAlign: 'justify'}}> {service.description}</Typography>
                     <Button variant="contained" endIcon={<AddCircleIcon />}>
