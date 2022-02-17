@@ -12,8 +12,21 @@ import Button from '@mui/material/Button';
  import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
-const pages = ['Mes Services', 'Mes réalisations', 'Contact'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Mes réalisations', 'Contact'];
+const settings = [
+        {
+            name: 'Création Graphique',
+            url: '/creation-graphique'
+        },
+        {
+            name: 'Community Management',
+            url: '/community-management'
+        },
+        {
+            name: 'Stratégie de communication',
+            url: '/strategie-communication'
+        }
+    ];
 
 const NavBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,14 +51,14 @@ const NavBar = () => {
         <AppBar position="sticky">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                   <Link to="/">
+                   <Link to="/" style={{color: "white"}}>
                        <Typography
                            variant="h6"
                            noWrap
                            component="div"
                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                        >
-                           Yo Free
+                           Yo Logo
                        </Typography>
                    </Link>
 
@@ -78,6 +91,12 @@ const NavBar = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
+                            <MenuItem
+                                key="Mes Services"
+                                onClick={handleOpenUserMenu}
+                            >
+                                <Typography textAlign="center">Mes Services</Typography>
+                            </MenuItem>
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">{page}</Typography>
@@ -94,6 +113,14 @@ const NavBar = () => {
                         LOGO
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
+                        <Button
+                            onMouseOver={handleOpenUserMenu}
+                            key="Mes Services"
+                            sx={{ my: 2, color: 'white', display: 'block' }}>
+                            Mes Services
+                        </Button>
+
                         {pages.map((page) => (
                             <Button
                                 key={page}
@@ -105,12 +132,7 @@ const NavBar = () => {
                         ))}
                     </Box>
 
-                    {<Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
-                        </Tooltip>
+                    {
                         <Menu
                             sx={{ mt: '45px' }}
                             id="menu-appbar"
@@ -129,11 +151,13 @@ const NavBar = () => {
                         >
                             {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
+                                    <Link to={setting.url} sx={{color: "black"}}>
+                                        <Typography textAlign="center">{setting.name}</Typography>
+                                    </Link>
                                 </MenuItem>
                             ))}
                         </Menu>
-                    </Box>}
+                    }
                 </Toolbar>
             </Container>
         </AppBar>

@@ -10,6 +10,8 @@ import { Routes, Route, Link } from "react-router-dom";
 import CreationGraphiqueApp from "./components/ServicesDetail/CreationGraphique/CreationGraphiqueApp";
 import NavBar from "./components/Navbar/navbar";
 import AccueilApp from "./components/Accueil/AccueilApp";
+import CommunityManagementApp from "./components/ServicesDetail/CommunityManagement/CommunityManagementApp";
+import StrategieCommunicationApp from "./components/ServicesDetail/StrategieCommunication/StrategieCommunicationApp";
 
 function App() {
     const title = "Votre freelance en communication dans tous l'est de la France ";
@@ -21,6 +23,8 @@ function App() {
         <Routes>
             <Route path="/" element={<AccueilApp />}/>
             <Route path="/creation-graphique" element={<CreationGraphiqueApp />}/>
+            <Route path="/community-management" element={<CommunityManagementApp />} />
+            <Route path="/strategie-communication" element={<StrategieCommunicationApp />} />
         </Routes>
         <Footer/>
     </div>
