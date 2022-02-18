@@ -13,7 +13,7 @@ const theme = createTheme({
         },
     },
     shape: {
-        borderRadius: '16px',
+      //  borderRadius: '16px',
     },
     components: {
         MuiButton:{
@@ -31,7 +31,7 @@ const theme = createTheme({
                     fontWeight: 600
                 },
                 h4:{
-                    fontSize: '1.8em',
+                    fontSize: '1.2em',
                     fontWeight: 'bold',
                 }
             }
