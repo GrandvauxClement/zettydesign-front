@@ -7,7 +7,7 @@ class ServiceService {
     }
 
     getOneService(id){
-        return Api.functionAxios().get('/api/service' + id,)
+        return Api.functionAxios().get('api/service' + id,)
     }
 }
 export default new ServiceService();
