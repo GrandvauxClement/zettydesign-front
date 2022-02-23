@@ -7,12 +7,18 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
- import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
- import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
-const pages = ['Mes réalisations', 'Contact'];
+const pages = [
+    {
+        name: 'Mes réalisations',
+        url: ''
+    },
+    {
+        name: 'Contact',
+        url: '#contact'
+    }];
 const settings = [
         {
             name: 'Création Graphique',
@@ -51,7 +57,7 @@ const NavBar = () => {
         <AppBar position="sticky">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                   <Link to="/" style={{color: "white"}}>
+                   <Link to="/" style={{color: "white"}} className='menuLink'>
                        <Typography
                            variant="h6"
                            noWrap
@@ -97,11 +103,19 @@ const NavBar = () => {
                             >
                                 <Typography textAlign="center">Mes Services</Typography>
                             </MenuItem>
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
+                            {pages.map((page) => {
+                                return page.name === 'Contact' ?
+                                    <a href="#contact" key={page.name}>
+                                        <MenuItem onClick={handleCloseNavMenu}>
+                                            <Typography textAlign="center">{page.name}</Typography>
+                                        </MenuItem>
+                                    </a>:
+                                    <Link to={page.url} key={page.name}>
+                                        <MenuItem onClick={handleCloseNavMenu}>
+                                            <Typography textAlign="center">{page.name}</Typography>
+                                        </MenuItem>
+                                    </Link>
+                            })}
                         </Menu>
                     </Box>
                     <Typography
@@ -121,20 +135,30 @@ const NavBar = () => {
                             Mes Services
                         </Button>
 
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
-                        ))}
+                        {pages.map((page) => {
+                            return page.name === 'Contact' ?
+                                <a href={page.url} key={page.name} className='menuLink'>
+                                    <Button
+                                        onClick={handleCloseNavMenu}
+                                        sx={{my: 2, color: 'white', display: 'block'}}
+                                    >
+                                        {page.name}
+                                    </Button>
+                                </a>
+                                :<Link to={page.url} key={page.name} className='menuLink'>
+                                    <Button
+                                        onClick={handleCloseNavMenu}
+                                        sx={{my: 2, color: 'white', display: 'block'}}
+                                    >
+                                        {page.name}
+                                    </Button>
+                                </Link>
+                        })}
                     </Box>
 
                     {
                         <Menu
-                            sx={{ mt: '45px' }}
+                            sx={{ mt: '45px', ml: '80px' }}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
                             anchorOrigin={{
@@ -150,11 +174,11 @@ const NavBar = () => {
                             onClose={handleCloseUserMenu}
                         >
                             {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Link to={setting.url} sx={{color: "black"}}>
+                                <Link to={setting.url} className='linkBlue' key={setting.name}>
+                                    <MenuItem onClick={handleCloseUserMenu}>
                                         <Typography textAlign="center">{setting.name}</Typography>
-                                    </Link>
-                                </MenuItem>
+                                    </MenuItem>
+                                </Link>
                             ))}
                         </Menu>
                     }

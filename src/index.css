@@ -7,7 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a.menuLink{
+  color: white;
+  text-decoration: none;
+}
+a.linkBlue{
+  color: #2ab1ea;
+  text-decoration: none;
+}
+a.linkBlue:hover{
+  color: #2ab1ea;
 }

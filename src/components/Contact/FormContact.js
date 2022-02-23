@@ -76,7 +76,8 @@ function FormContact() {
                 />
             </div>
 
-            <Button disabled={!submit} variant="contained" endIcon={<SpeakerNotesIcon />} onClick={sendMessage}>
+            <Button disabled={!submit} variant="contained" endIcon={<SpeakerNotesIcon />}
+                   sx={{mt: 1}} onClick={sendMessage}>
                 Envoyer
             </Button>
         </Grid>

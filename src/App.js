@@ -1,7 +1,7 @@
 import './App.css';
 import Footer from "./components/Footer/footer";
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import CreationGraphiqueApp from "./components/ServicesDetail/CreationGraphique/CreationGraphiqueApp";
 import NavBar from "./components/Navbar/navbar";
 import AccueilApp from "./components/Accueil/AccueilApp";
@@ -10,14 +10,16 @@ import StrategieCommunicationApp from "./components/ServicesDetail/StrategieComm
 import Contact from "./components/Contact/Contact";
 
 function App() {
-
+    function randomGen(){
+        return Math.random()
+    }
   return (
 
     <div className="App">
         <NavBar />
         <Routes>
             <Route path="/" element={<AccueilApp />}/>
-            <Route path="/creation-graphique" element={<CreationGraphiqueApp />}/>
+            <Route path="/creation-graphique" element={<CreationGraphiqueApp/>}/>
             <Route path="/community-management" element={<CommunityManagementApp />} />
             <Route path="/strategie-communication" element={<StrategieCommunicationApp />} />
         </Routes>
