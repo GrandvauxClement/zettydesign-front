@@ -6,13 +6,18 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from "@mui/material";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import theme from "./theme";
-import { BrowserRouter } from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import IndexBackOffice from "./components/BackOffice";
 
 ReactDOM.render(
     <BrowserRouter>
         <React.StrictMode>
             <ThemeProvider theme={theme}>
-                <App />
+
+                <Routes>
+                    <Route path="/" element={<App />}/>
+                    <Route path="/admin" element={<IndexBackOffice />}/>
+                </Routes>
             </ThemeProvider>
         </React.StrictMode>
     </BrowserRouter>,

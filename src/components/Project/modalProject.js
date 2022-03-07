@@ -7,7 +7,9 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Carousel from 'react-bootstrap/Carousel'
 import Api from "../../api";
-
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 
@@ -33,13 +35,13 @@ const ModalProject = (props) => {
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
-                <Typography sx={{textAlign: "center"}} variant="h4" component="h2">
+                <Typography sx={{textAlign: "center"}} variant="h2">
                     {props.project.title}
                 </Typography>
                 <Grid container spacing={2} sx={{marginTop:2}}>
-                    <Grid item md={8} xs={12}>
+                    <Grid item md={7} xs={12}>
                         <Carousel fade variant="dark">
-                            {props.project.images.map((item,index)=>(
+                            {props.project.images.key.map((item,index)=>(
                                 <Carousel.Item style={{height: "60vh", width:"100%"}} key={index}>
                                     <img
                                         className="d-block"
@@ -52,14 +54,18 @@ const ModalProject = (props) => {
                         </Carousel>
                     </Grid>
 
-                    <Grid item md={4} xs={12}>
+                    <Grid item md={5} xs={12}>
                         <Typography variant="h5" component="h3" sx={{fontStyle: 'italic', color: '#ea8d2a'}}>
                             Description
                         </Typography>
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                             {props.project.description}
                         </Typography>
-                        <Stack direction="row" spacing={2} sx={{flexWrap:"wrap", mt:2}}>
+                        <Typography variant="h5" component="h3" sx={{fontStyle: 'italic', color: '#ea8d2a'}}>
+                            Étape de la conception
+                        </Typography>
+
+                        <Stack direction="row" spacing={1} sx={{flexWrap:"wrap", mt:2}}>
                             {props.project.workState.map((work, index) => (
                                 <Chip label={work} key={index} color="primary" sx={{mb:1}} clickable={true}/>
                             ))}
