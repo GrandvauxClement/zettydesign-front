@@ -3,12 +3,12 @@ import React from "react";
 import Box from "@mui/material/Box";
 import theme from "../../../theme";
 
-const RenderDetailsButton = ({params}) => {
+const RenderDetailsButton = ({params, setPageToDisplay}) => {
     return (
              <Button
                 variant="contained"
                 size="small"
-                sx={{ backgroundColor:"green" }}
+                color="secondary"
                 onClick={() => {
                     console.log(params)
                 }}
@@ -18,14 +18,17 @@ const RenderDetailsButton = ({params}) => {
     )
 }
 
-const RenderUpdateButton = ({params}) => {
+const RenderUpdateButton = ({params, setPageToDisplay}) => {
     return (
             <Button
                 variant="contained"
                 color="primary"
                 size="small"
                 onClick={() => {
-                    console.log(params)
+                    setPageToDisplay({
+                        name: "edit",
+                        valueSelected: params.row
+                    })
                 }}
             >
                 Modifier
@@ -33,12 +36,12 @@ const RenderUpdateButton = ({params}) => {
     )
 }
 
-const RenderDeleteButton = ({params}) => {
+const RenderDeleteButton = ({params, setPageToDisplay}) => {
     return (
             <Button
                 variant="contained"
                 size="small"
-                sx={{ backgroundColor: "#d40707" }}
+                color="error"
                 onClick={() => {
                     console.log(params)
                 }}
@@ -48,12 +51,12 @@ const RenderDeleteButton = ({params}) => {
     )
 }
 
-const ButtonAction = ({params}) => {
+const ButtonAction = ({params, setPageToDisplay}) => {
     return(
         <Box sx={{display: "flex"}}>
-            <RenderDetailsButton params={params}/>
-            <RenderUpdateButton params={params}/>
-            <RenderDeleteButton params={params}/>
+            <RenderDetailsButton params={params} setPageToDisplay={setPageToDisplay}/>
+            <RenderUpdateButton params={params} setPageToDisplay={setPageToDisplay}/>
+            <RenderDeleteButton params={params} setPageToDisplay={setPageToDisplay}/>
         </Box>
         )
 

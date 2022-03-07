@@ -7,10 +7,6 @@ const theme = createTheme({
             main: '#4babff',
             contrastText: '#fff',
         },
-        secondary: {
-            main: '#5dbbe5',
-            contrastText: '#ffffff',
-        },
     },
     shape: {
       //  borderRadius: '16px',
