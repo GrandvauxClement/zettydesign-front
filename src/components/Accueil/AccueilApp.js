@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
-import IndexProject from "../Project";
 import Header from "../Header/header";
 import Accueil from "../Accueil/accueil";
-import header from "../../assets/images/header.jpg";
+import header from "../../assets/images/ban1.png";
+import IndexProject from "../Project";
 
 function AccueilApp() {
     const title = "Votre freelance en communication dans tous l'est de la France ";
@@ -16,7 +16,6 @@ function AccueilApp() {
 
             <Accueil />
             <IndexProject />
-
         </div>
     );
 }

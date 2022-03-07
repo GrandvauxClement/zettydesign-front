@@ -9,6 +9,7 @@ import TextEditor from "../utils/TextEditor/TextEditor";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
+import MultipleUpload from "../utils/UploadFiles";
 
 export default function AddProject({setPageToDisplay}){
     const [newProject, setNewProject] = useState({
@@ -21,7 +22,7 @@ export default function AddProject({setPageToDisplay}){
                 ],
             }
         ],
-        workState: [],
+        tag: [],
         images: [],
         createdAt: '',
         type: '',
@@ -34,7 +35,12 @@ export default function AddProject({setPageToDisplay}){
             ...newProject,
             [name]: value
         })
-        console.log(newProject);
+    }
+    const handleChangeFileUpload = ({value}) => {
+        setNewProject({
+            ...newProject,
+            images: value
+        })
     }
     return (
         <Paper elevation={3} sx={{position: "relative", mt: "5px"}}>
@@ -56,7 +62,7 @@ export default function AddProject({setPageToDisplay}){
                     </Button>
                 </Paper>
 
-                <Box sx={{height: '70vh', width: '100%', mt: 2}}>
+                <Box sx={{height: 'auto', width: '100%', mt: 2}}>
                     <Container>
                         <Grid container spacing={3}>
                             <Grid item xs={12} md={6}>
@@ -101,12 +107,12 @@ export default function AddProject({setPageToDisplay}){
                                 <Autocomplete
                                     multiple
                                     id="tags-filled"
-                                    options={newProject.workState.map((option) => option)}
+                                    options={newProject.tag.map((option) => option)}
                                     freeSolo
                                     onChange={(event, newValue) => {
                                         setNewProject({
                                             ...newProject,
-                                            workState: newValue
+                                            tag: newValue
                                         })
                                     }}
                                     name="tag"
@@ -128,17 +134,20 @@ export default function AddProject({setPageToDisplay}){
                             <Grid item xs={12} md={6}>
                                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                                     <DatePicker
-                                        label="Basic example"
+                                        label="Créer le"
                                         value={newProject.createdAt}
                                         onChange={(newValue) => {
                                             setNewProject({
                                                 ...newProject,
-                                                workState: newValue
+                                                createdAt: newValue
                                             })
                                         }}
                                         renderInput={(params) => <TextField {...params} />}
                                     />
                                 </LocalizationProvider>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <MultipleUpload setFiles={handleChangeFileUpload} />
                             </Grid>
                         </Grid>
                     </Container>
