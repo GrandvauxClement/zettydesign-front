@@ -16,10 +16,9 @@ import {
 } from "../utils/isValid";
 import axios from "axios";
 import ProjectService from "../../../services/project.service";
-import FormProject from "./FormProject";
 
-export default function AddProject({setPageToDisplay}) {
-    const [newProject, setNewProject] = useState({
+export default function FormProject({setPageToDisplay, project, setProject}) {
+  /*  const [project, setproject] = useState({
         title: '',
         description: [
             {
@@ -34,7 +33,7 @@ export default function AddProject({setPageToDisplay}) {
         createdAt: null,
         type: '',
         videoLink: ''
-    });
+    });*/
 
     const [titleIsInvalid, setTitleIsInvalid] = useState(false);
     const [tagIsInvalid, setTagIsInvalid] = useState(false);
@@ -46,33 +45,33 @@ export default function AddProject({setPageToDisplay}) {
 
         const {name, value} = event.target;
 
-        setNewProject({
-            ...newProject,
+        setProject({
+            ...project,
             [name]: value
         })
     }
 
     const checkBeforeSubmit = () => {
         let errorFound = false;
-        if (!stringIsValid(newProject.type)) {
+        if (!stringIsValid(project.type)) {
             errorFound = true;
             setTypeIsInvalid(true);
         }
-        if (!stringIsValid(newProject.title)) {
+        if (!stringIsValid(project.title)) {
             errorFound = true
             setTitleIsInvalid(true);
         } else {
             setTitleIsInvalid(false);
         }
-        if (!arrayIsValid(newProject.tag)) {
+        if (!arrayIsValid(project.tag)) {
             errorFound = true
             setTagIsInvalid(true);
         }
-        if (!createdAtIsValid(newProject.createdAt)) {
+        if (!createdAtIsValid(project.createdAt)) {
             errorFound = true
             setCreatedAtIsInvalid(true);
         }
-        if (!arrayIsValid(newProject.images)) {
+        if (!arrayIsValid(project.images)) {
             errorFound = true;
             setImagesIsInvalid(true);
         }
@@ -84,14 +83,17 @@ export default function AddProject({setPageToDisplay}) {
         if (!checkBeforeSubmit()) {
             // Upload on a first Time all images
             const formUploadData = new FormData();
-            newProject.images.forEach(file => formUploadData.append('multipleImages', file));
+            project.images.forEach(file => formUploadData.append('multipleImages', file));
             axios.post('http://localhost:9000/api/project/multiple-upload', formUploadData)
                 .then((newFileName) => {
-                    // If upload good, create newproject
-                    ProjectService.addProject(newProject, newFileName.data)
+                    // If upload good, create project
+                    ProjectService.addProject(project, newFileName.data)
                         .then((res) => {
                             // Add project done redirect to index and display popup to say is good
-                            setPageToDisplay();
+                            setPageToDisplay({
+                                name: "index",
+                                valueSelected: null
+                            })
                         })
                 })
                 .catch((error) => {
@@ -101,7 +103,7 @@ export default function AddProject({setPageToDisplay}) {
         }
     }
     return (
-        /*<Box sx={{height: 'auto', minHeight: '80vh', width: '100%', mt: 2}}>
+        <Box sx={{height: 'auto', minHeight: '80vh', width: '100%', mt: 2}}>
             <Container>
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={6}>
@@ -110,7 +112,7 @@ export default function AddProject({setPageToDisplay}) {
                             <Select
                                 labelId="type-de-projet-label"
                                 id="type-de-projet"
-                                value={newProject.type}
+                                value={project.type}
                                 label="Type de Projet"
                                 name="type"
                                 onChange={handleChange}
@@ -129,7 +131,7 @@ export default function AddProject({setPageToDisplay}) {
                             label="Titre"
                             name="title"
                             fullWidth
-                            value={newProject.title}
+                            value={project.title}
                             onChange={handleChange}
                             error={titleIsInvalid}
                             required
@@ -142,9 +144,9 @@ export default function AddProject({setPageToDisplay}) {
                     <Grid item xs={12}>
                         <TextEditor
                             placeholder="Description *"
-                            value={newProject.description}
-                            setValue={(value) => setNewProject({
-                                ...newProject,
+                            value={project.description}
+                            setValue={(value) => setProject({
+                                ...project,
                                 description: value
                             })}
                         />
@@ -153,11 +155,11 @@ export default function AddProject({setPageToDisplay}) {
                         <Autocomplete
                             multiple
                             id="tags-filled"
-                            options={newProject.tag.map((option) => option)}
+                            options={project.tag.map((option) => option)}
                             freeSolo
                             onChange={(event, newValue) => {
-                                setNewProject({
-                                    ...newProject,
+                                setProject({
+                                    ...project,
                                     tag: newValue
                                 })
                                 arrayIsValid(newValue) ?
@@ -187,10 +189,10 @@ export default function AddProject({setPageToDisplay}) {
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DatePicker
                                 label="Créer le"
-                                value={newProject.createdAt}
+                                value={project.createdAt}
                                 onChange={(newValue) => {
-                                    setNewProject({
-                                        ...newProject,
+                                    setProject({
+                                        ...project,
                                         createdAt: newValue
                                     })
                                     createdAtIsValid(newValue) ?
@@ -214,22 +216,22 @@ export default function AddProject({setPageToDisplay}) {
                             label="Lien vidéo"
                             name="videoLink"
                             fullWidth
-                            value={newProject.videoLink}
+                            value={project.videoLink}
                             onChange={handleChange}
                         />
                     </Grid>
                     <Grid item xs={12}>
                         <MultipleUpload
                             updateFiles={(value) => {
-                                setNewProject({
-                                    ...newProject,
+                                setProject({
+                                    ...project,
                                     images: value
                                 })
                                 arrayIsValid(value) ?
                                     setImagesIsInvalid(false) :
                                     setImagesIsInvalid(true)
                             }}
-                            files={newProject.images}
+                            files={project.images}
                             test={<h1>Je test</h1>}
                         />
                         {imagesIsInvalid &&
@@ -246,11 +248,6 @@ export default function AddProject({setPageToDisplay}) {
                     </Button>
                 </Grid>
             </Container>
-        </Box>*/
-        <FormProject
-            setPageToDisplay={setPageToDisplay}
-            project={newProject}
-            setProject={setNewProject}
-        />
+        </Box>
     );
 }

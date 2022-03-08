@@ -12,6 +12,7 @@ import { MenuRounded } from "@mui/icons-material";
 import clsx from "clsx";
 import theme from "../../theme";
 import IndexProjectBack from "./Project/IndexProjectBack";
+import ProjectContainer from "./Project/ProjectContainer";
 
 const PREFIX = 'FAQ';
 
@@ -282,7 +283,7 @@ function IndexBackOffice() {
                     value={value}
                     index={1}
                     className={classes.panel}>
-                        <IndexProjectBack />
+                        <ProjectContainer />
                 </TabPanel>
                 <TabPanel
                     value={value}
