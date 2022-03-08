@@ -1,19 +1,18 @@
-import React, { useRef, useState } from 'react';
-import axios from 'axios';
+import React, { useRef } from 'react';
+import {Grid} from "@mui/material";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-const MultipleUpload = ({setProjectFiles}) => {
-    const [files, setFiles] = useState([]);
-    const [message, setMessage] = useState('');
+const MultipleUpload = ({updateFiles, files, test}) => {
     const inputRef = useRef(null);
     const formRef = useRef(null);
 
     const handleClick = () => inputRef && inputRef.current && inputRef.current.click();
     const handleFiles = (e) =>{
-        setFiles(e.target.files ? Array.from(e.target.files) : []);
+        updateFiles(e.target.files ? Array.from(e.target.files) : []);
 
     }
 
-    const handleSubmit = (e) => {
+   /* const handleSubmit = (e) => {
         e.preventDefault();
         if (files.length > 0) {
             console.log(files);
@@ -22,23 +21,48 @@ const MultipleUpload = ({setProjectFiles}) => {
             axios.post('http://localhost:9000/api/project/multiple-upload', formData)
                 .then(data => setMessage(data.data.message))
                 .catch((error) => setMessage('Error'));
-            setFiles([]);
+            updateFiles([]);
             formRef.current && formRef.current.reset();
             setTimeout(() => {
                 setMessage('');
             }, 4000);
         }
+    }*/
+
+    const removeImageUpload = (x) => {
+
+        const newFiles = files.filter((file) => {
+            return file.name !== x.name
+        })
+        updateFiles(newFiles);
+
     }
 
     return (
         <form ref={formRef}>
-            <div className="mui--text-dark-secondary mui--text-button">{message}</div>
             <div className="upload-box" onClick={handleClick}>
-                Click & Select files to Upload (Multiple) <hr />
-                {files.map((x, index) => <React.Fragment key={index}>{x.name}<br/></React.Fragment>)}
+                Click & Sélectionne les fichiers à télécharger (Multiple) <hr />
             </div>
-            <input type="file" ref={inputRef} onChange={handleFiles} style={{ display: 'none' }} multiple />
-            <button type="submit" className="mui-btn mui-btn--primary" onClick={handleSubmit}>Submit</button>
+            <Grid container spacing={2}>
+                {files.map((x, index) =>
+                    <Grid item md={3} xs={6} key={index}>
+                        <React.Fragment>
+                            <Grid container direction="row" alignItems="center">
+                                <img alt="upload" src={URL.createObjectURL(x)} style={{width: '80%'}}/>
+                                <DeleteForeverIcon color="error" onClick={() => removeImageUpload(x)} sx={[{'&:hover' : { cursor: 'pointer'}}]}/>
+                            </Grid>
+
+                        </React.Fragment>
+                    </Grid>
+                )}
+            </Grid>
+            <input
+                type="file"
+                ref={inputRef}
+                onChange={handleFiles}
+                style={{ display: 'none' }}
+                multiple
+            />
         </form>
     )
 }

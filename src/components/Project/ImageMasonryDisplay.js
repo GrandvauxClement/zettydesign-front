@@ -1,7 +1,5 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import Masonry from '@mui/lab/Masonry';
 import Api from "../../api";
 import styled from "@mui/material/styles/styled";
 import {useState} from "react";

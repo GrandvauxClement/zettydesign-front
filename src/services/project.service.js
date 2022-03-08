@@ -9,5 +9,19 @@ class ProjectService {
     getOneProject(id){
         return Api.functionAxios().get('api/project/' + id,)
     }
+
+    addProject(project, newFileName){
+        return Api.functionAxios().post('api/project',
+            {
+                title: project.title,
+                type: project.type,
+                description: project.description,
+                tag: project.tag,
+                createdAt: project.createdAt,
+                videoLink: project.videoLink,
+                images: newFileName
+            }
+        )
+    }
 }
 export default new ProjectService();

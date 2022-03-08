@@ -1,7 +1,6 @@
 import Button from "@mui/material/Button";
 import React from "react";
 import Box from "@mui/material/Box";
-import theme from "../../../theme";
 
 const RenderDetailsButton = ({params, setPageToDisplay}) => {
     return (

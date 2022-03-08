@@ -8,8 +8,6 @@ import ButtonAction from "../utils/ButtonAction";
 import theme from "../../../theme";
 import AddProject from "./AddProject";
 
-
-
 export default function IndexProjectBack() {
 
     const [appState, setAppState] = useState({
@@ -73,7 +71,7 @@ export default function IndexProjectBack() {
             setProjectParse(formateProjectForDisplay(data.data));
             setAppState({loading:false, projects: data.data});
         });
-    }, [setAppState])
+    }, [setAppState, pageToDisplay])
 
     const formateProjectForDisplay = (projects) => {
         let projectParseToReturn = [];
@@ -139,7 +137,7 @@ export default function IndexProjectBack() {
                         <DataGrid
                             rows={projectParse}
                             columns={columns}
-                            pageSize={5}
+                            pageSize={10}
                             rowsPerPageOptions={[5]}
                             checkboxSelection
                             disableSelectionOnClick

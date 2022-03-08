@@ -10,9 +10,6 @@ import StrategieCommunicationApp from "./components/ServicesDetail/StrategieComm
 import Contact from "./components/Contact/Contact";
 
 function App() {
-    function randomGen(){
-        return Math.random()
-    }
   return (
 
     <div className="App">
