@@ -14,9 +14,23 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
 
     const [projectParse, setProjectParse] = useState([]);
 
+    const deleteProject = (id) => {
+        ProjectService.deleteProject(id)
+            .then((res)=>{
+                setPageToDisplay({
+                    name: 'index',
+                    valueSelected: null
+                })
+            })
+    }
+
     const renderButtonAction = (params) => {
         return (
-            <ButtonAction params={params} setPageToDisplay={setPageToDisplay}/>
+            <ButtonAction
+                params={params}
+                setPageToDisplay={setPageToDisplay}
+                fctDelete={(id) => deleteProject(id)}
+            />
         )
     }
 
