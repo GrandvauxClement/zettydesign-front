@@ -14,26 +14,8 @@ import {
     arrayIsValid,
     createdAtIsValid,
 } from "../utils/isValid";
-import axios from "axios";
-import ProjectService from "../../../services/project.service";
 
-export default function FormProject({setPageToDisplay, project, setProject}) {
-  /*  const [project, setproject] = useState({
-        title: '',
-        description: [
-            {
-                type: 'paragraph',
-                children: [
-                    {text: ''},
-                ],
-            }
-        ],
-        tag: [],
-        images: [],
-        createdAt: null,
-        type: '',
-        videoLink: ''
-    });*/
+export default function FormProject({project, setProject, onSubmit}) {
 
     const [titleIsInvalid, setTitleIsInvalid] = useState(false);
     const [tagIsInvalid, setTagIsInvalid] = useState(false);
@@ -42,9 +24,7 @@ export default function FormProject({setPageToDisplay, project, setProject}) {
     const [typeIsInvalid, setTypeIsInvalid] = useState(false);
 
     const handleChange = (event) => {
-
         const {name, value} = event.target;
-
         setProject({
             ...project,
             [name]: value
@@ -82,24 +62,7 @@ export default function FormProject({setPageToDisplay, project, setProject}) {
         // Je vérifie que toute les data sont bonnes
         if (!checkBeforeSubmit()) {
             // Upload on a first Time all images
-            const formUploadData = new FormData();
-            project.images.forEach(file => formUploadData.append('multipleImages', file));
-            axios.post('http://localhost:9000/api/project/multiple-upload', formUploadData)
-                .then((newFileName) => {
-                    // If upload good, create project
-                    ProjectService.addProject(project, newFileName.data)
-                        .then((res) => {
-                            // Add project done redirect to index and display popup to say is good
-                            setPageToDisplay({
-                                name: "index",
-                                valueSelected: null
-                            })
-                        })
-                })
-                .catch((error) => {
-                    //TODO :Display error if upload don t work
-                    console.log(error)
-                });
+           onSubmit();
         }
     }
     return (
