@@ -7,11 +7,6 @@ import ButtonAction from "../utils/ButtonAction";
 
 export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appState, setAppState}) {
 
-    /*const [appState, setAppState] = useState({
-        loading: true,
-        projects: null
-    });*/
-
     const [projectParse, setProjectParse] = useState([]);
 
     const deleteProject = (id) => {
@@ -39,7 +34,7 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
         {
             field: 'title',
             headerName: 'Titre',
-            width: 150,
+            width: 300,
             editable: true,
         },
         {
@@ -48,12 +43,12 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
             width: 150,
             editable: true,
         },
-        {
+        /*{
             field: 'description',
             headerName: 'Description',
             width: 300,
             editable: true,
-        },
+        },*/
         {
             field: 'createdAt',
             headerName: 'Créer le',
@@ -83,22 +78,21 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
         let projectParseToReturn = [];
         projects.map((project, index) => {
             const date = new Date(project.createdAt);
-            console.log(date.toLocaleDateString('fr-FR', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            }))
+
             projectParseToReturn.push({
                 id: index + 1,
                 _id: project._id,
                 title: project.title,
                 type: project.type,
-                description: project.description[0].children[0].text.substring(0, 20) + '...',
+                description: project.description,
                 createdAt: date.toLocaleDateString('fr-FR', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
-                })
+                }),
+                tag: project.tag,
+                videoLink: project.videoLink,
+                images: project.images
             })
         })
         return projectParseToReturn

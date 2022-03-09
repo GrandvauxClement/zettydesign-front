@@ -25,8 +25,11 @@ class ProjectService {
     }
 
     deleteProject(id){
-        console.log('delete', id);
         return Api.functionAxios().delete('api/project/'+id);
+    }
+
+    removeImage(fileName){
+        return Api.functionAxios().delete('api/project/removeImage/'+fileName)
     }
 }
 export default new ProjectService();

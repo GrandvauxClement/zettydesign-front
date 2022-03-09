@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
-import {Grid} from "@mui/material";
+import {Box, Grid, Typography} from "@mui/material";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import Api from "../../../api";
+import ProjectService from "../../../services/project.service";
 
-const MultipleUpload = ({updateFiles, files, test}) => {
+export const MultipleUpload = ({updateFiles, files}) => {
     const inputRef = useRef(null);
     const formRef = useRef(null);
 
@@ -11,23 +13,6 @@ const MultipleUpload = ({updateFiles, files, test}) => {
         updateFiles(e.target.files ? Array.from(e.target.files) : []);
 
     }
-
-   /* const handleSubmit = (e) => {
-        e.preventDefault();
-        if (files.length > 0) {
-            console.log(files);
-            const formData = new FormData();
-            files.forEach(file => formData.append('multipleImages', file));
-            axios.post('http://localhost:9000/api/project/multiple-upload', formData)
-                .then(data => setMessage(data.data.message))
-                .catch((error) => setMessage('Error'));
-            updateFiles([]);
-            formRef.current && formRef.current.reset();
-            setTimeout(() => {
-                setMessage('');
-            }, 4000);
-        }
-    }*/
 
     const removeImageUpload = (x) => {
 
@@ -67,4 +52,77 @@ const MultipleUpload = ({updateFiles, files, test}) => {
     )
 }
 
-export default MultipleUpload;
+
+export const EditMultipleUpload = ({updateFiles, files, newImages, setNewImages}) => {
+    const inputRef = useRef(null);
+    const formRef = useRef(null);
+    const urlImage = Api.baseUrl + 'public/images/projets/';
+
+    const handleClick = () => inputRef && inputRef.current && inputRef.current.click();
+    const handleFiles = (e) =>{
+        setNewImages(e.target.files ? Array.from(e.target.files) : []);
+
+    }
+
+    const removeImageUpload = (x) => {
+        const filesSelected = newImages.filter((file) => {
+            return file.name !== x.name
+        })
+        setNewImages(filesSelected);
+    }
+
+    const removeImageOnServer = (fileName) => {
+        ProjectService.removeImage(fileName)
+            .then((res) => {
+                const filesSelected = files.filter((file) => {
+                    return file !== fileName
+                })
+                updateFiles(filesSelected);
+            })
+            .catch(err => console.log(err));
+    }
+
+    return (
+        <Box>
+            <Typography variant="h4"> Tes anciennes images</Typography>
+            <Grid container spacing={2}>
+                {files.map((imageName, index) =>
+                    <Grid item md={3} xs={6} key={index}>
+                        <React.Fragment>
+                            <Grid container direction="row" alignItems="center">
+                                <img alt="upload" src={`${urlImage}${imageName}`} style={{width: '80%'}}/>
+                                <DeleteForeverIcon color="error" onClick={() => removeImageOnServer(imageName)} sx={[{'&:hover' : { cursor: 'pointer'}}]}/>
+                            </Grid>
+
+                        </React.Fragment>
+                    </Grid>
+                )}
+            </Grid>
+            <form ref={formRef}>
+                <div className="upload-box" onClick={handleClick}>
+                    Click & Sélectionne les fichiers à télécharger (Multiple) <hr />
+                </div>
+                <Grid container spacing={2}>
+                    {newImages.map((x, index) =>
+                        <Grid item md={3} xs={6} key={index}>
+                            <React.Fragment>
+                                <Grid container direction="row" alignItems="center">
+                                    <img alt="upload" src={URL.createObjectURL(x)} style={{width: '80%'}}/>
+                                    <DeleteForeverIcon color="error" onClick={() => removeImageUpload(x)} sx={[{'&:hover' : { cursor: 'pointer'}}]}/>
+                                </Grid>
+
+                            </React.Fragment>
+                        </Grid>
+                    )}
+                </Grid>
+                <input
+                    type="file"
+                    ref={inputRef}
+                    onChange={handleFiles}
+                    style={{ display: 'none' }}
+                    multiple
+                />
+            </form>
+        </Box>
+    )
+}

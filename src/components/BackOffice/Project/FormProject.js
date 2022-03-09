@@ -8,14 +8,14 @@ import TextEditor from "../utils/TextEditor/TextEditor";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
-import MultipleUpload from "../utils/UploadFiles";
+import {MultipleUpload, EditMultipleUpload} from "../utils/UploadFiles";
 import {
     stringIsValid,
     arrayIsValid,
     createdAtIsValid,
 } from "../utils/isValid";
 
-export default function FormProject({project, setProject, onSubmit}) {
+export default function FormProject({project, setProject, onSubmit, newImages = null, setNewImages = null}) {
 
     const [titleIsInvalid, setTitleIsInvalid] = useState(false);
     const [tagIsInvalid, setTagIsInvalid] = useState(false);
@@ -118,7 +118,8 @@ export default function FormProject({project, setProject, onSubmit}) {
                         <Autocomplete
                             multiple
                             id="tags-filled"
-                            options={project.tag.map((option) => option)}
+                            options={[]}
+                            defaultValue={project.tag.map((option) => option)}
                             freeSolo
                             onChange={(event, newValue) => {
                                 setProject({
@@ -184,19 +185,36 @@ export default function FormProject({project, setProject, onSubmit}) {
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <MultipleUpload
-                            updateFiles={(value) => {
-                                setProject({
-                                    ...project,
-                                    images: value
-                                })
-                                arrayIsValid(value) ?
-                                    setImagesIsInvalid(false) :
-                                    setImagesIsInvalid(true)
-                            }}
-                            files={project.images}
-                            test={<h1>Je test</h1>}
-                        />
+                        {newImages === null ?
+                            <MultipleUpload
+                                updateFiles={(value) => {
+                                    setProject({
+                                        ...project,
+                                        images: value
+                                    })
+                                    arrayIsValid(value) ?
+                                        setImagesIsInvalid(false) :
+                                        setImagesIsInvalid(true)
+                                }}
+                                files={project.images}
+                            />
+                            :
+                            <EditMultipleUpload
+                                updateFiles={(value) => {
+                                    setProject({
+                                        ...project,
+                                        images: value
+                                    })
+                                    arrayIsValid(value) ?
+                                        setImagesIsInvalid(false) :
+                                        setImagesIsInvalid(true)
+                                }}
+                                files={project.images}
+                                newImages={newImages}
+                                setNewImages={setNewImages}
+                            />
+                        }
+
                         {imagesIsInvalid &&
                         <Alert severity="error">Fais un effort Yo, ton projet doit avoir min 3 images!</Alert>
                         }
@@ -207,7 +225,9 @@ export default function FormProject({project, setProject, onSubmit}) {
                         color="secondary"
                         onClick={handleSubmit}
                     >
-                        Créer mon nouveau projet
+                        {newImages === null ?
+                        "Créer mon nouveau projet" :
+                        "Modifier mon projet"}
                     </Button>
                 </Grid>
             </Container>

@@ -3,6 +3,7 @@ import BodyContainer from "../utils/container/BodyContainer";
 import Button from "@mui/material/Button";
 import IndexProjectBack from "./IndexProjectBack";
 import AddProject from "./AddProject";
+import EditProject from "./EditProject";
 
 const ProjectContainer = () => {
     const [pageToDisplay, setPageTodisplay] = useState({
@@ -64,9 +65,22 @@ const ProjectContainer = () => {
                 children={<AddProject setPageToDisplay={setPageTodisplay} />}
             />
         )
-    } else if (pageToDisplay.name === 'edit'){
+    } else if (pageToDisplay.name === "edit"){
         return (
-            <h1>Edit page</h1>
+            <BodyContainer
+                title="Modifier votre Projet"
+                subtitle="Tu peux modifier les champs suivants"
+                buttonAction={
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        onClick={displayIndexProjectPage}
+                    >
+                        Retour au Tableau des projets
+                    </Button>
+                }
+                children={<EditProject setPageToDisplay={setPageTodisplay} projectSelected={pageToDisplay.valueSelected} />}
+            />
         )
     }
 }
