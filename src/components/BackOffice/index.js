@@ -13,6 +13,7 @@ import clsx from "clsx";
 import theme from "../../theme";
 import IndexProjectBack from "./Project/IndexProjectBack";
 import ProjectContainer from "./Project/ProjectContainer";
+import MessageContainer from "./Message/MessageContainer";
 
 const PREFIX = 'FAQ';
 
@@ -289,7 +290,7 @@ function IndexBackOffice() {
                     value={value}
                     index={2}
                     className={classes.panel}>
-                        <h2>Mes Messages</h2>
+                        <MessageContainer />
                 </TabPanel>
             </main>
         </Root>

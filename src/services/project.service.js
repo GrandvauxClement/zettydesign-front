@@ -24,6 +24,20 @@ class ProjectService {
         )
     }
 
+    updateProject(project, newFileName){
+        return Api.functionAxios().post('api/project/'+project._id,
+            {
+                title: project.title,
+                type: project.type,
+                description: project.description,
+                tag: project.tag,
+                createdAt: project.createdAt,
+                videoLink: project.videoLink,
+                images: newFileName
+            }
+        )
+    }
+
     deleteProject(id){
         return Api.functionAxios().delete('api/project/'+id);
     }

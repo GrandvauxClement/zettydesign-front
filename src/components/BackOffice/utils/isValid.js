@@ -18,6 +18,7 @@ export const descriptionIsValid = (description) => {
     return description !== "";
 };
 
-export const imageIsValid = (image) => {
-    return image !== null;
+export const imageArrayEditIsValid = (arrayOne, arrayTwo) => {
+
+    return arrayOne.length + arrayTwo.length > 2;
 };

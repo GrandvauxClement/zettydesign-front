@@ -13,6 +13,7 @@ import {
     stringIsValid,
     arrayIsValid,
     createdAtIsValid,
+    imageArrayEditIsValid
 } from "../utils/isValid";
 
 export default function FormProject({project, setProject, onSubmit, newImages = null, setNewImages = null}) {
@@ -51,10 +52,18 @@ export default function FormProject({project, setProject, onSubmit, newImages = 
             errorFound = true
             setCreatedAtIsInvalid(true);
         }
-        if (!arrayIsValid(project.images)) {
-            errorFound = true;
-            setImagesIsInvalid(true);
+        if (newImages == null){
+            if (!arrayIsValid(project.images)) {
+                errorFound = true;
+                setImagesIsInvalid(true);
+            }
+        }else {
+            if (!imageArrayEditIsValid(project.images, newImages)){
+                errorFound = true;
+                setImagesIsInvalid(true);
+            }
         }
+
 
         return errorFound
     }
@@ -149,7 +158,7 @@ export default function FormProject({project, setProject, onSubmit, newImages = 
                             )}
                         />
                     </Grid>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={4}>
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DatePicker
                                 label="Créer le"
@@ -168,12 +177,13 @@ export default function FormProject({project, setProject, onSubmit, newImages = 
                                         {...params}
                                         error={createdAtIsInvalid}
                                         helperText={createdAtIsInvalid && "Saisie une date"}
+                                        fullWidth
                                     />
                                 }
                             />
                         </LocalizationProvider>
                     </Grid>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={8}>
                         <TextField
                             variant="filled"
                             id="videoLink"
@@ -205,7 +215,7 @@ export default function FormProject({project, setProject, onSubmit, newImages = 
                                         ...project,
                                         images: value
                                     })
-                                    arrayIsValid(value) ?
+                                    imageArrayEditIsValid(value, newImages) ?
                                         setImagesIsInvalid(false) :
                                         setImagesIsInvalid(true)
                                 }}

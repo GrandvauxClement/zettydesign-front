@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {DataGrid, GridToolbarContainer} from '@mui/x-data-grid';
 import {Box, Button} from "@mui/material";
-import ProjectService from "../../../services/project.service";
+import MessageService from "../../../services/message.service";
 import CircularProgress from "@mui/material/CircularProgress";
 import ButtonAction from "../utils/ButtonAction";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -13,7 +13,7 @@ import Slide from "@mui/material/Slide";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
-export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appState, setAppState}) {
+export default function IndexMessageBack({pageToDisplay, setPageToDisplay, appState, setAppState}) {
     const [selectMultiple, setSelectMultiple] = useState([]);
 
     const Transition = React.forwardRef(function Transition(props, ref) {
@@ -31,11 +31,11 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
             setOpen(false);
         };
 
-        const deleteProjectSelected = () => {
-            projectParse.map((project)=> {
+        const deleteMessageSelected = () => {
+            messageParse.map((message)=> {
                 for (let i=0; i<selectMultiple.length; i++){
-                    if (project.id === selectMultiple[i]){
-                       deleteProject(project._id);
+                    if (message.id === selectMultiple[i]){
+                        deleteMessage(message._id);
                     }
                 }
             })
@@ -49,16 +49,16 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
         return (
             <GridToolbarContainer>
                 {selectMultiple.length > 0 &&
-                    <Button
-                        color="error"
-                        variant="contained"
-                        size="small"
-                        onClick={handleClickOpen}
-                        startIcon={<DeleteIcon />}
-                        sx={{borderRadius: 0, ml: 2}}
-                    >
-                        Supprimer {selectMultiple.length}
-                    </Button>
+                <Button
+                    color="error"
+                    variant="contained"
+                    size="small"
+                    onClick={handleClickOpen}
+                    startIcon={<DeleteIcon />}
+                    sx={{borderRadius: 0, ml: 2}}
+                >
+                    Supprimer {selectMultiple.length}
+                </Button>
                 }
                 <Dialog
                     open={open}
@@ -70,21 +70,21 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
                     <DialogTitle>{"Attention Yoh!! "}</DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-slide-description">
-                            T'es sur de vouloir supprimer les {selectMultiple.length} projet ?
+                            T'es sur de vouloir supprimer les {selectMultiple.length} messages sélectionnés ?
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={handleClose} variant="contained">Annuler</Button>
-                        <Button onClick={deleteProjectSelected} variant="contained" color="error">Supprimer</Button>
+                        <Button onClick={deleteMessageSelected} variant="contained" color="error">Supprimer</Button>
                     </DialogActions>
                 </Dialog>
             </GridToolbarContainer>
-            )
+        )
     }
-    const [projectParse, setProjectParse] = useState([]);
+    const [messageParse, setMessageParse] = useState([]);
 
-    const deleteProject = (id) => {
-        ProjectService.deleteProject(id)
+    const deleteMessage = (id) => {
+        MessageService.deleteMessage(id)
             .then((res)=>{
                 //TODO popup done
             })
@@ -95,7 +95,7 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
             <ButtonAction
                 params={params}
                 setPageToDisplay={setPageToDisplay}
-                fctDelete={(id) => deleteProject(id)}
+                fctDelete={(id) => deleteMessage(id)}
             />
         )
     }
@@ -103,29 +103,28 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
     const columns = [
         {field: 'id', headerName: 'ID', width: 90},
         {
-            field: 'title',
-            headerName: 'Titre',
-            width: 300,
-            editable: true,
-        },
-        {
-            field: 'type',
-            headerName: 'Type',
+            field: 'name',
+            headerName: 'Nom',
             width: 150,
-            editable: true,
+            editable: false,
         },
-        /*{
-            field: 'description',
-            headerName: 'Description',
-            width: 300,
-            editable: true,
-        },*/
         {
-            field: 'createdAt',
-            headerName: 'Créer le',
+            field: 'email',
+            headerName: 'Email',
+            width: 150,
+            editable: false,
+        },
+        {
+            field: 'message',
+            headerName: 'Message',
             description: 'This column has a value getter and is not sortable.',
             sortable: true,
-            width: 160,
+            width: 400,
+        },
+        {
+            field: 'devis',
+            headerName: 'Devis',
+            width: 50,
         },
         {
             field: 'action',
@@ -135,38 +134,36 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
         }
     ];
 
-
     useEffect(() => {
         setAppState({loading: true});
-        ProjectService.getAllProject().then((data) => {
-            console.log(data);
-            setProjectParse(formateProjectForDisplay(data.data));
-            setAppState({loading: false, projects: data.data});
+        MessageService.getAllMessage().then((data) => {
+            setMessageParse(formateMessageForDisplay(data.data));
+            setAppState({loading: false, messages: data.data});
         });
     }, [setAppState, pageToDisplay])
 
-    const formateProjectForDisplay = (projects) => {
-        let projectParseToReturn = [];
-        projects.map((project, index) => {
-            const date = new Date(project.createdAt);
+    const formateMessageForDisplay = (messages) => {
+        console.log(messages);
+        let messagesParseToReturn = [];
+        messages.map((message, index) => {
+            const date = new Date(message.createdAt);
 
-            projectParseToReturn.push({
+            messagesParseToReturn.push({
                 id: index + 1,
-                _id: project._id,
-                title: project.title,
-                type: project.type,
-                description: project.description,
+                _id: message._id,
+                name: message.name,
+                email: message.email,
+                message: message.message,
                 createdAt: date.toLocaleDateString('fr-FR', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
                 }),
-                tag: project.tag,
-                videoLink: project.videoLink,
-                images: project.images
+                object: message.project,
+                devis: message.devis,
             })
         })
-        return projectParseToReturn
+        return messagesParseToReturn
     }
 
     if (appState.loading) {
@@ -179,12 +176,12 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
         return (
             <Box sx={{height: '70vh', width: '100%', mt: 2}}>
                 <DataGrid
-                    rows={projectParse}
+                    rows={messageParse}
                     columns={columns}
                     pageSize={10}
                     rowsPerPageOptions={[5]}
                     checkboxSelection
-                   // disableSelectionOnClick
+                    // disableSelectionOnClick
                     onSelectionModelChange={e => setSelectMultiple(e)}
                     components={{
                         Toolbar: CustomToolbar

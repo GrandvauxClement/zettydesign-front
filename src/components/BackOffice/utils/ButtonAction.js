@@ -45,7 +45,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const RenderDeleteButton = ({params, fctDelete}) => {
+const RenderDeleteButton = ({params, fctDelete, setPageToDisplay}) => {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -59,6 +59,10 @@ const RenderDeleteButton = ({params, fctDelete}) => {
     const deleteProject = () => {
         fctDelete(params.row._id);
         setOpen(false);
+        setPageToDisplay({
+            name: "index",
+            valueSelected: null
+        })
     }
     return (
         <div>
@@ -97,7 +101,10 @@ const ButtonAction = ({params, setPageToDisplay, fctDelete}) => {
         <Box sx={{display: "flex"}}>
             <RenderDetailsButton params={params} setPageToDisplay={setPageToDisplay}/>
             <RenderUpdateButton params={params} setPageToDisplay={setPageToDisplay}/>
-            <RenderDeleteButton params={params} setPageToDisplay={setPageToDisplay} fctDelete={(id)=> fctDelete(id)}/>
+            <RenderDeleteButton
+                params={params}
+                setPageToDisplay={setPageToDisplay}
+                fctDelete={(id)=> fctDelete(id)}/>
         </Box>
     )
 
