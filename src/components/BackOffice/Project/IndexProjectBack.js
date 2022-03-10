@@ -82,7 +82,7 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
             )
     }
     const [projectParse, setProjectParse] = useState([]);
-
+    //TODO delete image when delete Project
     const deleteProject = (id) => {
         ProjectService.deleteProject(id)
             .then((res)=>{
