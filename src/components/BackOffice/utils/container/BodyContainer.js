@@ -2,7 +2,7 @@ import React from "react";
 import {Box, Paper, Typography} from "@mui/material";
 import theme from "../../../../theme";
 
-const BodyContainer = ({title, subtitle, buttonAction, children}) => {
+const BodyContainer = ({title, subtitle, buttonAction = null, children}) => {
     return (
         <Paper elevation={3} sx={{position: "relative", mt: "5px"}}>
             <Box sx={{height: 'auto'}}>
@@ -14,7 +14,9 @@ const BodyContainer = ({title, subtitle, buttonAction, children}) => {
                 }}>
                     <Typography variant="h1" color="white">{title}</Typography>
                     <Typography paragraph color="white">{subtitle}</Typography>
-                    {buttonAction}
+                    {buttonAction != null &&
+                        buttonAction
+                    }
                 </Paper>
 
                 {children}

@@ -11,9 +11,11 @@ import { styled } from '@mui/material/styles';
 import { MenuRounded } from "@mui/icons-material";
 import clsx from "clsx";
 import theme from "../../theme";
-import IndexProjectBack from "./Project/IndexProjectBack";
 import ProjectContainer from "./Project/ProjectContainer";
 import MessageContainer from "./Message/MessageContainer";
+import logoTransparent from "../../assets/images/logo_fond_transparent.png";
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import MessageIcon from '@mui/icons-material/Message';
 
 const PREFIX = 'FAQ';
 
@@ -203,12 +205,17 @@ function IndexBackOffice() {
                     color: theme.palette.primary.main,
                     ml: 'auto',
                     mr: 'auto'
+                },
+                '& .MuiTab-root': {
+                    justifyContent: "start",
+                    minHeight: "50px"
                 }
             }}
             //textColor="primary"
         >
             <Tab
-                label="Acceuil"
+                icon={<img src={logoTransparent} alt="zetty design" style={{maxWidth: '180px'}}/>}
+               // label="Acceuil"
                 {...a11yProps(0)}
                 classes={{
                     root: classes.tabTitle
@@ -220,6 +227,8 @@ function IndexBackOffice() {
                 disabled
             />
             <Tab
+                icon={<LibraryBooksIcon />}
+                iconPosition="start"
                 classes={{
                     root: clsx(classes.tab, classes.tabClickable),
                 }}
@@ -227,6 +236,8 @@ function IndexBackOffice() {
                 {...a11yProps(1)}
             />
             <Tab
+                icon={<MessageIcon />}
+                iconPosition="start"
                 classes={{
                     root: clsx(classes.tab, classes.tabClickable),
                 }}

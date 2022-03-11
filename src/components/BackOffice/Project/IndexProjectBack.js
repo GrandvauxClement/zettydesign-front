@@ -82,8 +82,10 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
             )
     }
     const [projectParse, setProjectParse] = useState([]);
+
     //TODO delete image when delete Project
     const deleteProject = (id) => {
+
         ProjectService.deleteProject(id)
             .then((res)=>{
                 //TODO popup done
@@ -96,6 +98,7 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
                 params={params}
                 setPageToDisplay={setPageToDisplay}
                 fctDelete={(id) => deleteProject(id)}
+                detail={false}
             />
         )
     }
@@ -106,13 +109,13 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
             field: 'title',
             headerName: 'Titre',
             width: 300,
-            editable: true,
+            editable: false,
         },
         {
             field: 'type',
             headerName: 'Type',
             width: 150,
-            editable: true,
+            editable: false,
         },
         /*{
             field: 'description',
@@ -184,7 +187,7 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
                     pageSize={10}
                     rowsPerPageOptions={[5]}
                     checkboxSelection
-                   // disableSelectionOnClick
+                    disableSelectionOnClick
                     onSelectionModelChange={e => setSelectMultiple(e)}
                     components={{
                         Toolbar: CustomToolbar

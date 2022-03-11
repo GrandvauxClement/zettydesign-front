@@ -15,7 +15,10 @@ const RenderDetailsButton = ({params, setPageToDisplay}) => {
             size="small"
             color="secondary"
             onClick={() => {
-                console.log(params)
+                setPageToDisplay({
+                    name: "detail",
+                    valueSelected: params.row
+                })
             }}
         >
             Détail
@@ -96,17 +99,40 @@ const RenderDeleteButton = ({params, fctDelete, setPageToDisplay}) => {
     )
 }
 
-const ButtonAction = ({params, setPageToDisplay, fctDelete}) => {
-    return (
-        <Box sx={{display: "flex"}}>
-            <RenderDetailsButton params={params} setPageToDisplay={setPageToDisplay}/>
-            <RenderUpdateButton params={params} setPageToDisplay={setPageToDisplay}/>
-            <RenderDeleteButton
-                params={params}
-                setPageToDisplay={setPageToDisplay}
-                fctDelete={(id)=> fctDelete(id)}/>
-        </Box>
-    )
+const ButtonAction = ({params, setPageToDisplay, fctDelete, edit= true, detail = true}) => {
+    if (edit === false){
+        return (
+            <Box sx={{display: "flex"}}>
+                <RenderDetailsButton params={params} setPageToDisplay={setPageToDisplay}/>
+                <RenderDeleteButton
+                    params={params}
+                    setPageToDisplay={setPageToDisplay}
+                    fctDelete={(id)=> fctDelete(id)}/>
+            </Box>
+        )
+    } else if (detail === false){
+        return (
+            <Box sx={{display: "flex"}}>
+                <RenderUpdateButton params={params} setPageToDisplay={setPageToDisplay}/>
+                <RenderDeleteButton
+                    params={params}
+                    setPageToDisplay={setPageToDisplay}
+                    fctDelete={(id)=> fctDelete(id)}/>
+            </Box>
+        )
+    } else {
+        return(
+            <Box sx={{display: "flex"}}>
+                <RenderDetailsButton params={params} setPageToDisplay={setPageToDisplay}/>
+                <RenderUpdateButton params={params} setPageToDisplay={setPageToDisplay}/>
+                <RenderDeleteButton
+                    params={params}
+                    setPageToDisplay={setPageToDisplay}
+                    fctDelete={(id)=> fctDelete(id)}/>
+            </Box>
+        )
+    }
+
 
 }
 

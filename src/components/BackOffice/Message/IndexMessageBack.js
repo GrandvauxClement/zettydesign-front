@@ -96,12 +96,13 @@ export default function IndexMessageBack({pageToDisplay, setPageToDisplay, appSt
                 params={params}
                 setPageToDisplay={setPageToDisplay}
                 fctDelete={(id) => deleteMessage(id)}
+                edit={false}
             />
         )
     }
 
     const columns = [
-        {field: 'id', headerName: 'ID', width: 90},
+        {field: 'id', headerName: 'ID', width: 20},
         {
             field: 'name',
             headerName: 'Nom',
@@ -119,12 +120,12 @@ export default function IndexMessageBack({pageToDisplay, setPageToDisplay, appSt
             headerName: 'Message',
             description: 'This column has a value getter and is not sortable.',
             sortable: true,
-            width: 400,
+            width: 600,
         },
         {
             field: 'devis',
             headerName: 'Devis',
-            width: 50,
+            width: 80,
         },
         {
             field: 'action',
