@@ -13,7 +13,7 @@ import clsx from "clsx";
 import theme from "../../theme";
 import ProjectContainer from "./Project/ProjectContainer";
 import MessageContainer from "./Message/MessageContainer";
-import logoTransparent from "../../assets/images/logo_fond_transparent.png";
+import logoTransparent from "../../assets/images/logoFondTransparent.png";
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import MessageIcon from '@mui/icons-material/Message';
 

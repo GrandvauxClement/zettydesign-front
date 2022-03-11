@@ -8,14 +8,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import theme from "./theme";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import IndexBackOffice from "./components/BackOffice";
+import Login from "./components/Login/Login";
 
 ReactDOM.render(
     <BrowserRouter>
         <React.StrictMode>
             <ThemeProvider theme={theme}>
-
                 <Routes>
                     <Route path="/" element={<App />}/>
+                    <Route path="/login" element={<Login />}/>
                     <Route path="/admin" element={<IndexBackOffice />}/>
                 </Routes>
             </ThemeProvider>
