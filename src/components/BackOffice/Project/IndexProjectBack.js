@@ -117,17 +117,17 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
             width: 150,
             editable: false,
         },
-        /*{
-            field: 'description',
-            headerName: 'Description',
-            width: 300,
-            editable: true,
-        },*/
         {
             field: 'createdAt',
             headerName: 'Créer le',
-            description: 'This column has a value getter and is not sortable.',
             sortable: true,
+            type: 'date',
+            valueFormatter: (params) => {
+                return formatDate(params.value)
+            },
+            valueGetter: (params) => {
+                return formatDate(params.value)
+            },
             width: 160,
         },
         {
@@ -137,12 +137,25 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
             width: 300
         }
     ];
-
+    const formatDate = (value) => {
+        const date = new Date(value);
+        let valueToReturn ;
+        if (date.toString() === "Invalid Date"){
+            valueToReturn = value;
+            console.log('value', value);
+        }else {
+            valueToReturn = date.toLocaleDateString('fr-FR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })
+        }
+        return valueToReturn;
+    }
 
     useEffect(() => {
         setAppState({loading: true});
         ProjectService.getAllProject().then((data) => {
-            console.log(data);
             setProjectParse(formateProjectForDisplay(data.data));
             setAppState({loading: false, projects: data.data});
         });
@@ -151,19 +164,13 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
     const formateProjectForDisplay = (projects) => {
         let projectParseToReturn = [];
         projects.map((project, index) => {
-            const date = new Date(project.createdAt);
-
             projectParseToReturn.push({
                 id: index + 1,
                 _id: project._id,
                 title: project.title,
                 type: project.type,
                 description: project.description,
-                createdAt: date.toLocaleDateString('fr-FR', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                }),
+                createdAt: project.createdAt,
                 tag: project.tag,
                 videoLink: project.videoLink,
                 images: project.images
