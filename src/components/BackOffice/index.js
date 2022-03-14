@@ -1,4 +1,4 @@
-import React, {useLayoutEffect} from "react";
+import React from "react";
 import PropTypes from 'prop-types';
 import {
     Box,
@@ -16,6 +16,8 @@ import MessageContainer from "./Message/MessageContainer";
 import logoTransparent from "../../assets/images/logoFondTransparent.png";
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import MessageIcon from '@mui/icons-material/Message';
+import LogoutIcon from '@mui/icons-material/Logout';
+import {useNavigate} from "react-router-dom";
 
 const PREFIX = 'FAQ';
 
@@ -171,7 +173,9 @@ function a11yProps(index) {
 const menuWidth = 250;
 
 function IndexBackOffice() {
+    const navigate = useNavigate();
     const [value, setValue] = React.useState(1);
+
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -182,6 +186,11 @@ function IndexBackOffice() {
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+
+    const logout = () => {
+        localStorage.removeItem("token");
+        navigate("/");
+    }
 
 
     const menu = (
@@ -243,6 +252,16 @@ function IndexBackOffice() {
                 }}
                 label="Mes Messages"
                 {...a11yProps(2)}
+            />
+            <Tab
+                icon={<LogoutIcon />}
+                iconPosition="start"
+                classes={{
+                    root: clsx(classes.tab, classes.tabClickable),
+                }}
+                label="Se déconnecter"
+                {...a11yProps(3)}
+                onClick={logout}
             />
         </Tabs>
     );

@@ -7,8 +7,8 @@ import { ThemeProvider } from "@mui/material";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import theme from "./theme";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import IndexBackOffice from "./components/BackOffice";
 import Login from "./components/Login/Login";
+import BackOfficeContainer from "./components/BackOffice/BackOfficeContainer";
 
 ReactDOM.render(
     <BrowserRouter>
@@ -17,7 +17,7 @@ ReactDOM.render(
                 <Routes>
                     <Route path="/" element={<App />}/>
                     <Route path="/login" element={<Login />}/>
-                    <Route path="/admin" element={<IndexBackOffice />}/>
+                    <Route path="/admin" element={<BackOfficeContainer />}/>
                 </Routes>
             </ThemeProvider>
         </React.StrictMode>

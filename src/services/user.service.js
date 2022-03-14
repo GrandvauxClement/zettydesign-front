@@ -9,5 +9,9 @@ class UserService {
         });
     }
 
+    checkToken() {
+        return Api.functionAxios().get('api/login/checkToken');
+    }
+
 }
 export default new UserService();

@@ -10,7 +10,7 @@ import UserService from "../../services/user.service";
 import {useNavigate} from "react-router-dom"
 
 const Login = () => {
-    const history = useNavigate();
+    const navigate = useNavigate();
     const [connectForm, setConnectForm] = useState({
         email: "",
         password: ""
@@ -31,7 +31,7 @@ const Login = () => {
                 .then((res) => {
                     console.log(res);
                     localStorage.setItem("token", res.data.token);
-                    history("/admin");
+                    navigate("/admin");
                 })
                 .catch((err) => {
                     console.log(err)
