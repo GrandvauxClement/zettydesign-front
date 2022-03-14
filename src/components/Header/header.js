@@ -2,24 +2,27 @@ import {
     Container, Grid,
     Typography,
 } from "@mui/material";
+import Box from "@mui/material/Box";
+import React from "react";
 
 const Header = (props) => {
   //  const headerFond = 'linear-gradient(rgba(42,177,234,0.44), rgba(42,177,234,0.44)), url(' + props.header + ') no-repeat center center / cover'
-   const headerFond = 'url(' + props.header + ') no-repeat center top / contain'
+   const headerFond = 'url(' + props.header + ')';
+   const headerFondMobile = 'url(' + props.header + ')';
 
     return (
-        <>
-
-            <div style={{background: headerFond}}>
-                <Container sx={{height: '80vh', display: "flex", alignItems: "center"}}>
-                    <Grid container item xs={10}>
+            <Box sx={{
+                backgroundImage: {xs: headerFondMobile, md:headerFond},
+                backgroundSize: {xs: "auto, 65vh",md: "99vw, auto"},
+                backgroundRepeat: "no-repeat"
+            }}>
+                <Container sx={{height: '65vh', display: "flex", alignItems: "center"}}>
+                    <Grid container item xs={12} md={9}>
                         <Typography align="center" variant="h1" component="h1">{props.title}</Typography>
                         <Typography align="center" variant="h5" >{props.text}</Typography>
                     </Grid>
                 </Container>
-
-            </div>
-        </>
+            </Box>
     );
 }
 export default Header;

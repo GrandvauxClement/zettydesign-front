@@ -15,9 +15,9 @@ ReactDOM.render(
         <React.StrictMode>
             <ThemeProvider theme={theme}>
                 <Routes>
-                    <Route path="/" element={<App />}/>
                     <Route path="/login" element={<Login />}/>
                     <Route path="/admin" element={<BackOfficeContainer />}/>
+                    <Route path="*" element={<App />}/>
                 </Routes>
             </ThemeProvider>
         </React.StrictMode>

@@ -15,10 +15,10 @@ function App() {
     <div className="App">
         <NavBar />
         <Routes>
-            <Route path="/" element={<AccueilApp />}/>
             <Route path="/creation-graphique" element={<CreationGraphiqueApp/>}/>
             <Route path="/community-management" element={<CommunityManagementApp />} />
             <Route path="/strategie-communication" element={<StrategieCommunicationApp />} />
+            <Route path="/" element={<AccueilApp />}/>
         </Routes>
         <Contact />
         <Footer/>

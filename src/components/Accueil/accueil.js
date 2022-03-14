@@ -34,7 +34,7 @@ const Accueil = () => {
         return(
             <>
                 <Container>
-                    <Typography variant="h3">Travaillez avec un freelance de confiance dans tous l'Est de la France,
+                    <Typography variant="h3" align="center">Travaillez avec un freelance de confiance dans tous l'Est de la France,
                         pour tous vos projets de communication !
                     </Typography>
                     {appState.services.map((service, index) => (

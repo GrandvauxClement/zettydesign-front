@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import Header from "../Header/header";
 import Accueil from "../Accueil/accueil";
 import header from "../../assets/images/ban1.png";
+import headerMobile from "../../assets/images/banMobile.png";
 import IndexProject from "../Project";
 
 function AccueilApp() {
@@ -12,7 +13,7 @@ function AccueilApp() {
     })
     return (
         <div>
-            <Header header={header} title={title} text={text} />
+            <Header header={header} headerMobile={headerMobile} title={title} text={text} />
 
             <Accueil />
             <IndexProject />
