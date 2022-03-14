@@ -5,7 +5,7 @@ import header from "../../assets/images/ban1.png";
 import IndexProject from "../Project";
 
 function AccueilApp() {
-    const title = "Votre freelance en communication dans tous l'est de la France ";
+    const title = "Votre freelance en communication";
     const text = "Création de site Internet & référencement naturel, Graphisme, Community Management, Stratégies de communication, .."
     useEffect(() => {
         window.scrollTo(0,0);

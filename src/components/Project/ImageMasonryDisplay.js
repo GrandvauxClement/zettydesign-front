@@ -36,8 +36,8 @@ export default function ImageMasonry({project}) {
         <Root className={classes.root}>
              <Stack onClick={handleOpen}>
                   <img
-                      src={`${urlImage}${project.images.key[0]}`}
-                      srcSet={`${urlImage}${project.images.key[0]}`}
+                      src={`${urlImage}${project.images[0]}`}
+                      srcSet={`${urlImage}${project.images[0]}`}
                       alt={project.title}
                       loading="lazy"
                       className={classes.image}

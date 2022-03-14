@@ -4,6 +4,7 @@ import {
     Container,
 } from "@mui/material";
 import theme from "../../theme";
+import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
 
 const BannerDisplayNumber = () => {
     return(
@@ -19,8 +20,10 @@ const BannerDisplayNumber = () => {
                         <Typography variant="h5" color="white"> Projets Réalisés</Typography>
                     </Grid>
                     <Grid item xs={4} sx={{textAlign:"center"}}>
-                        <Typography color="white" sx={{fontWeight:'bold'}} variant="h2">100</Typography>
-                        <Typography variant="h5" color="white"> % de clients satisfaits</Typography>
+                        <Typography color="white" sx={{fontWeight:'bold'}} variant="h2">
+                            <AllInclusiveIcon sx={{fontWeight:'bold', fontSize: "3.75rem"}} />
+                        </Typography>
+                        <Typography variant="h5" color="white"> D'idées</Typography>
                     </Grid>
 
                 </Grid>

@@ -23,7 +23,7 @@ const theme = createTheme({
         MuiTypography: {
             styleOverrides:{
                 h1: {
-                    fontSize: '3.1em',
+                    fontSize: '6.1em',
                     fontWeight: 600
                 },
                 h4:{

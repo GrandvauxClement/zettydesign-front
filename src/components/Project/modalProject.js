@@ -8,6 +8,8 @@ import Carousel from 'react-bootstrap/Carousel'
 import Api from "../../api";
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import serializeToHtml from "../BackOffice/utils/TextEditor/SerializeToHtml";
+import theme from "../../theme";
 
 const style = {
     position: 'absolute',
@@ -23,6 +25,7 @@ const style = {
 
 const ModalProject = (props) => {
     const urlImage = Api.baseUrl + 'public/images/projets/';
+    const description = serializeToHtml({children: props.project.description});
     return(
         <Modal
             open={props.open}
@@ -31,22 +34,22 @@ const ModalProject = (props) => {
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
-                <Typography sx={{textAlign: "center"}} variant="h2">
+                <Typography sx={{textAlign: "center", color: theme.palette.primary.main}} variant="h2">
                     {props.project.title}
                 </Typography>
                 <Grid container spacing={2} sx={{marginTop:2}}>
                     <Grid item md={7} xs={12}>
                         <Carousel fade variant="dark">
-                            {props.project.images.key.map((item,index)=>(
+                            {props.project.images.map((item,index)=>(
                                 <Carousel.Item style={{height: "60vh", width:"100%"}} key={index}>
                                     <img
                                         className="d-block"
                                         style={{objectFit: "contain", objectPosition: "center center", maxHeight:"100%", width:"100%"}}
                                         alt={index+" slide"}
-                                        src={`${urlImage}${item}`}/>
+                                        src={`${urlImage}${item}`}
+                                    />
                                 </Carousel.Item>
                                 ))}
-
                         </Carousel>
                     </Grid>
 
@@ -54,15 +57,18 @@ const ModalProject = (props) => {
                         <Typography variant="h5" component="h3" sx={{fontStyle: 'italic', color: '#ea8d2a'}}>
                             Description
                         </Typography>
-                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            {props.project.description}
-                        </Typography>
+                        {/*<Typography id="modal-modal-description" >
+                            {description}
+                        </Typography>*/}
+                        <Box dangerouslySetInnerHTML={{__html: description}} sx={{ mt: 2 }}>
+
+                        </Box>
                         <Typography variant="h5" component="h3" sx={{fontStyle: 'italic', color: '#ea8d2a'}}>
-                            Étape de la conception
+                            Tag
                         </Typography>
 
                         <Stack direction="row" spacing={1} sx={{flexWrap:"wrap", mt:2}}>
-                            {props.project.workState.map((work, index) => (
+                            {props.project.tag.map((work, index) => (
                                 <Chip label={work} key={index} color="primary" sx={{mb:1}} clickable={true}/>
                             ))}
                         </Stack>

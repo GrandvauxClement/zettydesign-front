@@ -1,5 +1,5 @@
 import {
-    Container,
+    Container, Grid,
     Typography,
 } from "@mui/material";
 
@@ -11,10 +11,11 @@ const Header = (props) => {
         <>
 
             <div style={{background: headerFond}}>
-                <Container sx={{height: '80vh', display:"flex", flexDirection:"column", justifyContent: "center", alignItem:"center"}}>
-                    <Typography color="primary" align="center" variant="h1" component="h1">{props.title}</Typography>
-                    <Typography align="center" variant="h4" component="h2">{props.text}
-                    </Typography>
+                <Container sx={{height: '80vh', display: "flex", alignItems: "center"}}>
+                    <Grid container item xs={10}>
+                        <Typography align="center" variant="h1" component="h1">{props.title}</Typography>
+                        <Typography align="center" variant="h5" >{props.text}</Typography>
+                    </Grid>
                 </Container>
 
             </div>
