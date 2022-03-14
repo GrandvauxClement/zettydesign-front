@@ -7,8 +7,10 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import UserService from "../../services/user.service";
+import {useNavigate} from "react-router-dom"
 
 const Login = () => {
+    const history = useNavigate();
     const [connectForm, setConnectForm] = useState({
         email: "",
         password: ""
@@ -28,6 +30,8 @@ const Login = () => {
             UserService.login(connectForm.email, connectForm.password)
                 .then((res) => {
                     console.log(res);
+                    localStorage.setItem("token", res.data.token);
+                    history("/admin");
                 })
                 .catch((err) => {
                     console.log(err)
