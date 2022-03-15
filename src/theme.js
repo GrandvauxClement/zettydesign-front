@@ -24,7 +24,8 @@ const theme = createTheme({
             styleOverrides:{
                 h1: {
                     fontSize: '4.1em',
-                    fontWeight: 600
+                    fontWeight: 600,
+                    fontFamily: "haylard-text, sans-serif"
                 },
                 h4:{
                     fontSize: '1.2em',

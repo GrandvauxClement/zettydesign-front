@@ -1,10 +1,10 @@
 import React from "react";
-import header from "../../../assets/images/header.jpg";
+import header from "../../../assets/images/ban1.png";
 import data from "../../../assets/data/StrategieCommunicationData";
 import ServiceDetail from "../ServiceDetail";
 
 function StrategieCommunicationApp() {
-    const titleHeader = "Consultant communication freelance dans le jura";
+    const titleHeader = "Consultant Communication freelance";
 
     const textHeader = "Veille concurrentielle & Benchmark, Conseil & Accompagnement, élaboration d’une stratégie" +
         " de communication sur mesure.!";

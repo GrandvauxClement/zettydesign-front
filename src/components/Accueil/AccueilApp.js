@@ -6,8 +6,8 @@ import headerMobile from "../../assets/images/banMobile.png";
 import IndexProject from "../Project";
 
 function AccueilApp() {
-    const title = "Votre freelance en communication";
-    const text = "Création de site Internet & référencement naturel, Graphisme, Community Management, Stratégies de communication, .."
+    const title = "Votre Freelance en Communication";
+    const text = "Graphisme, community management, création de sites web, webredaction, stratégies de communication..."
     useEffect(() => {
         window.scrollTo(0,0);
     })

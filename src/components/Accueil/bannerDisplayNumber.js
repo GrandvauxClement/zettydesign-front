@@ -23,7 +23,7 @@ const BannerDisplayNumber = () => {
                         <Typography color="white" sx={{fontWeight:'bold'}} variant="h2">
                             <AllInclusiveIcon sx={{fontWeight:'bold', fontSize: "3.75rem"}} />
                         </Typography>
-                        <Typography variant="h5" color="white"> D'idées</Typography>
+                        <Typography variant="h5" color="white">Idées</Typography>
                     </Grid>
 
                 </Grid>
