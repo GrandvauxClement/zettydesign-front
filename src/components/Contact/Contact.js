@@ -5,12 +5,12 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import FormContact from "./FormContact";
 import theme from "../../theme";
-import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import logo from '../../assets/images/logoFondTransparent.png';
 
 
 function Contact(){
@@ -28,14 +28,8 @@ function Contact(){
 
                     <Grid item xs={12} sm={4} md={6} >
                         <Grid container sx={{alignItems:'center', justifyContent:'center', height: '100%', ml: 4}}>
-                            <Grid item xs={12}>
-                                <SportsBasketballIcon sx={{fontSize: 80, textAlign:'center'}}/>
-                                <Typography variant='h5' color='primary.main' textAlign='center'>
-                                    Yohann Franzetti
-                                </Typography>
-                                <Typography paragraph>
-                                    Graphiste | Consiltant en communication à Lyon
-                                </Typography>
+                            <Grid item container sx={{alignItems:'center', justifyContent:'center'}} xs={12}>
+                                <img src={logo} alt="zetty design" style={{height: '200px'}}/>
                             </Grid>
                             <Grid item xs={12} container>
                                 <EmailIcon sx={{fontSize: 40, color: theme.palette.primary.main}}/>

@@ -32,7 +32,7 @@ const Root = styled('div')((
         backgroundColor: theme.palette.primary.main,
         color: "white",
         paddingTop: theme.spacing(6),
-        paddingBottom: theme.spacing(6),
+      //  paddingBottom: theme.spacing(6),
     },
 
     [`& .${classes.footerItem}`]: {
@@ -64,9 +64,6 @@ const Footer = () => {
     return(
         <Root className={classes.root}>
             <Container>
-                <Grid item xs={12}>
-                    <img src={logo} style={{width:'50px'}} alt="logo" />
-                </Grid>
                 <Grid item xs={12}>
                     <Typography align='center'>
                         <Link href="#" color="inherit" underline="hover">Création graphique | </Link>
@@ -112,6 +109,12 @@ const Footer = () => {
                             <TwitterIcon className={classes.icone}/>
                         </IconButton>
                     </Grid>
+                </Grid>
+                <Grid item container xs={12} sx={{justifyContent: 'center'}}>
+                    <Typography paragraph>
+                        <span>Mentions légales</span>
+                        | © Copyright 2022 -Zetty design. Tous droits réservés
+                    </Typography>
                 </Grid>
             </Container>
         </Root>

@@ -18,7 +18,11 @@ const Header = (props) => {
             }}>
                 <Container sx={{height: '65vh', display: "flex", alignItems: "center"}}>
                     <Grid container item xs={12} md={9}>
-                        <Typography align="center" variant="h1" component="h1">{props.title}</Typography>
+                        <Typography align="center" variant="h1"
+                                    sx={{
+                                       // fontWeight: {xs: 500, md: 600},
+                                        fontSize: {xs: '2.5em', md: '4.1em'},
+                                    }}>{props.title}</Typography>
                         <Typography align="center" variant="h5" >{props.text}</Typography>
                     </Grid>
                 </Container>

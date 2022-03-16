@@ -10,11 +10,18 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import serializeToHtml from "../BackOffice/utils/TextEditor/SerializeToHtml";
 import theme from "../../theme";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
+  //  position: 'absolute',
+ //   overflow: 'scroll',
+   // display: 'block',
+   // top: '50%',
+   // left: '50%',
     transform: 'translate(-50%, -50%)',
     width: "70vw",
     bgcolor: 'background.paper',
@@ -27,14 +34,17 @@ const ModalProject = (props) => {
     const urlImage = Api.baseUrl + 'public/images/projets/';
     const description = serializeToHtml({children: props.project.description});
     return(
-        <Modal
+        <Dialog
             open={props.open}
             onClose={props.onClose}
+            scroll='body'
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
+            fullWidth={true}
+            maxWidth="lg"
         >
-            <Box sx={style}>
-                <Typography sx={{textAlign: "center", color: theme.palette.primary.main}} variant="h2">
+            <Box >
+                <Typography sx={{textAlign: "center", color: theme.palette.primary.main}} variant="h3">
                     {props.project.title}
                 </Typography>
                 <Grid container spacing={2} sx={{marginTop:2}}>
@@ -54,7 +64,7 @@ const ModalProject = (props) => {
                     </Grid>
 
                     <Grid item md={5} xs={12}>
-                        <Typography variant="h5" component="h3" sx={{fontStyle: 'italic', color: '#ea8d2a'}}>
+                        <Typography variant="h5" sx={{fontStyle: 'italic', color: '#ea8d2a'}}>
                             Description
                         </Typography>
                         {/*<Typography id="modal-modal-description" >
@@ -75,11 +85,13 @@ const ModalProject = (props) => {
 
                     </Grid>
                 </Grid>
-                <Button variant="contained" onClick={props.onClose} sx={{mt: 2}}>
-                    Fermer
-                </Button>
+                <DialogActions>
+                    <Button variant="contained" onClick={props.onClose} sx={{mt: 2}}>
+                        Fermer
+                    </Button>
+                </DialogActions>
             </Box>
-        </Modal>
+        </Dialog>
     );
 }
 export default ModalProject;

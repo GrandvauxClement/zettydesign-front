@@ -32,7 +32,13 @@ const IndexProject = () => {
     }else {
         return (
             <Container sx={{mt: 3}}>
-               <Typography variant="h2" color={theme.palette.primary.main}>Mes Réalisations</Typography>
+               <Typography
+                   variant="h3"
+                   color={theme.palette.primary.main}
+                   sx={{textAlign:{xs: 'center', md: 'left'}}}
+               >
+                   Mes Réalisations
+               </Typography>
                <Box sx={{my:3, display:"flex", flexDirection:"column", alignItems:"center"}}>
                    <Masonry columns={3} spacing={1}>
                        {appState.projects.map((item, index) => (

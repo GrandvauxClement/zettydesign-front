@@ -25,7 +25,8 @@ export default function AddProject({setPageToDisplay}) {
         // Upload on a first Time all images
         const formUploadData = new FormData();
         newProject.images.forEach(file => formUploadData.append('multipleImages', file));
-        axios.post('http://localhost:9000/api/project/multiple-upload', formUploadData)
+        axios.post('http://localhost:9000/api/project/multiple-upload', formUploadData,
+            {headers: {"x-access-token": localStorage.getItem("token")}})
             .then((newFileName) => {
                 // If upload good, create newproject
                 ProjectService.addProject(newProject, newFileName.data)
