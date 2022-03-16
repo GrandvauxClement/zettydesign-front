@@ -38,17 +38,21 @@ function Contact(){
                                 <Typography variant="h6" sx={{color: "#424242", mb: 2}}>
                                     PAR TÉLÉPHONE (DE PRÉFÉRENCE DU LUNDI AU VENDREDI) :
                                 </Typography>
-                                <Button variant="contained" startIcon={<PhoneIcon />}>
-                                    0606060606
-                                </Button>
+                                <a href="tel:0661633748" >
+                                    <Button variant="contained" startIcon={<PhoneIcon />}>
+                                        0661633748
+                                    </Button>
+                                </a>
                             </Grid>
                             <Grid item xs={12} container alignItems="center" direction="column">
                                 <Typography variant="h6" sx={{color: "#424242", my: 2}}>
                                     PAR E-MAIL (7J/7, LA NUIT, LE JOUR...) :
                                 </Typography>
-                                <Button variant="contained" startIcon={<EmailIcon />}>
-                                    yoyo--mail@gmail.com
-                                </Button>
+                                <a href="mailto:clement.grandvaux@hotmail.com">
+                                    <Button variant="contained" startIcon={<EmailIcon />}>
+                                        yoyo--mail@gmail.com
+                                    </Button>
+                                </a>
                             </Grid>
                            {/* <Grid item container sx={{alignItems:'center', justifyContent:'center'}} xs={12}>
                                 <img src={logo} alt="zetty design" style={{height: '200px'}}/>

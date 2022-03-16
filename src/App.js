@@ -8,11 +8,15 @@ import AccueilApp from "./components/Accueil/AccueilApp";
 import CommunityManagementApp from "./components/ServicesDetail/CommunityManagement/CommunityManagementApp";
 import StrategieCommunicationApp from "./components/ServicesDetail/StrategieCommunication/StrategieCommunicationApp";
 import Contact from "./components/Contact/Contact";
+import {Fab} from "@mui/material";
+import {KeyboardArrowUp} from "@mui/icons-material";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import theme from "./theme";
 
 function App() {
   return (
 
-    <div className="App">
+    <div className="App" id="back-to-top-anchor">
         <NavBar />
         <Routes>
             <Route path="/creation-graphique" element={<CreationGraphiqueApp/>}/>
@@ -22,6 +26,11 @@ function App() {
         </Routes>
         <Contact />
         <Footer/>
+        <ScrollToTop >
+            <Fab sx={{backgroundColor: theme.palette.primary.dark, color: "white"}} size="small" aria-label="scroll back to top">
+                <KeyboardArrowUp />
+            </Fab>
+        </ScrollToTop>
     </div>
   );
 }

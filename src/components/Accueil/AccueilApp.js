@@ -12,9 +12,8 @@ function AccueilApp() {
         window.scrollTo(0,0);
     })
     return (
-        <div>
+        <div >
             <Header header={header} headerMobile={headerMobile} title={title} text={text} />
-
             <Accueil />
             <IndexProject />
         </div>

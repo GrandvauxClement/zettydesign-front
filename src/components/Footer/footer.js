@@ -63,7 +63,7 @@ const Root = styled('div')((
     }
 }));
 
-const Footer = () => {
+const Footer = (props) => {
     return(
         <Root className={classes.root}>
             <Box sx={{backgroundColor: theme.palette.primary.main, paddingBottom:'10px'}}>
@@ -81,7 +81,7 @@ const Footer = () => {
                             <Grid container sx={{justifyContent:{xs: "center", lg: "left"}, alignItems: "center", mt: 1}}>
                                 <PhoneIcon sx={{fontSize: 40, color: "white"}}/>
                                 <Typography sx={{ml: 2}} variant='h6' color='white'>
-                                    0606060606
+                                    0661633748
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -136,7 +136,7 @@ const Footer = () => {
             <Grid item container xs={12} sx={{justifyContent: 'center'}}>
                 <Typography paragraph>
                     <a href="#contact" style={{color: "white"}}>Mentions légales</a>
-                    | © Copyright 2022 -Zetty design. Tous droits réservés
+                    | © Copyright 2022 - Zetty design. Tous droits réservés
                 </Typography>
             </Grid>
         </Root>
