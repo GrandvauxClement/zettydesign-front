@@ -7,10 +7,7 @@ import FormContact from "./FormContact";
 import theme from "../../theme";
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import logo from '../../assets/images/logoFondTransparent.png';
+import {Button} from "@mui/material";
 
 
 function Contact(){
@@ -22,43 +19,40 @@ function Contact(){
                     Parlons-en
                 </Typography>
                 <Grid container spacing={4}>
-                    <Grid item xs={12} sm={8} md={6}>
+                    <Grid item xs={12} md={6}>
                         <FormContact />
                     </Grid>
 
-                    <Grid item xs={12} sm={4} md={6} >
-                        <Grid container sx={{alignItems:'center', justifyContent:'center', height: '100%', ml: 4}}>
-                            <Grid item container sx={{alignItems:'center', justifyContent:'center'}} xs={12}>
-                                <img src={logo} alt="zetty design" style={{height: '200px'}}/>
-                            </Grid>
-                            <Grid item xs={12} container>
-                                <EmailIcon sx={{fontSize: 40, color: theme.palette.primary.main}}/>
-                                <Typography variant='h5' sx={{ml: 2}} color='primary.main'>
-                                    yoyo--mail@gmail.com
+                    <Grid item xs={12} md={6} >
+                        <Grid container sx={{alignItems:'center', justifyContent:'center', height: '100%', ml:{xs: 0, md:1} }}>
+                            <Grid item xs={12}>
+                                <Typography paragraph textAlign="justify">
+                                    Vous cherchez un <b> freelance dans la communication</b> ? Je serais ravie de vous
+                                    rencontrer pour en discuter ! Basée à Lons-le-saunier dans le <b>Jura</b>
+                                     , je suis flexible et propose mes services <b>partout en France.</b> Pour tout
+                                    renseignement ou demande de devis, n'hésitez pas à me contacter...
                                 </Typography>
                             </Grid>
-                            <Grid item xs={12} container>
-                                <PhoneIcon sx={{fontSize: 40, color: theme.palette.primary.main}}/>
-                                <Typography sx={{ml: 2}} variant='h5' color='primary.main'>
+
+                            <Grid item xs={12} container alignItems="center" direction="column">
+                                <Typography variant="h6" sx={{color: "#424242", mb: 2}}>
+                                    PAR TÉLÉPHONE (DE PRÉFÉRENCE DU LUNDI AU VENDREDI) :
+                                </Typography>
+                                <Button variant="contained" startIcon={<PhoneIcon />}>
                                     0606060606
-                                </Typography>
+                                </Button>
                             </Grid>
-                            <Grid item xs={12} container sx={{flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
-                                <Typography variant='h5' color='primary.main'>
-                                    Suivez-moi sur mes réseaux
+                            <Grid item xs={12} container alignItems="center" direction="column">
+                                <Typography variant="h6" sx={{color: "#424242", my: 2}}>
+                                    PAR E-MAIL (7J/7, LA NUIT, LE JOUR...) :
                                 </Typography>
-                                <Box sx={{display: 'flex'}}>
-                                    <a href="https://www.facebook.com" className="ms-3">
-                                        <FacebookIcon sx={{fontSize: 60, color: theme.palette.primary.main}}/>
-                                    </a>
-                                    <a href="https://www.facebook.com" className="ms-3">
-                                        <InstagramIcon sx={{fontSize: 60, color: theme.palette.primary.main}}/>
-                                    </a>
-                                    <a href="https://www.facebook.com" className="ms-3">
-                                        <LinkedInIcon sx={{fontSize: 60, color: theme.palette.primary.main}}/>
-                                    </a>
-                                </Box>
+                                <Button variant="contained" startIcon={<EmailIcon />}>
+                                    yoyo--mail@gmail.com
+                                </Button>
                             </Grid>
+                           {/* <Grid item container sx={{alignItems:'center', justifyContent:'center'}} xs={12}>
+                                <img src={logo} alt="zetty design" style={{height: '200px'}}/>
+                            </Grid>*/}
                         </Grid>
                     </Grid>
                 </Grid>
