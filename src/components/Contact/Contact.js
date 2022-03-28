@@ -8,6 +8,9 @@ import theme from "../../theme";
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import {Button} from "@mui/material";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 
 function Contact(){
