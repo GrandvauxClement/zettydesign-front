@@ -9,7 +9,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 const NavBar = () => {
 
     return (
-        <Navbar style={{backgroundColor: '#4babff', padding: 0}} expand="lg" fixed="top">
+        <Navbar style={{backgroundColor: '#4babff', padding: 0}} expand="lg" fixed="top" >
             <Container>
                 <Navbar.Brand href="/" style={{color: "white"}}>
                     <img src={logoWhite} alt="zetty design" style={{height: "70px"}}/>

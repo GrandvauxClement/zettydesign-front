@@ -30,6 +30,10 @@ const theme = createTheme({
                 h4:{
                     fontSize: '1.2em',
                     fontWeight: 'bold',
+                },
+                h6:{
+                    fontSize: '1em',
+                    fontWeight: "bold"
                 }
             }
         }
