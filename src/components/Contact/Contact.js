@@ -48,13 +48,13 @@ function Contact(){
                                     Suivez-moi sur mes réseaux
                                 </Typography>
                                 <Box sx={{display: 'flex'}}>
-                                    <a href="https://www.facebook.com" className="ms-3">
+                                    <a href="https://fr-fr.facebook.com/yohann.franzetti" className="ms-3">
                                         <FacebookIcon sx={{fontSize: 60, color: theme.palette.primary.main}}/>
                                     </a>
-                                    <a href="https://www.facebook.com" className="ms-3">
+                                    <a href="https://www.instagram.com/yohannfzi/" className="ms-3">
                                         <InstagramIcon sx={{fontSize: 60, color: theme.palette.primary.main}}/>
                                     </a>
-                                    <a href="https://www.facebook.com" className="ms-3">
+                                    <a href="https://fr.linkedin.com/in/yohann-franzetti-9bb714133" className="ms-3">
                                         <LinkedInIcon sx={{fontSize: 60, color: theme.palette.primary.main}}/>
                                     </a>
                                 </Box>

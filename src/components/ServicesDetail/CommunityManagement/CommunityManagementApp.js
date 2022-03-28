@@ -1,16 +1,16 @@
 import React from "react";
-import header from "../../../assets/images/header.jpg";
+import header from "../../../assets/images/ban1.png";
 import data from "../../../assets/data/CommunityManagerData";
 import ServiceDetail from "../ServiceDetail";
 
 function CommunityManagementApp() {
-    const titleHeader = "Community manager freelance dans le jura";
+    const titleHeader = "Votre Community manager freelance";
 
-    const textHeader = "VMise en place de vos réseaux sociaux, Stratégie de communication digitale, Gestion &" +
+    const textHeader = "Mise en place de vos réseaux sociaux, Stratégie de communication digitale, Gestion &" +
         " Animation, Analyse des résultats & analytics…";
 
     const title = "Maîtrisez vos réseaux sociaux, et développez votre visibilité sur le web avec un community " +
-        "manager freelance créatif sur la région Lyonnaise!";
+        "manager freelance créatif !";
 
     const description = "Il est temps de mettre les réseaux sociaux au centre de votre stratégie de communication!" +
         " 30% des internautes déclarent être influencés par ces plateformes lorsqu’il réalisent un achat. Si " +

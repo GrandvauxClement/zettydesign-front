@@ -1,13 +1,13 @@
 import React from "react";
-import header from "../../../assets/images/header.jpg";
+import header from "../../../assets/images/ban1.png";
 import data from "../../../assets/data/CreationGraphiqueServiceDetail";
 import ServiceDetail from "../ServiceDetail";
 
 function CreationGraphiqueApp() {
-    const titleHeader = "Graphiste freelance dans le jura";
+    const titleHeader = "Votre Graphiste freelance";
 
-    const textHeader = "Réalisation de vos: logos & chartes graphique, cartes de visite, affiches & plaquettes, brochures, " +
-        "goodies, templates social média… avec un graphiste freelance créatif sur la région Lyonnaise!";
+    const textHeader = "Pour créer une image de marque pertinente et qui vous ressemble. Un logo, une charte graphique," +
+        " une identité, ...";
 
     const title = "De la création de votre logo à la réalisation de vos supports de communication, développez votre" +
         "image avec un graphiste freelance!";

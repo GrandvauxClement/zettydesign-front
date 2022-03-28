@@ -6,11 +6,10 @@ import {
     Typography,
 } from "@mui/material";
 import Link from '@mui/material/Link';
-import logo from "../../logo.svg";
 import styled from "@mui/material/styles/styled";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const PREFIX = 'Footer';
 
@@ -78,7 +77,7 @@ const Footer = () => {
                             color={"inherit"}
                             onClick={() =>
                                 window.open(
-                                    `https://www.facebook.com/weguideyousport`
+                                    `https://fr-fr.facebook.com/yohann.franzetti`
                                 )
                             }
                             className={classes.buttonIcone}>
@@ -90,7 +89,7 @@ const Footer = () => {
                             color={"inherit"}
                             onClick={() =>
                                 window.open(
-                                    `https://www.facebook.com/weguideyousport`
+                                    `hhttps://www.instagram.com/yohannfzi/`
                                 )
                             }
                             className={classes.buttonIcone}>
@@ -102,11 +101,11 @@ const Footer = () => {
                             color={"inherit"}
                             onClick={() =>
                                 window.open(
-                                    `https://www.facebook.com/weguideyousport`
+                                    `https://fr.linkedin.com/in/yohann-franzetti-9bb714133`
                                 )
                             }
                             className={classes.buttonIcone}>
-                            <TwitterIcon className={classes.icone}/>
+                            <LinkedInIcon className={classes.icone}/>
                         </IconButton>
                     </Grid>
                 </Grid>

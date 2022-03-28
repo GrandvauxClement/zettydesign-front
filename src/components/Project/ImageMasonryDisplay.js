@@ -16,12 +16,12 @@ const Root = styled('div')(({theme}) => ({
     [`&.${classes.root}`]: {
     },
     [`& .${classes.image}`]: {
-        transition: "all 1s ease",
+        transition: "all 0.7s ease",
         borderBottomLeftRadius: 4,
         borderBottomRightRadius: 4,
         '&:hover':{
             cursor: "pointer",
-            transform:"scale(1.25)",
+            transform:"scale(1.15)",
         }
     }
 }))

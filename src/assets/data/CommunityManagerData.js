@@ -2,20 +2,16 @@ const CommunityManagerData = [
     {
         image: 'creationGraphiqueDetail1.png',
         title: 'Mise en place de vos réseaux sociaux',
-        text: 'Vos concurrents sont-ils présents sur les plateformes sociales ? Sur quels réseaux sociaux devez-vous' +
-            ' être implanté? Après une étude de l’activité de vos concurrents sur le web, je réalise un benchmark ' +
-            'détaillé pour mieux appréhender votre secteur d’activité. Je vous accompagne dans le choix de vos ' +
-            'futurs réseaux et dans leurs mises en place : création de comptes, réalisations des visuels.' +
-            ' (photo de profil, photo de couverture)…'
+        text: 'Évaluer vos besoins : qui vous ciblez ? Ensuite, définir les réseaux sociaux pertinents et le message' +
+            ' à y passer. Créer les contenus adaptés à chaque réseau ! Et pour cela, définir une stratégie social ' +
+            'média : programmer les publications aux heures les plus pertinentes, les organiser avec un marronnier ' +
+            'précis et étudié et surtout : une analyse précise des performances pour les optimiser.'
     },
     {
         image: 'creationGraphiqueDetail2.png',
         title: 'Développement de votre stratégie de communication digitale',
-        text: 'Sur quels sujets devez-vous communiquer? Quels formats utiliser? Quelle fréquence de publication ' +
-            'faut-il respecter? Je vous assite dans la création de votre stratégie de communication digitale, à ' +
-            'travers la réalisation d’une ligne éditoriale. Cette dernière vous servira de fil rouge dans ' +
-            'l’animation de vos plateformes. Elle vous permettra de construire des publications cohérentes ' +
-            'pour atteindre vos objectifs.'
+        text: 'Je propose aussi des services de consultation : analyser précisément vos réseaux pour vous fournir ' +
+            'un rapport détaillé et compréhensible avec des préconisations pour améliorer votre communication'
     },
     {
         image: 'creationGraphiqueDetail3.png',

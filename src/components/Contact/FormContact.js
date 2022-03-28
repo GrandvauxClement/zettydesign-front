@@ -15,12 +15,14 @@ function FormContact() {
         devis: false
     });
     const [submit, setSubmit] = useState(false);
-    const [validateEmaill, setValidateEmail] = useState(false);
+    const [validateEmaill, setValidateEmail] = useState(true);
 
    const validate = () =>{
-       if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(message.email) && message.message.length > 4){
+       if ( /\S+@\S+\.\S+/.test(message.email) ){
            setValidateEmail(true);
+           console.log("C GOOD ! :)")
        }else {
+           console.log("je passe la ")
            setValidateEmail(false);
        }
        if ( validateEmaill && message.email.length > 6 && message.message.length > 10){
@@ -31,7 +33,6 @@ function FormContact() {
     }
 
     const sendMessage = () => {
-       console.log('je suis là');
         MessageService.postMessage(message);
     }
 
@@ -53,16 +54,17 @@ function FormContact() {
     }
     return (
         <Grid container sx={{display: 'flex', flexDirection: "column"}}>
-            <TextField fullWidth variant="filled" label="Votre Nom" id="inputName" name="name"
-                       onChange={handleInputValue} sx={{mt: 2}}/>
+
             <TextField fullWidth variant="filled" label="Votre Email" id="inputEmail" name="email"
                        sx={{mt: 2}} onChange={handleInputValue}
-                       {...(!validateEmaill &&
-                           message.email.length < 5 &&{
+                       {...(!validateEmaill &&{
                            error: true,
                            helperText: "Veuillez saisir un email valide"
                        })}
                        />
+
+            <TextField fullWidth variant="filled" label="Votre Nom" id="inputName" name="name"
+                       onChange={handleInputValue} sx={{mt: 2}}/>
             <TextField fullWidth multiline rows={6} variant="filled" onChange={handleInputValue}
                        label="Votre Message" id="inputMessage" name="message" sx={{mt: 2}}
             />

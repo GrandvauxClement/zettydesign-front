@@ -6,6 +6,12 @@ class ProjectService {
         return Api.functionAxios().get('api/project');
     }
 
+    getProjectByKind(type) {
+        return Api.functionAxios().post('api/project/byKind', {
+            kind: type
+        });
+    }
+
     getOneProject(id){
         return Api.functionAxios().get('api/project/' + id,)
     }
