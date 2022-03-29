@@ -10,6 +10,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import theme from "../../theme";
 
 const PREFIX = 'Footer';
 
@@ -28,7 +30,7 @@ const Root = styled('div')((
 ) => ({
     [`&.${classes.root}`]: {
         width: "100%",
-        backgroundColor: theme.palette.primary.dark,
+        backgroundColor: theme.palette.primary.main,
         color: "white",
         marginTop: theme.spacing(2),
       //  paddingBottom: theme.spacing(6),
@@ -109,19 +111,15 @@ const Footer = (props) => {
                         </IconButton>
                     </Grid>
                 </Grid>
+            </Container>
+            <Box sx={{backgroundColor: theme.palette.primary.dark}}>
                 <Grid item container xs={12} sx={{justifyContent: 'center'}}>
                     <Typography paragraph>
-                        <span>Mentions légales</span>
-                        | © Copyright 2022 -Zetty design. Tous droits réservés
+                        <a href="#contact" style={{color: "white"}}>Mentions légales</a>
+                        | © Copyright 2022 - Zetty design. Tous droits réservés
                     </Typography>
                 </Grid>
-            </Container>
-            <Grid item container xs={12} sx={{justifyContent: 'center'}}>
-                <Typography paragraph>
-                    <a href="#contact" style={{color: "white"}}>Mentions légales</a>
-                    | © Copyright 2022 - Zetty design. Tous droits réservés
-                </Typography>
-            </Grid>
+            </Box>
         </Root>
     );
 }

@@ -29,7 +29,14 @@ function App() {
         <Contact />
         <Footer/>
         <ScrollToTop >
-            <Fab sx={{backgroundColor: theme.palette.primary.dark, color: "white"}} size="small" aria-label="scroll back to top">
+            <Fab sx={{
+                backgroundColor: theme.palette.primary.dark,
+                color: "white",
+                '&:hover': {
+                    backgroundColor: "#275f90",
+                    color: "white",
+                }
+            }} size="small" aria-label="scroll back to top">
                 <KeyboardArrowUp />
             </Fab>
         </ScrollToTop>

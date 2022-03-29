@@ -4,11 +4,12 @@ import {
 } from "@mui/material";
 import Box from "@mui/material/Box";
 import React from "react";
+import header from "../../assets/images/banniere-graph.png";
 
 const Header = (props) => {
   //  const headerFond = 'linear-gradient(rgba(42,177,234,0.44), rgba(42,177,234,0.44)), url(' + props.header + ') no-repeat center center / cover'
-   const headerFond = 'url(' + props.header + ')';
-   const headerFondMobile = 'url(' + props.header + ')';
+   const headerFond = 'url(' + header + ')';
+   const headerFondMobile = 'url(' + header + ')';
 
     return (
             <Box sx={{
