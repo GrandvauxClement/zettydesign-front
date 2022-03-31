@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import Header from "../Header/header";
 import Accueil from "../Accueil/accueil";
-import header from "../../assets/images/bannière-graph.png";
+import header from "../../assets/images/banniere-graph.png";
 import headerMobile from "../../assets/images/banMobile.png";
 import IndexProject from "../Project";
 

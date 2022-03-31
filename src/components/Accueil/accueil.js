@@ -9,6 +9,8 @@ import ServiceService from "../../services/service.service";
 import {useEffect, useState} from "react";
 import ServiceList from "./servicesList";
 import BannerDisplayNumber from "./bannerDisplayNumber";
+import Grid from "@mui/material/Grid";
+import Presentation from "../Presentation/Presentation";
 
 
 const Accueil = () => {
@@ -34,12 +36,20 @@ const Accueil = () => {
         return(
             <>
                 <Container>
-                    <Typography variant="h3" align="center">Travaillez avec un freelance de confiance dans tous l'Est de la France,
-                        pour tous vos projets de communication !
+
+                    <Presentation />
+                    <Typography variant="h2"
+                                sx={{my: 2, textAlign:{xs: 'center', md: 'left'}}} color="primary"
+                    >
+                        <i><u>Mes Services</u></i>
                     </Typography>
-                    {appState.services.map((service, index) => (
-                        <ServiceList key={index} service={service} index={index}/>
-                    ))}
+                    <Grid container spacing={2}>
+                        {appState.services.map((service, index) => (
+                        <Grid item xs={12} md={6} lg={4}>
+                            <ServiceList key={index} service={service} index={index}/>
+                        </Grid>
+                        ))}
+                    </Grid>
                 </Container>
                 <BannerDisplayNumber/>
             </>

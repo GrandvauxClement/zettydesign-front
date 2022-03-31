@@ -27,6 +27,15 @@ const theme = createTheme({
                     fontWeight: 600,
                     fontFamily: "haylard-text, sans-serif"
                 },
+                h2:{
+                    fontSize: '3.3em',
+                    fontWeight: 500,
+                    fontFamily: "haylard-text, sans-serif"
+                },
+                h3:{
+                  fontSize: '1.6em',
+                  fontWeight: 'bolder'
+                },
                 h4:{
                     fontSize: '1.2em',
                     fontWeight: 'bold',

@@ -32,12 +32,10 @@ const IndexProject = () => {
     }else {
         return (
             <Container sx={{mt: 3}}>
-               <Typography
-                   variant="h3"
-                   color={theme.palette.primary.main}
-                   sx={{textAlign:{xs: 'center', md: 'left'}}}
+               <Typography variant="h2" color="primary"
+                    sx={{my: 2, textAlign:{xs: 'center', md: 'left'}}}
                >
-                   Mes Réalisations
+                   <i>Mes Réalisations</i>
                </Typography>
                <Box sx={{my:3, display:"flex", flexDirection:"column", alignItems:"center"}}>
                    <Masonry columns={3} spacing={1}>
