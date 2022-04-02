@@ -23,8 +23,8 @@ const theme = createTheme({
         MuiTypography: {
             styleOverrides:{
                 h1: {
-                    fontSize: '4.1em',
-                    fontWeight: 600,
+                    fontSize: '4.0em',
+                    fontWeight: 750,
                     fontFamily: "haylard-text, sans-serif"
                 },
                 h2:{
@@ -41,7 +41,7 @@ const theme = createTheme({
                     fontWeight: 'bold',
                 },
                 h6:{
-                    fontSize: '1em',
+                    fontSize: '1.5em',
                     fontWeight: "bold"
                 }
             }

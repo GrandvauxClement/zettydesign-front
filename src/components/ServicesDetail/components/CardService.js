@@ -7,12 +7,12 @@ import Api from "../../../api";
 function CardService(props) {
     const urlImage = Api.baseUrl + 'public/images/services/'+props.data.image;
     return (
-        <Grid container sx={{mt: 2}}>
-            <Grid item xs={12} md={5} lg={3}>
+        <Grid container sx={{mt: 1}}>
+            <Grid item container justifyContent="center" xs={12} md={5} lg={3}>
                 <img
                     src={urlImage}
                     alt={props.data.title}
-                    style={{maxWidth: '80%'}}
+                    style={{maxWidth: '70%'}}
                 />
             </Grid>
             <Grid item xs={12} md={7} lg={9} sx={{display: "flex", flexDirection: "column", justifyContent: "center"}}>

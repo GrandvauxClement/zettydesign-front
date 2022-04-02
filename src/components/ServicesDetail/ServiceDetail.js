@@ -16,13 +16,13 @@ function ServiceDetail(props) {
         <div id="main">
             <Header header={props.imageHeader} title={props.titleHeader} text={props.textHeader} />
             <Container>
-                <Typography variant="h3" color="primary" sx={{textAlign:"center"}}>
+                <Typography variant="h2" color="primary" sx={{textAlign:"center", mt: 3}}>
                     {props.title}
                 </Typography>
-                <Typography variant="p" sx={{textAlign: "justify", mt: 2}}>
+                {/*<Typography variant="p" sx={{textAlign: "justify", mt: 2}}>
                     {props.description}
-                </Typography>
-                <Grid container sx={{justifyContent: "center", display: "flex", my: 3}}>
+                </Typography>*/}
+                <Grid container sx={{justifyContent: "center", display: "flex", mt: 3}}>
                     <a href="#contact">
                         <Button  variant="contained" endIcon={<SpeakerNotesIcon />}>
                             Demander un devis

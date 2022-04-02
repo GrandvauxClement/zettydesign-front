@@ -2,9 +2,14 @@ import React from "react";
 import header from "../../../assets/images/ban1.png";
 import data from "../../../assets/data/CommunityManagerData";
 import ServiceDetail from "../ServiceDetail";
+import leProgres from "../../../assets/images/logo_partenaire/logo-le-progres.png";
+import collegePasteur from "../../../assets/images/logo_partenaire/logo_academie-besancon.png";
+import trouveTonTransport from "../../../assets/images/logo_partenaire/trouve_ton_transport.jpg";
+import maisonTravaux from "../../../assets/images/logo_partenaire/la-maison-logo.png";
+import MesPartenaires from "../components/MesPartenaires";
 
 function CommunityManagementApp() {
-    const titleHeader = "Votre Community manager freelance";
+    const titleHeader = "Votre Freelance en Community Management";
 
     const textHeader = "Mise en place de vos réseaux sociaux, Stratégie de communication digitale, Gestion &" +
         " Animation, Analyse des résultats & analytics…";
@@ -21,16 +26,41 @@ function CommunityManagementApp() {
         "manager freelance, je vous accompagne dans cette aventure en mettant à votre disposition mon " +
         "expérience et ma créativité.";
 
-    return (
+    const imagesPartenaires = [
+        {
+            src: maisonTravaux,
+            alt: "Maison-des-travaux",
+            href: "https://lons-le-saunier.lamaisondestravaux.com/",
+        },
+        {
+            src: leProgres,
+            alt: "Le-Progrès",
+            href: "https://www.leprogres.fr/",
+        },
+        {
+            src: trouveTonTransport,
+            alt: "Trouve-ton-transport",
+            href: "https://www.trouvetontransport.com/",
+        },
+        {
+            src: collegePasteur,
+            alt: "Collège-Pasteur",
+            href: "https://clg-pasteur-arbois.eclat-bfc.fr/"
+        }
+    ]
 
-        <ServiceDetail
-            imageHeader = {header}
-            titleHeader = {titleHeader}
-            textHeader = {textHeader}
-            title = {title}
-            description = {description}
-            data = {data}
-        />
+    return (
+        <>
+            <ServiceDetail
+                imageHeader = {header}
+                titleHeader = {titleHeader}
+                textHeader = {textHeader}
+                title = {title}
+                description = {description}
+                data = {data}
+            />
+            <MesPartenaires images={imagesPartenaires} />
+        </>
     );
 }
 
