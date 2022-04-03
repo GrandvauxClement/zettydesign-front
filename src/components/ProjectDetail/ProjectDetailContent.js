@@ -79,9 +79,9 @@ const ProjectDetailContent = () => {
 
             {!loading && (
                 <Grid>
-                    <Masonry columns={3} spacing={1}>
+                    <Masonry columns={projects.length < 3 ? projects.length : 3} spacing={1}>
                         {projects.map((item, index) => (
-                            <ImageMasonry project={item} key={index}/>
+                            <ImageMasonry project={item} key={index} index={index} otherProjects={projects}/>
                         ))}
                     </Masonry>
                 </Grid>
