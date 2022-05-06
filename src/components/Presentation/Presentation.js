@@ -8,14 +8,14 @@ const Presentation = () => {
     return (
         <>
             <Typography variant="h2"
-                        sx={{my: 2, textAlign:{xs: 'center', md: 'left'}}}
+                        sx={{my: 2, mt: 0, textAlign:{xs: 'center', md: 'left'}}}
                         color="primary"
             >
                 <i>Qui suis-je ?</i>
             </Typography>
             <Grid container>
                 <Grid item md={3} justifyContent="center" sx={{display: {xs: "none", md: "flex"}}}>
-                    <img src={yoProfil} alt="photo de profil" style={{width: 200}}/>
+                    <img src={yoProfil} alt="profil yohann franzetti" style={{width: 200}}/>
                 </Grid>
                 <Grid item md={9} xs={12} alignItems="center" sx={{display: "flex"}}>
                     <Box>

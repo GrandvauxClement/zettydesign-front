@@ -41,7 +41,7 @@ const Accueil = () => {
                     <Typography variant="h2"
                                 sx={{my: 2, textAlign:{xs: 'center', md: 'left'}}} color="primary"
                     >
-                        <i><u>Mes Services</u></i>
+                        <i>Mes Services</i>
                     </Typography>
                     <Grid container spacing={2}>
                         {appState.services.map((service, index) => (

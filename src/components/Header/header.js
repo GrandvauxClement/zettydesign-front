@@ -1,5 +1,5 @@
 import {
-    Container, Grid,
+     Grid,
     Typography,
 } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -8,7 +8,6 @@ import React from "react";
 import header from "../../assets/images/NewBanniere-graph.png";
 
 import headerMobile from "../../assets/images/banMobile.png"
-import headerTablette from "../../assets/images/banTablette.png";
 
 const Header = (props) => {
   //  const headerFond = 'linear-gradient(rgba(42,177,234,0.44), rgba(42,177,234,0.44)), url(' + props.header + ') no-repeat center center / cover'
@@ -21,10 +20,9 @@ const Header = (props) => {
                 backgroundSize: {xs: "contain", sm: "cover",lg: "cover"},
               //  objectFit:"fill",
                 backgroundRepeat: "no-repeat",
-                height: {xs: "45vh",lg: "490px"},
-                mt: "70px"
+                height: {xs: "45vh",lg: "550px"},
+                mt: {xs:"70px", lg: "0px"}
             }}>
-             {/*   <Container sx={{height: '100%'}}>*/}
                     <Grid
                         container
                         sx={{
@@ -64,7 +62,6 @@ const Header = (props) => {
                             </Typography>
                         </Grid>
                     </Grid>
-               {/* </Container>*/}
             </Box>
     );
 }

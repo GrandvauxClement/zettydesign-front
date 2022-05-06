@@ -4,7 +4,7 @@ import {
     IconButton,
     Typography,
 } from "@mui/material";
-import Link from '@mui/material/Link';
+import {Link} from "react-router-dom";
 import styled from "@mui/material/styles/styled";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -67,10 +67,18 @@ const Footer = (props) => {
             <Container>
                 <Grid item xs={12}>
                     <Typography align='center'>
-                        <Link href="#" color="inherit" underline="hover">Création graphique | </Link>
-                        <Link href="#" color="inherit" underline="hover">Création de site | </Link>
-                        <Link href="#" color="inherit" underline="hover">Community management | </Link>
-                        <Link href="#" color="inherit" underline="hover">Stratégie de communication</Link>
+                        <Link to="creation-graphique" style={{color: "white", textDecoration: "none"}}>
+                            Création graphique |
+                        </Link>
+                        <Link to="création-de-site" style={{color: "white", textDecoration: "none"}}>
+                            Création de site |
+                        </Link>
+                        <Link to="community-management" style={{color: "white", textDecoration: "none"}}>
+                            Community management |
+                        </Link>
+                        <Link to="strategie-communication" style={{color: "white", textDecoration: "none"}}>
+                            Stratégie de communication
+                        </Link>
                     </Typography>
                 </Grid>
                 <Grid item container xs={12} direction='row' justifyContent="center">

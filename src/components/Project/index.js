@@ -9,6 +9,7 @@ import theme from "../../theme";
 import Masonry from "@mui/lab/Masonry";
 import Button from "@mui/material/Button";
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
+import {Link} from "react-router-dom";
 
 const IndexProject = () => {
     const [appState, setAppState] = useState({
@@ -43,9 +44,11 @@ const IndexProject = () => {
                            <ImageMasonry project={item} key={index}/>
                            ))}
                    </Masonry>
-                   <Button variant="contained" endIcon={<ArrowForwardIosOutlinedIcon />}>
-                       Voir toutes mes réalisations
-                   </Button>
+                   <Link to="/mes-realisations">
+                       <Button variant="contained" endIcon={<ArrowForwardIosOutlinedIcon />}>
+                           Voir toutes mes réalisations
+                       </Button>
+                   </Link>
                </Box>
 
             </Container>
