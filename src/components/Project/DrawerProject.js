@@ -88,7 +88,7 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                 <Typography sx={{textAlign: "center", color: theme.palette.primary.main, mt: 1}} variant="h2">
                     {tempProject.title}
                 </Typography>
-                <Grid container spacing={2} sx={{marginTop:2}}>
+                <Grid container spacing={2} sx={{marginTop:2, justifyContent: "space-between"}}>
                     <Grid item md={6} xs={12}>
                         <Carousel fade variant="dark">
                             {tempProject.images.map((item,index)=>(
@@ -116,7 +116,7 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                         </Masonry>*/}
                     </Grid>
 
-                    <Grid item md={6} xs={12}>
+                    <Grid item md={4} xs={12}>
                         <Typography variant="h5" sx={{fontStyle: 'italic', color: '#ea8d2a'}}>
                             Description
                         </Typography>
