@@ -3,7 +3,6 @@ import Stack from '@mui/material/Stack';
 import Api from "../../api";
 import styled from "@mui/material/styles/styled";
 import {useState} from "react";
-import ModalProject from "./modalProject";
 import Drawer from "@mui/material/Drawer";
 import DrawerProject from "./DrawerProject";
 
@@ -24,17 +23,14 @@ const Root = styled('div')(({theme}) => ({
         borderBottomRightRadius: 4,
         '&:hover':{
             cursor: "pointer",
-            transform:"scale(1.15)",
+            transform:"scale(1.08)",
         }
     }
 }))
 
 export default function ImageMasonry({project, index, otherProjects}) {
     const urlImage = Api.baseUrl + 'public/images/projets/';
-    const [open, setOpen] = useState(false);
     const [state, setState] = useState({ right: false });
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
     const toggleDrawer = (anchor, open) => (event) => {
         if (
             event.type === "keydown" &&
@@ -58,7 +54,6 @@ export default function ImageMasonry({project, index, otherProjects}) {
                   />
 
              </Stack>
-            <ModalProject open={open} onClose={handleClose} project={project}/>
             <Drawer
                 anchor="right"
                 open={state["right"]}

@@ -11,6 +11,7 @@ import ServiceList from "./servicesList";
 import BannerDisplayNumber from "./bannerDisplayNumber";
 import Grid from "@mui/material/Grid";
 import Presentation from "../Presentation/Presentation";
+import ServiceAccueilData from "../../assets/data/ServiceAccueilData";
 
 
 const Accueil = () => {
@@ -44,7 +45,7 @@ const Accueil = () => {
                         <i>Mes Services</i>
                     </Typography>
                     <Grid container spacing={2}>
-                        {appState.services.map((service, index) => (
+                        {ServiceAccueilData.map((service, index) => (
                         <Grid item xs={12} md={6} lg={4}>
                             <ServiceList key={index} service={service} index={index}/>
                         </Grid>

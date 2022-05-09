@@ -13,6 +13,8 @@ import {KeyboardArrowUp} from "@mui/icons-material";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import theme from "./theme";
 import Footer from "./components/Footer/footer";
+import RedactionArticleWeb from "./components/ServicesDetail/RedactionArticleWeb/RedactionArticleWebApp";
+import CreationSiteWebApp from "./components/ServicesDetail/CreationSiteWeb/CreationSiteWebApp";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
     <div className="App" id="back-to-top-anchor">
         <NavBar />
         <Routes>
+            <Route path="/redaction-article-web" element={<RedactionArticleWeb/>}/>
+            <Route path="/creation-site-web" element={<CreationSiteWebApp/>}/>
             <Route path="/creation-graphique" element={<CreationGraphiqueApp/>}/>
             <Route path="/community-management" element={<CommunityManagementApp />} />
             <Route path="/strategie-communication" element={<StrategieCommunicationApp />} />

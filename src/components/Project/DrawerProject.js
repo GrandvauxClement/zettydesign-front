@@ -13,8 +13,8 @@ import Button from "@mui/material/Button";
 import Api from "../../api";
 import serializeToHtml from "../BackOffice/utils/TextEditor/SerializeToHtml";
 import IconButton from "@mui/material/IconButton";
-import CloseIcon from '@mui/icons-material/Close';
 import Container from "@mui/material/Container";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
     const urlImage = Api.baseUrl + 'public/images/projets/';
@@ -45,11 +45,11 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
     }
 
     return (
-        <Box sx={{width: {xs:'100%', lg:'1200px'}}}>
+        <Box sx={{width: {xs:'100%', lg:'1000px'}}}>
             <AppBar
                 position="fixed"
                 color="primary"
-                sx={{width: {xs:'100%', lg:'1200px'},
+                sx={{width: {xs:'100%', lg:'1000px'},
                     // right: {xs: "0", md: "16px"}
                 }}
             >
@@ -57,6 +57,14 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                     sx={{display: 'flex',
                         justifyContent: 'space-between'}}
                 >
+                    <IconButton
+                        color="inherit"
+                        onClick={(e) =>
+                            toggleDrawer("right", false)(e)
+                        }
+                    >
+                        <ArrowBackIcon />
+                    </IconButton>
                     <Box>
                         <Button
                             variant="contained"
@@ -72,15 +80,6 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                             Projet Suivant
                         </Button>
                     </Box>
-
-                    <IconButton
-                        color="inherit"
-                        onClick={(e) =>
-                            toggleDrawer("right", false)(e)
-                        }
-                    >
-                        <CloseIcon />
-                    </IconButton>
                 </Toolbar>
             </AppBar>
             <Container sx={{mt: 8}}>
@@ -88,7 +87,7 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                 <Typography sx={{textAlign: "center", color: theme.palette.primary.main, mt: 1}} variant="h2">
                     {tempProject.title}
                 </Typography>
-                <Grid container spacing={2} sx={{marginTop:2, justifyContent: "space-between"}}>
+                <Grid container spacing={2} sx={{marginTop:2, justifyContent: "space-around"}}>
                     <Grid item md={6} xs={12}>
                         <Carousel fade variant="dark">
                             {tempProject.images.map((item,index)=>(
@@ -116,7 +115,8 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                         </Masonry>*/}
                     </Grid>
 
-                    <Grid item md={4} xs={12}>
+                    <Grid item md={5} xs={12}>
+
                         <Typography variant="h5" sx={{fontStyle: 'italic', color: '#ea8d2a'}}>
                             Description
                         </Typography>

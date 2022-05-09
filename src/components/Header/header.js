@@ -35,8 +35,11 @@ const Header = (props) => {
                         <Grid item xs={12} md={8}
                               sx={{
                                   display: "flex",
-                                  justifyContent: "space-around",
-                                  flexDirection: "column"
+                                  height: "100%",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  flexDirection: "column",
+                                  mt:{xs: 0, lg: "100px"}
                               }}
                         >
                             <Typography
@@ -45,6 +48,7 @@ const Header = (props) => {
                                 sx={{
                                     // fontWeight: {xs: 500, md: 600},
                                     fontSize: {xs: '2.2em', md: '4.1em'},
+                                    width: {xs: "100%", lg:"900px"},
                                     mb: 3
                                 }}
                             >

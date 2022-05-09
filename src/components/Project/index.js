@@ -5,7 +5,6 @@ import ImageMasonry from "./ImageMasonryDisplay";
 import {Container, Typography} from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-import theme from "../../theme";
 import Masonry from "@mui/lab/Masonry";
 import Button from "@mui/material/Button";
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
@@ -19,7 +18,6 @@ const IndexProject = () => {
     useEffect( () => {
         setAppState({loading: true});
         ProjectService.getAllProject().then((data) => {
-            console.log(data);
             setAppState({loading:false, projects: data.data});
         });
     }, [setAppState])
@@ -41,7 +39,8 @@ const IndexProject = () => {
                <Box sx={{my:3, display:"flex", flexDirection:"column", alignItems:"center"}}>
                    <Masonry columns={3} spacing={1}>
                        {appState.projects.map((item, index) => (
-                           <ImageMasonry project={item} key={index}/>
+                           index<6 &&
+                            <ImageMasonry project={item} key={index}/>
                            ))}
                    </Masonry>
                    <Link to="/mes-realisations">
