@@ -32,7 +32,7 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
         };
 
         const deleteProjectSelected = () => {
-            projectParse.map((project)=> {
+            projectParse.forEach((project)=> {
                 for (let i=0; i<selectMultiple.length; i++){
                     if (project.id === selectMultiple[i]){
                        deleteProject(project._id);
@@ -163,7 +163,7 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
 
     const formateProjectForDisplay = (projects) => {
         let projectParseToReturn = [];
-        projects.map((project, index) => {
+        projects.forEach((project, index) => {
             projectParseToReturn.push({
                 id: index + 1,
                 _id: project._id,

@@ -15,10 +15,6 @@ const MessageContainer = () => {
         messages: null
     });
 
-    const displayNewMessagePage = () => {
-        setPageTodisplay({name: "add", valueSelected: null});
-    }
-
     const displayIndexMessagePage = () => {
         setPageTodisplay({name: "index", valueSelected: null});
     }

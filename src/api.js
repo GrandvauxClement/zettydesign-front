@@ -3,14 +3,14 @@ import axios from 'axios';
 class Api {
     functionAxios = () => {
        return axios.create({
-            baseURL:"http://localhost:9000/",
+            baseURL: process.env.REACT_APP_API_URL,
             headers:{
                 "Content-type": "application/json",
                 "x-access-token": localStorage.getItem("token")
             }
         })
     }
-    baseUrl = "http://localhost:9000/";
+    baseUrl = process.env.REACT_APP_API_URL;
 }
 
 

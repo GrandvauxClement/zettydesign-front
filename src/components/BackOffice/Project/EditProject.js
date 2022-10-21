@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import axios from "axios";
 import ProjectService from "../../../services/project.service";
 import FormProject from "./FormProject";
+import Api from "../../../api";
 
 export default function EditProject({setPageToDisplay, projectSelected}) {
     const [project, setProject] = useState(projectSelected);
@@ -11,11 +12,11 @@ export default function EditProject({setPageToDisplay, projectSelected}) {
         // Upload on a first Time all images
         const formUploadData = new FormData();
         newImages.forEach(file => formUploadData.append('multipleImages', file));
-        axios.post('http://localhost:9000/api/project/multiple-upload', formUploadData)
+        axios.post(`${Api.baseUrl}/api/project/multiple-upload`, formUploadData)
             .then((newFileName) => {
                 // If upload good, create newproject
                 let imagesKeep = project.images
-                newFileName.data.map((fileName) => {
+                newFileName.data.forEach((fileName) => {
                     imagesKeep.push(fileName);
                 })
                 ProjectService.updateProject(project, imagesKeep)

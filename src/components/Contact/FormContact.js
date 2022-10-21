@@ -43,7 +43,7 @@ function FormContact() {
         if (name === 'devis'){
             setMessage({
                 ...message,
-                ['devis']: !message.devis
+                devis: !message.devis
             });
         }else {
             setMessage({

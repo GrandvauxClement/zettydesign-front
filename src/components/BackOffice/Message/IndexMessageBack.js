@@ -32,7 +32,7 @@ export default function IndexMessageBack({pageToDisplay, setPageToDisplay, appSt
         };
 
         const deleteMessageSelected = () => {
-            messageParse.map((message)=> {
+            messageParse.forEach((message)=> {
                 for (let i=0; i<selectMultiple.length; i++){
                     if (message.id === selectMultiple[i]){
                         deleteMessage(message._id);
@@ -137,16 +137,18 @@ export default function IndexMessageBack({pageToDisplay, setPageToDisplay, appSt
 
     useEffect(() => {
         setAppState({loading: true});
-        MessageService.getAllMessage().then((data) => {
-            setMessageParse(formateMessageForDisplay(data.data));
-            setAppState({loading: false, messages: data.data});
-        });
+        MessageService
+            .getAllMessage()
+            .then((data) => {
+                setMessageParse(formateMessageForDisplay(data.data));
+                setAppState({loading: false, messages: data.data});
+            });
     }, [setAppState, pageToDisplay])
 
     const formateMessageForDisplay = (messages) => {
         console.log(messages);
         let messagesParseToReturn = [];
-        messages.map((message, index) => {
+        messages.forEach((message, index) => {
             const date = new Date(message.createdAt);
 
             messagesParseToReturn.push({
