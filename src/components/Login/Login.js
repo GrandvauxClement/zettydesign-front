@@ -25,11 +25,11 @@ const Login = () => {
     }
 
     const onSubmit = () => {
-        console.log(connectForm);
+
         if (connectForm.email.length > 5 && connectForm.password.length > 4){
             UserService.login(connectForm.email, connectForm.password)
                 .then((res) => {
-                    console.log(res);
+
                     localStorage.setItem("token", res.data.token);
                     navigate("/admin");
                 })

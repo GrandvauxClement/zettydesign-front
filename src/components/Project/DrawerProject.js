@@ -82,9 +82,9 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                     </Box>
                 </Toolbar>
             </AppBar>
-            <Container sx={{mt: 8}}>
+            <Container sx={{mt: 10}}>
 
-                <Typography sx={{textAlign: "center", color: theme.palette.primary.main, mt: 1}} variant="h2">
+                <Typography sx={{textAlign: "center", color: theme.palette.primary.main, mt: 3}} variant="h2">
                     {tempProject.title}
                 </Typography>
                 <Grid container spacing={2} sx={{marginTop:2, justifyContent: "space-around"}}>
@@ -117,14 +117,14 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
 
                     <Grid item md={5} xs={12}>
 
-                        <Typography variant="h5" sx={{fontStyle: 'italic', color: '#ea8d2a'}}>
+                        <Typography variant="h3" sx={{color: theme.palette.primary.main}}>
                             Description
                         </Typography>
 
                         <Box dangerouslySetInnerHTML={{__html: description}} sx={{ mt: 2 }}>
 
                         </Box>
-                        <Typography variant="h5" component="h3" sx={{fontStyle: 'italic', color: '#ea8d2a'}}>
+                        <Typography variant="h3" component="h3" sx={{ color: theme.palette.primary.main}}>
                             Tag
                         </Typography>
 

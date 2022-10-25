@@ -146,7 +146,7 @@ export default function IndexMessageBack({pageToDisplay, setPageToDisplay, appSt
     }, [setAppState, pageToDisplay])
 
     const formateMessageForDisplay = (messages) => {
-        console.log(messages);
+
         let messagesParseToReturn = [];
         messages.forEach((message, index) => {
             const date = new Date(message.createdAt);

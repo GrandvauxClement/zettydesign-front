@@ -20,9 +20,9 @@ function FormContact() {
    const validate = () =>{
        if ( /\S+@\S+\.\S+/.test(message.email) ){
            setValidateEmail(true);
-           console.log("C GOOD ! :)")
+
        }else {
-           console.log("je passe la ")
+
            setValidateEmail(false);
        }
        if ( validateEmaill && message.email.length > 6 && message.message.length > 10){

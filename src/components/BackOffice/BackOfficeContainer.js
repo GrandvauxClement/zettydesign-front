@@ -11,7 +11,7 @@ const BackOfficeContainer = () => {
 
     useEffect(()=> {
         UserService.checkToken().then((res) => {
-            console.log(res);
+
             if (res.data.isLoggedIn){
                 setCheckToken(true);
             } else {

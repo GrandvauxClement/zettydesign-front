@@ -8,7 +8,7 @@ import theme from "../../theme";
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import {Button} from "@mui/material";
-import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
@@ -17,8 +17,10 @@ function Contact(){
     return (
         <div className='bg-light pb-3' id="contact">
             <Container>
-                <Typography variant="h2" sx={{display: "block", textAlign: "center"}}>
-                    <Box color="primary" sx={{display: "block", color: theme.palette.primary.main}}>Vous avez un projet ? </Box>
+                <Typography variant="h2" sx={{textAlign: "center", color: theme.palette.primary.main}}>
+                    Vous avez un projet ?
+                </Typography>
+                <Typography variant="h5" sx={{textAlign: "center", fontSize: "2em"}}>
                     Parlons-en
                 </Typography>
                 <Grid container spacing={4}>
@@ -43,7 +45,7 @@ function Contact(){
                                 </Typography>
                                 <a href="tel:0661633748" >
                                     <Button variant="contained" startIcon={<PhoneIcon />}>
-                                        0661633748
+                                        06 61 63 37 48
                                     </Button>
                                 </a>
                             </Grid>
@@ -52,8 +54,8 @@ function Contact(){
                                     PAR E-MAIL (7J/7, LA NUIT, LE JOUR...) :
                                 </Typography>
                                 <Box sx={{display: 'flex'}}>
-                                    <a href="https://fr-fr.facebook.com/yohann.franzetti" className="ms-3">
-                                        <FacebookIcon sx={{fontSize: 60, color: theme.palette.primary.main}}/>
+                                    <a href="https://twitter.com/Zetty_69" className="ms-3">
+                                        <TwitterIcon sx={{fontSize: 60, color: theme.palette.primary.main}}/>
                                     </a>
                                     <a href="https://www.instagram.com/yohannfzi/" className="ms-3">
                                         <InstagramIcon sx={{fontSize: 60, color: theme.palette.primary.main}}/>
@@ -63,8 +65,14 @@ function Contact(){
                                     </a>
                                 </Box>
                                 <a href="mailto:clement.grandvaux@hotmail.com">
-                                    <Button variant="contained" startIcon={<EmailIcon />}>
-                                        yoyo--mail@gmail.com
+                                    <Button
+                                        variant="contained"
+                                        startIcon={<EmailIcon />}
+                                        sx={{
+                                          textTransform: 'none'
+                                        }}
+                                    >
+                                        contact@zettydesign.fr
                                     </Button>
                                 </a>
                             </Grid>

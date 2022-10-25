@@ -20,7 +20,7 @@ const Header = (props) => {
                 backgroundSize: {xs: "contain", sm: "cover",lg: "cover"},
               //  objectFit:"fill",
                 backgroundRepeat: "no-repeat",
-                height: {xs: "45vh",lg: "550px"},
+                height: {xs: "45vh",lg: "550px", xl: "650px"},
                 mt: {xs:"70px", lg: "0px"}
             }}>
                     <Grid

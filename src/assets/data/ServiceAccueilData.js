@@ -4,7 +4,7 @@ const ServiceAccueilData = [
         subTitle: 'Développez votre visibilité sur le web!',
         description: 'Web rédacteur, article web, blogging… Une discipline souvent mise de côté, pourtant elle a ' +
             'apport une plus-value primordiales pour votre entreprise',
-        image: 'creationGraphique.png',
+        image: 'RedactionArticleWeb.png',
         url: '/redaction-article-web#main'
     },
     {
@@ -24,9 +24,9 @@ const ServiceAccueilData = [
             ' En premier lieu, après avoir réalisé une étude de vos concurrents, nous établissons ensemble une ligne' +
             ' éditoriale propre aux valeurs et objectifs de votre entreprise. Ensuite, je vous guiderai dans la mise en' +
             ' place et l’animation de vos médias sociaux afin d’optimiser votre communication numérique.',
-        image: 'coummunityManagement.png',
+        image: 'communityManagement.png',
         url: '/community-management#main'
-    },
+    },/*
     {
         title: 'Stratégie de Communication',
         subTitle: 'Démarquez-vous de vos concurrents!',
@@ -36,12 +36,12 @@ const ServiceAccueilData = [
             ' la réalisation de leur projet web.',
         image: 'stratComm.png',
         url: '/strategie-communication#main'
-    },
+    },*/
     {
         title: 'Création de site web',
         subTitle: 'Développer votre entreprise sur le web !',
         description: 'Après une étude de marché détaillée, élaborons ensemble votre plan de communication sur mesure... ',
-        image: 'stratComm.png',
+        image: 'websiteBuilding.png',
         url: '/creation-site-web#main'
     },
 ]

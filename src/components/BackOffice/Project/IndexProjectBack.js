@@ -142,7 +142,7 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
         let valueToReturn ;
         if (date.toString() === "Invalid Date"){
             valueToReturn = value;
-            console.log('value', value);
+
         }else {
             valueToReturn = date.toLocaleDateString('fr-FR', {
                 year: 'numeric',

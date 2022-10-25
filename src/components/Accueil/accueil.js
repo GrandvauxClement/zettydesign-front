@@ -36,7 +36,7 @@ const Accueil = () => {
     }else{
         return(
             <>
-                <Container>
+                <Container sx={{mb:2}}>
 
                     <Presentation />
                     <Typography variant="h2"
