@@ -4,11 +4,12 @@ import Button from "@mui/material/Button";
 import TextField from '@mui/material/TextField';
 import Chip from '@mui/material/Chip';
 import Autocomplete from '@mui/material/Autocomplete';
+import frLocale from "date-fns/locale/fr";
 import TextEditor from "../utils/TextEditor/TextEditor";
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
-import {MultipleUpload, EditMultipleUpload} from "../utils/UploadFiles";
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import {GlobalMultipleImagesUpload} from "../utils/UploadFiles";
 import {
     stringIsValid,
     arrayIsValid,
@@ -159,8 +160,9 @@ export default function FormProject({project, setProject, onSubmit, newImages = 
                         />
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                        <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={frLocale}>
                             <DatePicker
+                                maxDate={new Date()}
                                 label="Créer le"
                                 value={project.createdAt}
                                 onChange={(newValue) => {
@@ -180,7 +182,7 @@ export default function FormProject({project, setProject, onSubmit, newImages = 
                                         fullWidth
                                     />
                                 }
-                            />
+                             />
                         </LocalizationProvider>
                     </Grid>
                     <Grid item xs={12} md={8}>
@@ -195,35 +197,19 @@ export default function FormProject({project, setProject, onSubmit, newImages = 
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        {newImages === null ?
-                            <MultipleUpload
-                                updateFiles={(value) => {
-                                    setProject({
-                                        ...project,
-                                        images: value
-                                    })
-                                    arrayIsValid(value) ?
-                                        setImagesIsInvalid(false) :
-                                        setImagesIsInvalid(true)
-                                }}
-                                files={project.images}
-                            />
-                            :
-                            <EditMultipleUpload
-                                updateFiles={(value) => {
-                                    setProject({
-                                        ...project,
-                                        images: value
-                                    })
-                                    imageArrayEditIsValid(value, newImages) ?
-                                        setImagesIsInvalid(false) :
-                                        setImagesIsInvalid(true)
-                                }}
-                                files={project.images}
-                                newImages={newImages}
-                                setNewImages={setNewImages}
-                            />
-                        }
+
+                        <GlobalMultipleImagesUpload
+                            images={project.images}
+                            setImages={(value) => {
+                                setProject({
+                                    ...project,
+                                    images: value
+                                })
+                            }}
+                            editView={newImages !== null}
+                            imagesInvalid={imagesIsInvalid}
+                            setImagesInvalid={setImagesIsInvalid}
+                        />
 
                         {imagesIsInvalid &&
                         <Alert severity="error">Fais un effort Yo, ton projet doit avoir min 3 images!</Alert>

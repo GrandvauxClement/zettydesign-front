@@ -16,31 +16,15 @@ class ProjectService {
         return Api.functionAxios().get('api/project/' + id,)
     }
 
-    addProject(project, newFileName){
+    addProject(projectFromData){
         return Api.functionAxios().post('api/project',
-            {
-                title: project.title,
-                type: project.type,
-                description: project.description,
-                tag: project.tag,
-                createdAt: project.createdAt,
-                videoLink: project.videoLink,
-                images: newFileName
-            }
+            projectFromData
         )
     }
 
-    updateProject(project, newFileName){
-        return Api.functionAxios().post('api/project/'+project._id,
-            {
-                title: project.title,
-                type: project.type,
-                description: project.description,
-                tag: project.tag,
-                createdAt: project.createdAt,
-                videoLink: project.videoLink,
-                images: newFileName
-            }
+    updateProject(id, formUploadData){
+        return Api.functionAxios().post('api/project/' + id,
+            formUploadData
         )
     }
 

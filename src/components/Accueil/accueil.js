@@ -46,9 +46,9 @@ const Accueil = () => {
                     </Typography>
                     <Grid container spacing={2}>
                         {ServiceAccueilData.map((service, index) => (
-                        <Grid item xs={12} md={6} lg={4}>
-                            <ServiceList key={index} service={service} index={index}/>
-                        </Grid>
+                            <Grid item xs={12} md={6} lg={4} key={index}>
+                                <ServiceList  service={service} index={index}/>
+                            </Grid>
                         ))}
                     </Grid>
                 </Container>

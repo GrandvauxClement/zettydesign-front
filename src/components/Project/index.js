@@ -40,7 +40,7 @@ const IndexProject = () => {
                    <Masonry columns={3} spacing={1}>
                        {appState.projects.map((item, index) => (
                            index<6 &&
-                            <ImageMasonry project={item} key={index} otherProjects={appState.projects}/>
+                            <ImageMasonry project={item} index={index} key={index} otherProjects={appState.projects}/>
                            ))}
                    </Masonry>
                    <Link to="/mes-realisations">

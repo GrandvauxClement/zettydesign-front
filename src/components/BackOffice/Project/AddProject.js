@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import axios from "axios";
 import ProjectService from "../../../services/project.service";
 import FormProject from "./FormProject";
-import Api from "../../../api";
+import {parseProjectDataToFormData} from "./utils/parseProjectDataToFormData";
 
 export default function AddProject({setPageToDisplay}) {
     const [newProject, setNewProject] = useState({
@@ -17,32 +16,21 @@ export default function AddProject({setPageToDisplay}) {
         ],
         tag: [],
         images: [],
-        createdAt: null,
+        createdAt: new Date(),
         type: '',
         videoLink: ''
     });
 
     const handleSubmit = () => {
         // Upload on a first Time all images
-        const formUploadData = new FormData();
-        newProject.images.forEach(file => formUploadData.append('multipleImages', file));
-        axios.post(`${Api.baseUrl}api/project/multiple-upload`, formUploadData,
-            {headers: {"x-access-token": localStorage.getItem("token")}})
-            .then((newFileName) => {
-                // If upload good, create newproject
-                ProjectService.addProject(newProject, newFileName.data)
-                    .then((res) => {
-                        // Add project done redirect to index and display popup to say is good
-                        setPageToDisplay({
-                            name: "index",
-                            valueSelected: null
-                        });
-                    })
+        ProjectService.addProject(parseProjectDataToFormData(newProject))
+            .then((res) => {
+                // Add project done redirect to index and display popup to say is good
+                setPageToDisplay({
+                    name: "index",
+                    valueSelected: null
+                });
             })
-            .catch((error) => {
-                //TODO :Display error if upload don t work
-                console.log(error)
-            });
     }
     return (
         <FormProject
