@@ -1,42 +1,61 @@
 import React, {useEffect} from "react";
 import Header from "../Header/header";
 import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import CardService from "./components/CardService";
-import SpeakerNotesIcon from '@mui/icons-material/SpeakerNotes';
-import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import header from "../../assets/images/ban1.png";
+import MesPartenaires from "./components/MesPartenaires";
+import maisonTravaux from "../../assets/images/logo_partenaire/la-maison-logo.png";
+import epicanin from "../../assets/images/logo_partenaire/epicanin.png";
+import trouveTonTransport from "../../assets/images/logo_partenaire/trouve_ton_transport.jpg";
+import collegePasteur from "../../assets/images/logo_partenaire/logo_academie-besancon.png";
 
-function ServiceDetail(props) {
+function ServiceDetail({titleHeader, textHeader, principalText, imgPrincipal, altImgPrincipal}) {
+
+    const imagesPartenaires = [
+        {
+            src: maisonTravaux,
+            alt: "Maison des travaux",
+            href: "https://lons-le-saunier.lamaisondestravaux.com/",
+        },
+        {
+            src: epicanin,
+            alt: "Epicanin",
+            href: "https://www.epicanin.com/",
+        },
+        {
+            src: trouveTonTransport,
+            alt: "Trouve ton transport",
+            href: "https://www.trouvetontransport.com/",
+        },
+        {
+            src: collegePasteur,
+            alt: "Collège Pasteur Arbois Jura",
+            href: "https://clg-pasteur-arbois.eclat-bfc.fr/"
+        }
+    ];
+
     useEffect(() => {
         window.scrollTo(0,0);
     })
     return (
         <div id="main">
-            <Header header={props.imageHeader} title={props.titleHeader} text={props.textHeader} />
+            <Header header={header} title={titleHeader} text={textHeader} />
             <Container>
-                <Typography variant="h3" color="primary" sx={{textAlign:"center", mt: 3}}>
-                    {props.title}
-                </Typography>
-                <Grid container sx={{justifyContent: "center", display: "flex", mt: 3}}>
-                    <a href="#contact">
-                        <Button  variant="contained" endIcon={<SpeakerNotesIcon />}>
-                            Demander un devis
-                        </Button>
-                    </a>
-                </Grid>
-                {props.data.map((details, index) => (
-                    <CardService data={details} key={index}/>
-                ))}
-                <Grid container sx={{justifyContent: "center", display: "flex", my: 3}}>
-                    <a href="#contact">
-                        <Button  variant="contained" endIcon={<SpeakerNotesIcon />}>
-                            Demander un devis
-                        </Button>
-                    </a>
+
+                <Grid container sx={{mb: 4}} spacing={2}>
+                    <Grid item xs={12} md={4}>
+                        <img
+                            src={imgPrincipal}
+                            alt={altImgPrincipal}
+                            className="img-fluid"
+                        />
+                    </Grid>
+                    <Grid item xs={12} md={7} container flexDirection="column" justifyContent="center">
+                        {principalText}
+                    </Grid>
                 </Grid>
 
-
+                <MesPartenaires images={imagesPartenaires} />
             </Container>
         </div>
     )

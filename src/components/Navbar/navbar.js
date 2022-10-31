@@ -19,14 +19,17 @@ const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto ms-3">
                         <NavDropdown title="Mes Services" id="basic-nav-dropdown" className="ms-3">
-                            <NavDropdown.Item href="/creation-graphique">
-                                Création Graphique
+                            <NavDropdown.Item href="/design-graphique">
+                                Design Graphique
                             </NavDropdown.Item>
                             <NavDropdown.Item href="/community-management">
                                 Community Management
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="/strategie-communication">
-                                Stratégie de communication
+                            <NavDropdown.Item href="/redaction-article-web">
+                                Rédaction article web
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="/creation-site-web">
+                                Création de site web
                             </NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link style={{color: "white", fontSize: "1.3em"}} className="ms-3" href="/mes-realisations">

@@ -6,12 +6,12 @@ import {
 } from "@mui/material";
 import {Link} from "react-router-dom";
 import styled from "@mui/material/styles/styled";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import theme from "../../theme";
+import TwitterIcon from "@mui/icons-material/Twitter";
 
 const PREFIX = 'Footer';
 
@@ -32,8 +32,6 @@ const Root = styled('div')((
         width: "100%",
         backgroundColor: theme.palette.primary.main,
         color: "white",
-        marginTop: theme.spacing(2),
-      //  paddingBottom: theme.spacing(6),
     },
 
     [`& .${classes.footerItem}`]: {
@@ -67,31 +65,39 @@ const Footer = (props) => {
             <Container>
                 <Grid item xs={12}>
                     <Typography align='center'>
-                        <Link to="creation-graphique" style={{color: "white", textDecoration: "none"}}>
-                            Création graphique |
+                        <Link to="redaction-article-web" style={{color: "white", textDecoration: "none"}}>
+                            Rédaction article web | {" "}
                         </Link>
-                        <Link to="création-de-site" style={{color: "white", textDecoration: "none"}}>
-                            Création de site |
+                        <Link
+                            to="design-graphique"
+                            style={{
+                                color: "white",
+                                textDecoration: "none"
+                            }}
+                        >
+                            Design graphique | {" "}
+                        </Link>
+                        <Link to="création-site-web" style={{color: "white", textDecoration: "none"}}>
+                            Création de site | {" "}
                         </Link>
                         <Link to="community-management" style={{color: "white", textDecoration: "none"}}>
-                            Community management |
+                            Community management
                         </Link>
-                        <Link to="strategie-communication" style={{color: "white", textDecoration: "none"}}>
-                            Stratégie de communication
-                        </Link>
+
                     </Typography>
                 </Grid>
                 <Grid item container xs={12} direction='row' justifyContent="center">
                     <Grid item>
+
                         <IconButton
                             color={"inherit"}
                             onClick={() =>
                                 window.open(
-                                    `https://fr-fr.facebook.com/yohann.franzetti`
+                                    `https://twitter.com/Zetty_69`
                                 )
                             }
                             className={classes.buttonIcone}>
-                            <FacebookIcon className={classes.icone} />
+                            <TwitterIcon className={classes.icone} />
                         </IconButton>
                     </Grid>
                     <Grid item>
@@ -99,7 +105,7 @@ const Footer = (props) => {
                             color={"inherit"}
                             onClick={() =>
                                 window.open(
-                                    `hhttps://www.instagram.com/yohannfzi/`
+                                    `https://www.instagram.com/yohannfzi/`
                                 )
                             }
                             className={classes.buttonIcone}>
@@ -123,8 +129,10 @@ const Footer = (props) => {
             <Box sx={{backgroundColor: theme.palette.primary.dark}}>
                 <Grid item container xs={12} sx={{justifyContent: 'center'}}>
                     <Typography paragraph>
-                        <a href="#contact" style={{color: "white"}}>Mentions légales</a>
-                        | © Copyright 2022 - Zetty design. Tous droits réservés
+                        <Link to="mentions-legales" style={{color: "white", textDecoration: "none"}}>
+                            Mentions légales {" "}
+                        </Link>
+                        | © Copyright 2022 - Zetty Design. Tous droits réservés
                     </Typography>
                 </Grid>
             </Box>

@@ -1,12 +1,7 @@
 import React from "react";
-import header from "../../../assets/images/ban1.png";
-import data from "../../../assets/data/CommunityManagerData";
 import ServiceDetail from "../ServiceDetail";
-import leProgres from "../../../assets/images/logo_partenaire/logo-le-progres.png";
-import collegePasteur from "../../../assets/images/logo_partenaire/logo_academie-besancon.png";
-import trouveTonTransport from "../../../assets/images/logo_partenaire/trouve_ton_transport.jpg";
-import maisonTravaux from "../../../assets/images/logo_partenaire/la-maison-logo.png";
-import MesPartenaires from "../components/MesPartenaires";
+import {Typography} from "@mui/material";
+import Api from "../../../api";
 
 function CommunityManagementApp() {
     const titleHeader = "Votre Freelance en Community Management";
@@ -14,52 +9,44 @@ function CommunityManagementApp() {
     const textHeader = "Mise en place de vos réseaux sociaux, Stratégie de communication digitale, Gestion &" +
         " Animation, Analyse des résultats & analytics…";
 
-    const title = "Maîtrisez vos réseaux sociaux, et développez votre visibilité sur le web avec un community " +
-        "manager freelance créatif !";
+    const imgPrincipal = `${Api.baseUrl}public/images/services/communityManagement.png`;
 
-    const description = "Il est temps de mettre les réseaux sociaux au centre de votre stratégie de communication!" +
-        " 30% des internautes déclarent être influencés par ces plateformes lorsqu’il réalisent un achat. Si " +
-        "vous souhaitez développer votre notoriété sur internet et augmenter le trafic sur votre site web. Si " +
-        "vous voulez trouver de nouveaux prospects et accroître votre e-réputation. Ou encore si vous chercher à " +
-        "être au plus proche de vos clients pour instaurer une relation de confiance. Alors vous devez mettre en " +
-        "place une stratégie social media et construire une ligne éditoriale efficace! En tant que community " +
-        "manager freelance, je vous accompagne dans cette aventure en mettant à votre disposition mon " +
-        "expérience et ma créativité.";
+    const altImgPrincipal = "zettydesign freelance community management";
 
-    const imagesPartenaires = [
-        {
-            src: maisonTravaux,
-            alt: "Maison-des-travaux",
-            href: "https://lons-le-saunier.lamaisondestravaux.com/",
-        },
-        {
-            src: leProgres,
-            alt: "Le-Progrès",
-            href: "https://www.leprogres.fr/",
-        },
-        {
-            src: trouveTonTransport,
-            alt: "Trouve-ton-transport",
-            href: "https://www.trouvetontransport.com/",
-        },
-        {
-            src: collegePasteur,
-            alt: "Collège-Pasteur",
-            href: "https://clg-pasteur-arbois.eclat-bfc.fr/"
-        }
-    ]
+
+    const principalText = () => (
+        <>
+            <Typography paragraph>
+                Une de mes spécialités !
+            </Typography>
+            <Typography paragraph>
+                Évaluer vos besoins : qui vous ciblez ? Ensuite, définir les réseaux sociaux pertinents et les
+                messages à y passer. Créer les contenus adaptés à chaque réseau ! Et pour cela, définir une stratégie
+                social média : créer une ligne éditoriale, programmer les publications aux heures les plus pertinentes,
+                les organiser stratégiquement et surtout : une analyse précise des performances pour les optimiser.
+            </Typography>
+            <Typography paragraph>
+                Je peux m’occuper de tout, ou seulement de certains aspects : c’est comme vous le souhaitez !
+            </Typography>
+            <Typography paragraph>
+                Je propose aussi des services de consultation : analyser précisément vos réseaux pour vous fournir un
+                rapport détaillé et compréhensible avec des préconisations pour améliorer votre communication.
+            </Typography>
+            <Typography paragraph>
+                (S’il vous plaît, ne faites plus les mêmes posts sur tous les réseaux, ils ne fonctionnent pas de la même façon !)
+            </Typography>
+        </>
+    )
 
     return (
         <>
             <ServiceDetail
-                imageHeader = {header}
                 titleHeader = {titleHeader}
                 textHeader = {textHeader}
-                title = {title}
-                description = {description}
-                data = {data}
+                imgPrincipal={imgPrincipal}
+                principalText={principalText()}
+                altImgPrincipal={altImgPrincipal}
             />
-            <MesPartenaires images={imagesPartenaires} />
         </>
     );
 }

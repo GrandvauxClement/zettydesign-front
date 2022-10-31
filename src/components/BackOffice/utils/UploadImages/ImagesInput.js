@@ -11,8 +11,6 @@ const ImagesInput = ({
                          error
                      }) =>
 {
-
-    const [dialogOpen, setDialogOpen] = useState(false);
     const [loading, setLoading] = useState(false);
 
     // save ref for dragImage

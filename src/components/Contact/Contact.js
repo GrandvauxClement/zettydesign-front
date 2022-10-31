@@ -2,27 +2,31 @@ import React from "react";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import FormContact from "./FormContact";
 import theme from "../../theme";
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import {Button} from "@mui/material";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 
 function Contact(){
     return (
-        <div className='bg-light pb-3' id="contact">
+        <div className='bg-light pb-4 pt-2' id="contact">
             <Container>
-                <Typography variant="h2" sx={{textAlign: "center", color: theme.palette.primary.main}}>
+                <Typography
+                    variant="h2"
+                    sx={{
+                        textAlign: "center",
+                        my: 1,
+                        color: theme.palette.primary.main,
+                        fontSize:{xs: '2.3em', md: '3.3em'}
+                    }}
+                >
                     Vous avez un projet ?
                 </Typography>
-                <Typography variant="h5" sx={{textAlign: "center", fontSize: "2em"}}>
+                {/*<Typography variant="h5" sx={{textAlign: "center", fontSize: "2em"}}>
                     Parlons-en
-                </Typography>
+                </Typography>*/}
                 <Grid container spacing={4}>
                     <Grid item xs={12} md={6}>
                         <FormContact />
@@ -32,15 +36,17 @@ function Contact(){
                         <Grid container sx={{alignItems:'center', justifyContent:'center', height: '100%', ml:{xs: 0, md:1} }}>
                             <Grid item xs={12}>
                                 <Typography paragraph textAlign="justify">
-                                    Vous cherchez un <b> freelance dans la communication</b> ? Je serais ravie de vous
-                                    rencontrer pour en discuter ! Basée à Lons-le-saunier dans le <b>Jura</b>
-                                     , je suis flexible et propose mes services <b>partout en France.</b> Pour tout
-                                    renseignement ou demande de devis, n'hésitez pas à me contacter...
+                                    Vous cherchez un <b> freelance dans la communication</b> ? Je suis la personne
+                                    qu’il vous faut !  Je suis basé à <b>Lons-le-saunier </b> dans le Jura mais j’ai également
+                                    l’habitude de travailler à distance, je suis flexible et propose mes services
+                                    partout en France. Pour tout renseignement ou demande de devis, n'hésitez
+                                    pas à me contacter.
+
                                 </Typography>
                             </Grid>
 
                             <Grid item xs={12} container alignItems="center" direction="column">
-                                <Typography variant="h6" sx={{color: "#424242", mb: 2}}>
+                                <Typography variant="h4" sx={{color: "#424242", mb: 2}}>
                                     PAR TÉLÉPHONE (DE PRÉFÉRENCE DU LUNDI AU VENDREDI) :
                                 </Typography>
                                 <a href="tel:0661633748" >
@@ -50,20 +56,10 @@ function Contact(){
                                 </a>
                             </Grid>
                             <Grid item xs={12} container alignItems="center" direction="column">
-                                <Typography variant="h6" sx={{color: "#424242", my: 2}}>
+                                <Typography variant="h4" sx={{color: "#424242", my: 2}}>
                                     PAR E-MAIL (7J/7, LA NUIT, LE JOUR...) :
                                 </Typography>
-                                <Box sx={{display: 'flex'}}>
-                                    <a href="https://twitter.com/Zetty_69" className="ms-3">
-                                        <TwitterIcon sx={{fontSize: 60, color: theme.palette.primary.main}}/>
-                                    </a>
-                                    <a href="https://www.instagram.com/yohannfzi/" className="ms-3">
-                                        <InstagramIcon sx={{fontSize: 60, color: theme.palette.primary.main}}/>
-                                    </a>
-                                    <a href="https://fr.linkedin.com/in/yohann-franzetti-9bb714133" className="ms-3">
-                                        <LinkedInIcon sx={{fontSize: 60, color: theme.palette.primary.main}}/>
-                                    </a>
-                                </Box>
+
                                 <a href="mailto:clement.grandvaux@hotmail.com">
                                     <Button
                                         variant="contained"
@@ -76,9 +72,7 @@ function Contact(){
                                     </Button>
                                 </a>
                             </Grid>
-                           {/* <Grid item container sx={{alignItems:'center', justifyContent:'center'}} xs={12}>
-                                <img src={logo} alt="zetty design" style={{height: '200px'}}/>
-                            </Grid>*/}
+
                         </Grid>
                     </Grid>
                 </Grid>

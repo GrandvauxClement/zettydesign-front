@@ -25,13 +25,13 @@ const ServiceList = ({service, index}) => {
                 alt={`vecteur-${service.title}`}
                 sx={{objectFit: 'contain', backgroundColor: "white"}}
             />
-            <CardContent sx={{py: 1, height: 160}}>
+            <CardContent sx={{py: 1, height: 160, pt: 3}}>
                 <Grid container sx={{display: "flex", justifyContent: "space-around", height: "100%"}}>
                     <Grid item xs>
-                        <Typography gutterBottom variant="h3" color="white">
+                        <Typography gutterBottom variant="h3" color="white" textAlign="center" >
                             {service.title}
                         </Typography>
-                        <Typography paragraph>
+                        <Typography paragraph textAlign="center">
                             {service.subTitle}
                         </Typography>
                     </Grid>

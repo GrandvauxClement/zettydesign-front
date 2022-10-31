@@ -4,7 +4,7 @@ import FormProject from "./FormProject";
 import {parseProjectDataToFormData} from "./utils/parseProjectDataToFormData";
 
 export default function EditProject({setPageToDisplay, projectSelected}) {
-    const [project, setProject] = useState(projectSelected);
+    const [project, setProject] = useState({...projectSelected, createdAt: new Date(projectSelected.createdAt)});
     const [newImages, setNewImages] = useState([]);
 
     const handleSubmit = () => {

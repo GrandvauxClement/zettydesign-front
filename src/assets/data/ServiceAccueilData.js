@@ -8,13 +8,13 @@ const ServiceAccueilData = [
         url: '/redaction-article-web#main'
     },
     {
-        title: 'Création Graphique',
+        title: 'Design Graphique',
         subTitle: 'Pour créer une image de marque pertinente et qui vous ressemble!',
         description: 'Créer une image de marque : un logo, une carte graphique, une identité. Le but étant de créer' +
             ' quelque chose qui vous ressemble et qui a du sens par rapport à votre secteur d’activité et ce que vous' +
             ' proposez.',
         image: 'creationGraphique.png',
-        url: '/creation-graphique#main'
+        url: '/design-graphique#main'
     },
     {
         title: 'Community Management',

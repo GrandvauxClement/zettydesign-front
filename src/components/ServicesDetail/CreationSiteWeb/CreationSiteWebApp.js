@@ -1,7 +1,7 @@
 import React from "react";
-import header from "../../../assets/images/ban1.png";
-import data from "../../../assets/data/CreationGraphiqueServiceDetail";
 import ServiceDetail from "../ServiceDetail";
+import Api from "../../../api";
+import {Typography} from "@mui/material";
 
 function CreationSiteWebApp() {
     const titleHeader = "Votre Créateur de site web";
@@ -9,21 +9,26 @@ function CreationSiteWebApp() {
     const textHeader = "Pour créer une image de marque pertinente et qui vous ressemble. Un logo, une charte graphique," +
         " une identité, ...";
 
-    const title = "De la création de votre logo à la réalisation de vos supports de communication, développez votre" +
-        "image avec un graphiste freelance!";
+    const imgPrincipal = `${Api.baseUrl}public/images/services/websiteBuilding.png`;
 
-    const description = 'Web rédacteur, article web, blogging… Une discipline souvent mise de côté, pourtant elle a ' +
-        'apport une plus-value primordiales pour votre entrepris';
+    const altImgPrincipal = "zettydesign freelance créateur site web";
+
+    const principalText = () => (
+        <>
+            <Typography paragraph>
+                Texte à faire ! :)
+            </Typography>
+
+        </>
+    )
 
     return (
-
         <ServiceDetail
-            imageHeader = {header}
             titleHeader = {titleHeader}
             textHeader = {textHeader}
-            title = {title}
-            description = {description}
-            data = {data}
+            principalText = {principalText()}
+            imgPrincipal={imgPrincipal}
+            altImgPrincipal={altImgPrincipal}
         />
     );
 }

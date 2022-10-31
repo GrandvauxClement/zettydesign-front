@@ -32,9 +32,9 @@ const IndexProject = () => {
         return (
             <Container sx={{mt: 3}}>
                <Typography variant="h2" color="primary"
-                    sx={{my: 2, textAlign:{xs: 'center', md: 'left'}}}
+                    sx={{ textAlign:{xs: 'center', md: 'left'}, fontSize:{xs: '2.3em', md: '3.3em'}}}
                >
-                   <i>Mes Réalisations</i>
+                   Mes Réalisations
                </Typography>
                <Box sx={{my:3, display:"flex", flexDirection:"column", alignItems:"center"}}>
                    <Masonry columns={3} spacing={1}>
