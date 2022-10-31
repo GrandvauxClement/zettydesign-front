@@ -15,6 +15,7 @@ import Footer from "./components/Footer/footer";
 import RedactionArticleWeb from "./components/ServicesDetail/RedactionArticleWeb/RedactionArticleWebApp";
 import CreationSiteWebApp from "./components/ServicesDetail/CreationSiteWeb/CreationSiteWebApp";
 import MentionsLegales from "./components/MentionsLegales/mentionsLegales";
+import Error404 from "./components/Error404/Error404";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/mes-realisations" element={<ProjectDetail />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/" element={<AccueilApp />}/>
+            <Route path="/*" element={<Error404 />} />
         </Routes>
         <Contact />
         <Footer/>
