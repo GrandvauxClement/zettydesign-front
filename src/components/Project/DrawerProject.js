@@ -70,14 +70,14 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                             variant="contained"
                             onClick={() => goToPreviousProject(tempIndex)}
                         >
-                            Projet précédent
+                            Précédent
                         </Button>
                         <Button
                             variant="contained"
                             onClick={() => goToNextProject(tempIndex)}
                             sx={{ml: 2}}
                         >
-                            Projet Suivant
+                            Suivant
                         </Button>
                     </Box>
                 </Toolbar>

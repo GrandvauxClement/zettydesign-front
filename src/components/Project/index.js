@@ -37,7 +37,7 @@ const IndexProject = () => {
                    Mes Réalisations
                </Typography>
                <Box sx={{my:3, display:"flex", flexDirection:"column", alignItems:"center"}}>
-                   <Masonry columns={3} spacing={1}>
+                   <Masonry columns={{xs:2, md:3}} spacing={1}>
                        {appState.projects.map((item, index) => (
                            index<6 &&
                             <ImageMasonry project={item} index={index} key={index} otherProjects={appState.projects}/>
