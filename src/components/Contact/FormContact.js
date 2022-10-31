@@ -6,6 +6,8 @@ import Button from "@mui/material/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import MessageService from "../../services/message.service";
+import { useSnackbar } from "notistack";
+import {globalConfigDurationNotistack} from "../../constant/globalConstant";
 
 function FormContact() {
     const [message, setMessage] = useState({
@@ -14,6 +16,7 @@ function FormContact() {
         message: "",
         devis: false
     });
+    const { enqueueSnackbar } = useSnackbar();
     const [submit, setSubmit] = useState(false);
     const [validateEmaill, setValidateEmail] = useState(true);
 
@@ -33,7 +36,22 @@ function FormContact() {
     }
 
     const sendMessage = () => {
-        MessageService.postMessage(message);
+        MessageService
+            .postMessage(message)
+            .then((data) => {
+                console.log("Je suis là ", data);
+                setMessage({
+                    name: "",
+                    email: "",
+                    message: "",
+                    devis: false
+                })
+                setSubmit(false)
+                enqueueSnackbar(data.data.message, {
+                    variant: "success",
+                    autoHideDuration: globalConfigDurationNotistack
+                });
+            });
     }
 
     const handleInputValue = (e) => {
@@ -55,18 +73,42 @@ function FormContact() {
     return (
         <Grid container sx={{display: 'flex', flexDirection: "column"}}>
 
-            <TextField fullWidth variant="filled" label="Votre Email" id="inputEmail" name="email"
-                       sx={{mt: 2}} onChange={handleInputValue}
-                       {...(!validateEmaill &&{
-                           error: true,
-                           helperText: "Veuillez saisir un email valide"
-                       })}
+            <TextField
+                fullWidth
+                variant="filled"
+                label="Votre Email"
+                id="inputEmail"
+                name="email"
+                sx={{mt: 2}}
+                value={message.email}
+                onChange={handleInputValue}
+                {...(!validateEmaill &&{
+                    error: true,
+                    helperText: "Veuillez saisir un email valide"
+                })}
                        />
 
-            <TextField fullWidth variant="filled" label="Votre Nom" id="inputName" name="name"
-                       onChange={handleInputValue} sx={{mt: 2}}/>
-            <TextField fullWidth multiline rows={6} variant="filled" onChange={handleInputValue}
-                       label="Votre Message" id="inputMessage" name="message" sx={{mt: 2}}
+            <TextField
+                fullWidth
+                variant="filled"
+                label="Votre Nom"
+                id="inputName"
+                name="name"
+                value={message.name}
+                onChange={handleInputValue}
+                sx={{mt: 2}}
+            />
+            <TextField
+                fullWidth
+                multiline
+                rows={6}
+                variant="filled"
+                value={message.message}
+                onChange={handleInputValue}
+                label="Votre Message"
+                id="inputMessage"
+                name="message"
+                sx={{mt: 2}}
             />
             <div>
                 <FormControlLabel

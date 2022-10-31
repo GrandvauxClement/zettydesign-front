@@ -9,16 +9,19 @@ import theme from "./theme";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Login from "./components/Login/Login";
 import BackOfficeContainer from "./components/BackOffice/BackOfficeContainer";
+import {SnackbarProvider} from "notistack";
 
 ReactDOM.render(
     <BrowserRouter>
         <React.StrictMode>
             <ThemeProvider theme={theme}>
-                <Routes>
-                    <Route path="/login" element={<Login />}/>
-                    <Route path="/admin" element={<BackOfficeContainer />}/>
-                    <Route path="*" element={<App />}/>
-                </Routes>
+                <SnackbarProvider maxSnack={3}>
+                    <Routes>
+                        <Route path="/login" element={<Login />}/>
+                        <Route path="/admin" element={<BackOfficeContainer />}/>
+                        <Route path="*" element={<App />}/>
+                    </Routes>
+                </SnackbarProvider>
             </ThemeProvider>
         </React.StrictMode>
     </BrowserRouter>,
