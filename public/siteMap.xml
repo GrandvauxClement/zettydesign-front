@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://zettydesign.fr/</loc>
+        <lastmod>2022-11-05</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>https://zettydesign.fr/mes-realisations</loc>
+        <lastmod>2022-11-05</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://zettydesign.fr/design-graphique</loc>
+        <lastmod>2022-11-05</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://zettydesign.fr/community-management</loc>
+        <lastmod>2022-11-05</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://zettydesign.fr/redaction-article-web</loc>
+        <lastmod>2022-11-05</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://zettydesign.fr/creation-site-web</loc>
+        <lastmod>2022-11-05</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>

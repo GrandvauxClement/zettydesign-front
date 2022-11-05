@@ -8,6 +8,7 @@ import maisonTravaux from "../../assets/images/logo_partenaire/la-maison-logo.pn
 import epicanin from "../../assets/images/logo_partenaire/epicanin.png";
 import trouveTonTransport from "../../assets/images/logo_partenaire/trouve_ton_transport.jpg";
 import collegePasteur from "../../assets/images/logo_partenaire/logo_academie-besancon.png";
+import {Helmet} from "react-helmet";
 
 function ServiceDetail({titleHeader, textHeader, principalText, imgPrincipal, altImgPrincipal}) {
 
@@ -39,6 +40,15 @@ function ServiceDetail({titleHeader, textHeader, principalText, imgPrincipal, al
     })
     return (
         <div id="main">
+            <Helmet>
+                <title>{titleHeader} - ZettyDesign</title>
+                <meta name="description" content="ZettyDesign, freelance en communication, propose mes services pour
+                vos création graphique, gestion community management, rédaction article web et création de site internet " />
+                <meta property="og:title" content={`${titleHeader} - ZettyDesign`} />
+                <meta property="og:description" content="ZettyDesign, freelance en communication, propose mes services pour
+                vos création graphique, gestion community management, rédaction article web et création de site internet " />
+                <meta property="og:url" content={window.location.href} />
+            </Helmet>
             <Header header={header} title={titleHeader} text={textHeader} />
             <Container>
 
