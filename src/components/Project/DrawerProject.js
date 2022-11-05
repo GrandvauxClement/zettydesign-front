@@ -10,15 +10,15 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
-import Api from "../../api";
 import serializeToHtml from "../BackOffice/utils/TextEditor/SerializeToHtml";
 import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import {urlAwsImageStorage} from "../../constant/globalConstant";
 
 const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
-    const urlImage = Api.baseUrl + 'public/images/projets/';
-   // const description = serializeToHtml({children: project.description});
+
+
     const [description, setDescription] = useState(serializeToHtml({children: project.description}));
     const [tempProject, setTempProject] = useState(project);
     const [tempIndex, setTempIndex] = useState(index);
@@ -96,23 +96,12 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                                         className="d-block"
                                         style={{objectFit: "contain", objectPosition: "center center", maxHeight:"100%", width:"100%"}}
                                         alt={`presentation-${tempProject.title}-${index}`}
-                                        src={`${urlImage}${item}`}
+                                        src={`${urlAwsImageStorage}${item}`}
                                     />
                                 </Carousel.Item>
                             ))}
                         </Carousel>
-                      {/*  <Masonry columns={2} spacing={0}>
-                            {project.images.map((item,index)=>(
-                                <Stack>
-                                    <img
-                                        className="d-block"
-                                        style={{objectFit: "contain", objectPosition: "center center", maxHeight:"100%", width:"100%"}}
-                                        alt={index+" slide"}
-                                        src={`${urlImage}${item}`}
-                                    />
-                                </Stack>
-                            ))}
-                        </Masonry>*/}
+
                     </Grid>
 
                     <Grid item md={5} xs={12}>

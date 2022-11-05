@@ -12,16 +12,8 @@ import serializeToHtml from "../BackOffice/utils/TextEditor/SerializeToHtml";
 import theme from "../../theme";
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 
 const style = {
-  //  position: 'absolute',
- //   overflow: 'scroll',
-   // display: 'block',
-   // top: '50%',
-   // left: '50%',
     transform: 'translate(-50%, -50%)',
     width: "70vw",
     bgcolor: 'background.paper',

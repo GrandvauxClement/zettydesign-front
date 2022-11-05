@@ -5,7 +5,6 @@ import {
 } from "@mui/material";
 import Button from '@mui/material/Button';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import Api from "../../api";
 import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -15,13 +14,13 @@ import theme from "../../theme";
 
 
 const ServiceList = ({service, index}) => {
-    const urlImage = Api.baseUrl + 'public/images/services/'+service.image;
+
     return (
         <Card sx={{ height: 480, backgroundColor: theme.palette.primary.main }}>
             <CardMedia
                 component="img"
                 height="300"
-                image={urlImage}
+                image={service.image}
                 alt={`vecteur-${service.title}`}
                 sx={{objectFit: 'contain', backgroundColor: "white"}}
             />

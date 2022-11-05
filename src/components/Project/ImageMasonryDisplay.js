@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
-import Api from "../../api";
 import styled from "@mui/material/styles/styled";
 import {useState} from "react";
 import Drawer from "@mui/material/Drawer";
 import DrawerProject from "./DrawerProject";
+import {urlAwsImageStorage} from "../../constant/globalConstant";
 
 const PREFIX = 'Project';
 
@@ -29,8 +29,9 @@ const Root = styled('div')(({theme}) => ({
 }))
 
 export default function ImageMasonry({project, index, otherProjects}) {
-    const urlImage = Api.baseUrl + 'public/images/projets/';
+
     const [state, setState] = useState({ right: false });
+
     const toggleDrawer = (anchor, open) => (event) => {
         if (
             event.type === "keydown" &&
@@ -46,8 +47,8 @@ export default function ImageMasonry({project, index, otherProjects}) {
         <Root className={classes.root}>
              <Stack onClick={toggleDrawer("right", true)}>
                   <img
-                      src={`${urlImage}${project.images[0]}`}
-                      srcSet={`${urlImage}${project.images[0]}`}
+                      src={`${urlAwsImageStorage}${project.images[0]}`}
+                      srcSet={`${urlAwsImageStorage}${project.images[0]}`}
                       alt={project.title}
                       loading="lazy"
                       className={classes.image}

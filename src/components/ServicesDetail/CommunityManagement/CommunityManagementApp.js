@@ -1,7 +1,7 @@
 import React from "react";
 import ServiceDetail from "../ServiceDetail";
 import {Typography} from "@mui/material";
-import Api from "../../../api";
+import vecteurCommunityManagement from "../../../assets/images/services/communityManagement.png";
 
 function CommunityManagementApp() {
     const titleHeader = "Votre Freelance en Community Management";
@@ -9,10 +9,7 @@ function CommunityManagementApp() {
     const textHeader = "Mise en place de vos réseaux sociaux, Stratégie de communication digitale, Gestion &" +
         " Animation, Analyse des résultats & analytics…";
 
-    const imgPrincipal = `${Api.baseUrl}public/images/services/communityManagement.png`;
-
     const altImgPrincipal = "zettydesign freelance community management";
-
 
     const principalText = () => (
         <>
@@ -43,7 +40,7 @@ function CommunityManagementApp() {
             <ServiceDetail
                 titleHeader = {titleHeader}
                 textHeader = {textHeader}
-                imgPrincipal={imgPrincipal}
+                imgPrincipal={vecteurCommunityManagement}
                 principalText={principalText()}
                 altImgPrincipal={altImgPrincipal}
             />

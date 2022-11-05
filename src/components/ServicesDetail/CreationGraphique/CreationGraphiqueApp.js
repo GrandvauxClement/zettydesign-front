@@ -1,15 +1,13 @@
 import React from "react";
 import ServiceDetail from "../ServiceDetail";
-import Api from "../../../api";
 import {Typography} from "@mui/material";
+import vecteurCreationGraphique from "../../../assets/images/services/creationGraphique.png";
 
 function CreationGraphiqueApp() {
     const titleHeader = "Votre Graphiste freelance";
 
     const textHeader = "Pour créer une image de marque pertinente et qui vous ressemble. Un logo, une charte graphique," +
         " une identité, ...";
-
-    const imgPrincipal = `${Api.baseUrl}public/images/services/creationGraphique.png`;
 
     const altImgPrincipal = "zettydesign freelance design graphique";
 
@@ -37,7 +35,7 @@ function CreationGraphiqueApp() {
         <ServiceDetail
             titleHeader = {titleHeader}
             textHeader = {textHeader}
-            imgPrincipal={imgPrincipal}
+            imgPrincipal={vecteurCreationGraphique}
             principalText={principalText()}
             altImgPrincipal={altImgPrincipal}
         />

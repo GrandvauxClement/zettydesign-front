@@ -1,10 +1,15 @@
+import communityManagement from "../images/services/communityManagement.png";
+import creationGraphique from "../images/services/creationGraphique.png";
+import redactionArticleWeb from "../images/services/RedactionArticleWeb.png";
+import websiteBuilding from "../images/services/websiteBuilding.png";
+
 const ServiceAccueilData = [
     {
         title: 'Rédaction article web',
         subTitle: 'Développez votre visibilité sur le web!',
         description: 'Web rédacteur, article web, blogging… Une discipline souvent mise de côté, pourtant elle a ' +
             'apport une plus-value primordiales pour votre entreprise',
-        image: 'RedactionArticleWeb.png',
+        image: redactionArticleWeb,
         url: '/redaction-article-web#main'
     },
     {
@@ -13,7 +18,7 @@ const ServiceAccueilData = [
         description: 'Créer une image de marque : un logo, une carte graphique, une identité. Le but étant de créer' +
             ' quelque chose qui vous ressemble et qui a du sens par rapport à votre secteur d’activité et ce que vous' +
             ' proposez.',
-        image: 'creationGraphique.png',
+        image: creationGraphique,
         url: '/design-graphique#main'
     },
     {
@@ -24,7 +29,7 @@ const ServiceAccueilData = [
             ' En premier lieu, après avoir réalisé une étude de vos concurrents, nous établissons ensemble une ligne' +
             ' éditoriale propre aux valeurs et objectifs de votre entreprise. Ensuite, je vous guiderai dans la mise en' +
             ' place et l’animation de vos médias sociaux afin d’optimiser votre communication numérique.',
-        image: 'communityManagement.png',
+        image: communityManagement,
         url: '/community-management#main'
     },/*
     {
@@ -41,7 +46,7 @@ const ServiceAccueilData = [
         title: 'Création de site web',
         subTitle: 'Développer votre entreprise sur le web !',
         description: 'Après une étude de marché détaillée, élaborons ensemble votre plan de communication sur mesure... ',
-        image: 'websiteBuilding.png',
+        image: websiteBuilding,
         url: '/creation-site-web#main'
     },
 ]

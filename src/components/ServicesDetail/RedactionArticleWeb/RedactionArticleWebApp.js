@@ -1,7 +1,7 @@
 import React from "react";
 import ServiceDetail from "../ServiceDetail";
 import {Typography} from "@mui/material";
-import Api from "../../../api";
+import vecteurRedactionArticle from "../../../assets/images/services/RedactionArticleWeb.png";
 
 function RedactionArticleWeb() {
 
@@ -9,8 +9,6 @@ function RedactionArticleWeb() {
 
     const textHeader = "Pour créer une image de marque pertinente et qui vous ressemble. Un logo, une charte graphique," +
         " une identité, ...";
-
-    const imgPrincipal = `${Api.baseUrl}public/images/services/RedactionArticleWeb.png`;
 
     const altImgPrincipal = "zettydesign freelance rédaction article web";
 
@@ -51,7 +49,7 @@ function RedactionArticleWeb() {
             titleHeader={titleHeader}
             textHeader={textHeader}
             principalText={principalText()}
-            imgPrincipal={imgPrincipal}
+            imgPrincipal={vecteurRedactionArticle}
             altImgPrincipal={altImgPrincipal}
         />
     );
