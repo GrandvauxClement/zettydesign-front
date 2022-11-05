@@ -1,8 +1,4 @@
-import React, { useRef } from 'react';
-import {Box, Grid, Typography} from "@mui/material";
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import Api from "../../../api";
-import ProjectService from "../../../services/project.service";
+import React from 'react';
 import ImagesInput from "./UploadImages/ImagesInput";
 import ImageResizer from "./UploadImages/ImageResizer";
 

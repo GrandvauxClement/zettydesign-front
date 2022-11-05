@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {ContainerImages, DivImage, DivInput, DivLoader, DivTemplate} from "./images.view";
 
-
 const ImagesInput = ({
                          images,
                          setImages,
@@ -18,7 +17,7 @@ const ImagesInput = ({
     const [dragEnter, setDragEnter] = useState();
 
     const handleDragSelect = (event, item) => {
-        // event.dataTransfer.setData("blob", event.target.id);
+
         event.dataTransfer.effectAllowed = "move";
         if(item !== dragSelect) setDragSelect(item)
     };
@@ -46,9 +45,7 @@ const ImagesInput = ({
     };
 
     const drop = () => {
-        // event.preventDefault();
-        // const img = document.getElementById("img-" + index);
-        // img.style.visibility = "visible";
+
         if(typeof dragEnter !== 'undefined' && typeof dragSelect !== 'undefined' ) {
             setImageAsync()
         }

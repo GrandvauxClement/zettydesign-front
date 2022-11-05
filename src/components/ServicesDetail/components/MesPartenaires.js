@@ -14,8 +14,8 @@ const MesPartenaires = ({images}) => {
         <Container sx={{mb: 2}}>
             <Typography variant="h3" color="primary">Ils m'ont fait confiance</Typography>
             <Grid container direction="row" alignItems="center" spacing={2}>
-                {images.map((image) => (
-                    <Grid container item md={3} xs={12} justifyContent="center">
+                {images.map((image, index) => (
+                    <Grid container item md={3} xs={12} justifyContent="center" key={index}>
                         <Box>
                             <a href={image.href}>
                                 <MyStyledImage src={image.src} alt={image.alt}/>
