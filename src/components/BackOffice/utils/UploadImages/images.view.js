@@ -11,6 +11,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import theme from "../../../../theme";
 import { css, keyframes } from "@emotion/css";
 import Api from "../../../../api";
+import {urlAwsImageStorage} from "../../../../constant/globalConstant";
 
 // DivLoader is one of the 4 sub éléments
 // when the image becomes a BLOB this component will show the user that the application is loading
@@ -67,7 +68,7 @@ export function DivImage (
                     alt=""
                     draggable={false}
                     src={editView ? typeof images[i] === "string" ?
-                            Api.baseUrl + "public/images/projets/" + images[i] :
+                            urlAwsImageStorage + images[i] :
                             URL.createObjectURL(images[i]) :
                         URL.createObjectURL(images[i])
                     }
