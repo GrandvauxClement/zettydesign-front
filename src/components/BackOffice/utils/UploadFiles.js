@@ -23,7 +23,7 @@ export const GlobalMultipleImagesUpload = ({images,setImages, editView = false,i
     }
 
     function updateImageHandler(files) {
-        console.log("Ici j'ai mes files", files);
+
         imagesHandler(files).then(()=> {
             if(images.length >= 1) {
                 setImagesInvalid(false)
@@ -36,7 +36,7 @@ export const GlobalMultipleImagesUpload = ({images,setImages, editView = false,i
         try {
             const filesNumber = files.length;
             let i = 0;
-            console.log()
+
             const temp = [...images];
             while(i < filesNumber){
                 const image = await ImageResizer(

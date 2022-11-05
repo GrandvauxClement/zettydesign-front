@@ -15,7 +15,7 @@ import Api from "../../../../api";
 // DivLoader is one of the 4 sub éléments
 // when the image becomes a BLOB this component will show the user that the application is loading
 export function DivLoader (i) {
-    console.log("Je passe là DIV LOADER  !! ", i);
+
     return <Grid key={i} item xs={3}>
         <ImageLoader className={"placeholder"}>
             <CircularProgress />
@@ -25,7 +25,7 @@ export function DivLoader (i) {
 
 // DivTemplate is one of the 4 sub éléments
 export function DivTemplate (i) {
-    console.log("DIV TEMPLATE  ", i);
+
     return <Grid key={i} item xs={3}>
         <ImageTemplate />
     </Grid>

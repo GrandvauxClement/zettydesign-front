@@ -2,7 +2,7 @@ import Api from "../api";
 
 class MessageService {
     postMessage(message){
-        console.log("Je passe la service to send", message)
+
         return Api.functionAxios().post('api/message', {message:message});
     }
 

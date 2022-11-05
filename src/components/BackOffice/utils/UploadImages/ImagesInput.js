@@ -87,7 +87,6 @@ const ImagesInput = ({
                     ));
                 } else if (loading && images.length >= i) {
                     // Loader
-                    console.log("je passe la ", loading);
                     res.push(DivLoader( i ));
                 } else if ((!loading && images.length === i) || (loading && images.length + 1 === i)) {
                     // Input

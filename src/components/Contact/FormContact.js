@@ -39,7 +39,7 @@ function FormContact() {
         MessageService
             .postMessage(message)
             .then((data) => {
-                console.log("Je suis là ", data);
+
                 setMessage({
                     name: "",
                     email: "",

@@ -11,7 +11,6 @@ export default function ImageResizer(
     quality,
     mimeType) {
     return new Promise((resolve) => {
-        console.log("ImageResiser mimeType : ", mimeType);
 
         Resizer.imageFileResizer(
             file,
