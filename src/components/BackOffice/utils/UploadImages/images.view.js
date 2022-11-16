@@ -10,7 +10,6 @@ import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import CloseIcon from '@mui/icons-material/Close';
 import theme from "../../../../theme";
 import { css, keyframes } from "@emotion/css";
-import Api from "../../../../api";
 import {urlAwsImageStorage} from "../../../../constant/globalConstant";
 
 // DivLoader is one of the 4 sub éléments
