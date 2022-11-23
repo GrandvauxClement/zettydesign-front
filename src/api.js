@@ -6,7 +6,8 @@ class Api {
             baseURL: process.env.REACT_APP_API_URL,
             headers:{
                 "Content-type": "application/json",
-                "x-access-token": localStorage.getItem("token")
+                "x-access-token": localStorage.getItem("token"),
+                "Access-Control-Allow-Origin": "*"
             }
         })
     }

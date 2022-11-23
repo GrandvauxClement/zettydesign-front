@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import theme from "../../theme";
 import Grid from "@mui/material/Grid";
-import Carousel from "react-bootstrap/Carousel";
 import Stack from "@mui/material/Stack";
 import Chip from "@mui/material/Chip";
 import AppBar from '@mui/material/AppBar';
@@ -15,10 +14,11 @@ import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import {urlAwsImageStorage} from "../../constant/globalConstant";
+import Carousel from "react-material-ui-carousel";
 
 const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
-
-
+    console.log("window : ", window.innerWidth);
+    const isMobileView = window.innerWidth < 500;
     const [description, setDescription] = useState(serializeToHtml({children: project.description}));
     const [tempProject, setTempProject] = useState(project);
     const [tempIndex, setTempIndex] = useState(index);
@@ -89,16 +89,42 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                 </Typography>
                 <Grid container spacing={2} sx={{marginTop:2, justifyContent: "space-around"}}>
                     <Grid item md={6} xs={12}>
-                        <Carousel fade variant="dark">
+                        <Carousel
+                            autoPlay={true}
+                            navButtonsAlwaysVisible={!isMobileView}
+                            swipe={true}
+                            animation="slide"
+                            duration="1000"
+                            indicatorIconButtonProps={{
+                                style: {
+                                    padding: "5px", // 1
+                                    color: "rgba(245,245,248,0.8)", // 3
+                                    zIndex: 10,
+                                },
+                            }}
+                            activeIndicatorIconButtonProps={{
+                                style: {
+                                    color: "#FFFFFF",
+                                },
+                            }}
+                            indicatorContainerProps={{
+                                style: {
+                                    background: "linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.25))",
+                                    zIndex: 9,
+                                    position: "absolute",
+                                    marginTop: "-30px", // 5
+                                    textAlign: "center", // 4
+                                },
+                            }}
+                        >
                             {tempProject.images.map((item,index)=>(
-                                <Carousel.Item style={{height: "60vh", width:"100%"}} key={index}>
                                     <img
+                                        key={index}
                                         className="d-block"
                                         style={{objectFit: "contain", objectPosition: "center center", maxHeight:"100%", width:"100%"}}
                                         alt={`presentation-${tempProject.title}-${index}`}
                                         src={`${urlAwsImageStorage}${item}`}
                                     />
-                                </Carousel.Item>
                             ))}
                         </Carousel>
 
