@@ -10,8 +10,8 @@ const NavBar = () => {
 
     return (
         <Navbar style={{
-          //  backgroundColor: '#4babff',
-            backgroundColor: '#000000',
+            backgroundColor: '#4babff',
+            //  backgroundColor: '#000000',
             padding: 0
         }} expand="lg" fixed="top"
         >

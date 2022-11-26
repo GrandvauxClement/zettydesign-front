@@ -7,7 +7,6 @@ class Api {
             headers:{
                 "Content-type": "application/json",
                 "x-access-token": localStorage.getItem("token"),
-                "Access-Control-Allow-Origin": "*"
             }
         })
     }
