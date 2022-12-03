@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import Header from "../Header/header";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import header from "../../assets/images/ban1.png";
 import MesPartenaires from "./components/MesPartenaires";
 import maisonTravaux from "../../assets/images/logo_partenaire/la-maison-logo.png";
 import epicanin from "../../assets/images/logo_partenaire/epicanin.png";
@@ -39,7 +38,7 @@ function ServiceDetail({titleHeader, textHeader, principalText, imgPrincipal, al
     })
     return (
         <div id="main">
-            <Header header={header} title={titleHeader} text={textHeader} />
+            <Header title={titleHeader} text={textHeader} />
             <Container>
 
                 <Grid container sx={{mb: 4}} spacing={2}>

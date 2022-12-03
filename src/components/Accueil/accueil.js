@@ -6,7 +6,6 @@ import {
 import ServiceList from "./servicesList";
 import BannerDisplayNumber from "./bannerDisplayNumber";
 import Grid from "@mui/material/Grid";
-import Presentation from "../Presentation/Presentation";
 import ServiceAccueilData from "../../assets/data/ServiceAccueilData";
 
 const Accueil = () => {
@@ -14,7 +13,6 @@ const Accueil = () => {
         return(
             <>
                 <Container sx={{mb:2}}>
-                    <Presentation />
                     <Typography variant="h2"
                                 sx={{
                                     my: 2,

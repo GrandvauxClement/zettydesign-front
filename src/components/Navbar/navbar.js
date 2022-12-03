@@ -1,24 +1,21 @@
 import * as React from 'react';
 import Container from 'react-bootstrap/Container';
-import logoWhite from "../../assets/images/logoBlancFondBleu.png";
+import logoWhite from "../../assets/images/LOGO-2023-blanc-fondtransparent.png";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
 
 const NavBar = () => {
 
     return (
         <Navbar style={{
-            backgroundColor: '#4babff',
-            //  backgroundColor: '#000000',
+            backgroundColor: '#7d9fd3',
             padding: 0
         }} expand="lg" fixed="top"
         >
             <Container>
                 <Navbar.Brand href="/" style={{color: "white"}}>
                     <img src={logoWhite} alt="zetty design" style={{height: "70px"}}/>
-                    Zetty Design
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -42,6 +39,9 @@ const NavBar = () => {
                         </Nav.Link>
                         <Nav.Link style={{color: "white", fontSize: "1.3em"}} href="#contact" className="ms-3">
                             Contact
+                        </Nav.Link>
+                        <Nav.Link style={{color: "white", fontSize: "1.3em"}} href="/qui-suis-je" className="ms-3">
+                            Qui suis-je ?
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

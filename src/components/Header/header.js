@@ -4,10 +4,10 @@ import {
 } from "@mui/material";
 import Box from "@mui/material/Box";
 import React from "react";
-//import header from "../../assets/images/banniere-graph.png";
-import header from "../../assets/images/NewBanniere-graph.png";
+import header from "../../assets/images/bann-nue.png";
 
-import headerMobile from "../../assets/images/banMobile.png"
+import headerMobile from "../../assets/images/banMobile.png";
+import vecteurHeader from "../../assets/images/vector-header-v2.png"
 
 const Header = (props) => {
   //  const headerFond = 'linear-gradient(rgba(42,177,234,0.44), rgba(42,177,234,0.44)), url(' + props.header + ') no-repeat center center / cover'
@@ -18,16 +18,15 @@ const Header = (props) => {
             <Box sx={{
                 backgroundImage: {xs: headerFondMobile, lg:headerFond},
                 backgroundSize: {xs: "contain", sm: "cover",lg: "cover"},
-              //  objectFit:"fill",
                 backgroundRepeat: "no-repeat",
-                height: {xs: "45vh",lg: "550px", xl: "650px"},
-                mt: {xs:"70px", lg: "0px"}
+                height: {xs: "40vh",md: "500px"},
+                mt: "70px"
             }}>
                     <Grid
                         container
                         sx={{
                             height:{xs: "70%", lg: "90%"} ,
-                            pl:{xs: 0,lg: "110px"},
+                            pl:{xs: 0,lg: "210px"},
                             alignItems: {xs: "center", lg: "end"},
                             justifyContent: {xs: "center", lg: "start"}
                         }}
@@ -39,7 +38,6 @@ const Header = (props) => {
                                   justifyContent: "center",
                                   alignItems: "center",
                                   flexDirection: "column",
-                                  mt:{xs: 0, lg: "100px"}
                               }}
                         >
                             <Typography
@@ -47,9 +45,10 @@ const Header = (props) => {
                                 variant="h1"
                                 sx={{
                                     // fontWeight: {xs: 500, md: 600},
-                                    fontSize: {xs: '2.2em', md: '4.1em'},
+                                    fontSize: {xs: '2.0em', md: '4.1em'},
                                     width: {xs: "100%", lg:"900px"},
-                                    mb: 3
+                                    lineHeight: "1.0",
+                                    mb: 2
                                 }}
                             >
                                 {props.title}
@@ -58,12 +57,27 @@ const Header = (props) => {
                                 align="center"
                                 variant="h6"
                                 sx={{
-                                    mt: 1,
-                                    fontSize: {xs: '1.2em', md: '1.5em'},
+                                    fontSize: {xs: '0.7em', md: '1.5em'},
                                 }}
                             >
                                 {props.text}
                             </Typography>
+                            <Box sx={{
+                                height: {xs: "100px", md:"200px"},
+                                position: "absolute",
+                                right: {xs: "50px", md:"100px"},
+                                bottom: {xs: "55vh", md:"250px"}
+                            }}>
+                                <img
+                                    src={vecteurHeader}
+                                    alt={""}
+                                    style={{
+                                        height: "100%",
+                                    }}
+                                />
+                            </Box>
+
+
                         </Grid>
                     </Grid>
             </Box>

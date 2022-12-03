@@ -30,7 +30,7 @@ const ServiceList = ({service, index}) => {
                         <Typography gutterBottom variant="h3" color="white" textAlign="center" >
                             {service.title}
                         </Typography>
-                        <Typography paragraph textAlign="center">
+                        <Typography paragraph textAlign="center" color="white">
                             {service.subTitle}
                         </Typography>
                     </Grid>

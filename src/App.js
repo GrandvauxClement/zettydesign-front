@@ -16,6 +16,7 @@ import RedactionArticleWeb from "./components/ServicesDetail/RedactionArticleWeb
 import CreationSiteWebApp from "./components/ServicesDetail/CreationSiteWeb/CreationSiteWebApp";
 import MentionsLegales from "./components/MentionsLegales/mentionsLegales";
 import Error404 from "./components/Error404/Error404";
+import Presentation from "./components/Presentation/Presentation";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/community-management" element={<CommunityManagementApp />} />
             <Route path="/mes-realisations" element={<ProjectDetail />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
+            <Route path="/qui-suis-je" element={<Presentation />} />
             <Route path="/" element={<AccueilApp />}/>
             <Route path="/*" element={<Error404 />} />
         </Routes>

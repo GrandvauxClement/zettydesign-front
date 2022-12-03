@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
 import Header from "../Header/header";
-import header from "../../assets/images/ban1.png";
 import ProjectDetailContent from "./ProjectDetailContent";
 
 function ProjectDetail(props) {
@@ -15,7 +14,7 @@ function ProjectDetail(props) {
     })
     return (
         <div id="main">
-            <Header header={header} title={titleHeader} text={textHeader} />
+            <Header title={titleHeader} text={textHeader} />
             <ProjectDetailContent />
         </div>
     )
