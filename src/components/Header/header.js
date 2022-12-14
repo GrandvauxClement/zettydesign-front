@@ -66,7 +66,7 @@ const Header = (props) => {
                                 height: {xs: "100px", md:"200px"},
                                 position: "absolute",
                                 right: {xs: "50px", md:"100px"},
-                                bottom: {xs: "55vh", md:"250px"}
+                                top: {xs: "35vh", md:"350px"}
                             }}>
                                 <img
                                     src={vecteurHeader}
