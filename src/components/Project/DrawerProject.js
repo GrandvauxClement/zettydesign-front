@@ -15,47 +15,49 @@ import Container from "@mui/material/Container";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import {urlAwsImageStorage} from "../../constant/globalConstant";
 import Carousel from "react-material-ui-carousel";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
-    console.log("window : ", window.innerWidth);
+
     const isMobileView = window.innerWidth < 500;
-    const [description, setDescription] = useState(serializeToHtml({children: project.description}));
     const [tempProject, setTempProject] = useState(project);
     const [tempIndex, setTempIndex] = useState(index);
 
-    const goToPreviousProject = (index) => {
-        if (index !== 0){
-            setTempProject(otherProjects[tempIndex-1]);
-            setTempIndex(tempIndex-1);
+    const goToPreviousProject = async (index) => {
+        if (index !== 0) {
+            await setTempProject(otherProjects[tempIndex - 1]);
+            await setTempIndex(tempIndex - 1);
         } else {
-            setTempProject(otherProjects[otherProjects.length-1]);
-            setTempIndex(otherProjects.length-1);
+
+            await setTempProject(otherProjects[otherProjects.length - 1]);
+            await setTempIndex(otherProjects.length - 1);
         }
-        setDescription(serializeToHtml({children: tempProject.description}));
     }
     const goToNextProject = (index) => {
-        if (index !== otherProjects.length-1){
-            setTempProject(otherProjects[tempIndex+1]);
-            setTempIndex(tempIndex+1);
+
+        if (index !== otherProjects.length - 1) {
+            setTempProject(otherProjects[tempIndex + 1]);
+            setTempIndex(tempIndex + 1);
         } else {
             setTempProject(otherProjects[0]);
             setTempIndex(0);
         }
-        setDescription(serializeToHtml({children: tempProject.description}));
     }
 
     return (
-        <Box sx={{width: {xs:'100%', lg:'1000px'}}}>
+        <Box sx={{width: {xs: '100%', lg: '1000px'}}}>
             <AppBar
                 position="fixed"
                 color="primary"
-                sx={{width: {xs:'100%', lg:'1000px'},
-                    // right: {xs: "0", md: "16px"}
+                sx={{
+                    width: {xs: '100%', lg: '1000px'},
                 }}
             >
                 <Toolbar
-                    sx={{display: 'flex',
-                        justifyContent: 'space-between'}}
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between'
+                    }}
                 >
                     <IconButton
                         color="inherit"
@@ -63,7 +65,7 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                             toggleDrawer("right", false)(e)
                         }
                     >
-                        <ArrowBackIcon />
+                        <ArrowBackIcon/>
                     </IconButton>
                     <Box>
                         <Button
@@ -87,7 +89,7 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                 <Typography sx={{textAlign: "center", color: theme.palette.primary.main, mt: 3}} variant="h2">
                     {tempProject.title}
                 </Typography>
-                <Grid container spacing={2} sx={{marginTop:2, justifyContent: "space-around"}}>
+                <Grid container spacing={2} sx={{marginTop: 2, justifyContent: "space-around"}}>
                     <Grid item md={6} xs={12}>
                         <Carousel
                             autoPlay={true}
@@ -117,14 +119,19 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                                 },
                             }}
                         >
-                            {tempProject.images.map((item,index)=>(
-                                    <img
-                                        key={index}
-                                        className="d-block"
-                                        style={{objectFit: "contain", objectPosition: "center center", maxHeight:"100%", width:"100%"}}
-                                        alt={`presentation-${tempProject.title}-${index}`}
-                                        src={`${urlAwsImageStorage}${item}`}
-                                    />
+                            {tempProject.images.map((item, index) => (
+                                <img
+                                    key={index}
+                                    className="d-block"
+                                    style={{
+                                        objectFit: "contain",
+                                        objectPosition: "center center",
+                                        maxHeight: "100%",
+                                        width: "100%"
+                                    }}
+                                    alt={`presentation-${tempProject.title}-${index}`}
+                                    src={`${urlAwsImageStorage}${item}`}
+                                />
                             ))}
                         </Carousel>
 
@@ -136,16 +143,17 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
                             Description
                         </Typography>
 
-                        <Box dangerouslySetInnerHTML={{__html: description}} sx={{ mt: 2 }}>
+                        <Box dangerouslySetInnerHTML={{__html: serializeToHtml({children: tempProject.description})}}
+                             sx={{mt: 2}}>
 
                         </Box>
-                        <Typography variant="h3" component="h3" sx={{ color: theme.palette.primary.main}}>
+                        <Typography variant="h3" component="h3" sx={{color: theme.palette.primary.main}}>
                             Tag
                         </Typography>
 
-                        <Stack direction="row" spacing={0.5} sx={{flexWrap:"wrap", mt:2}}>
+                        <Stack direction="row" spacing={0.5} sx={{flexWrap: "wrap", mt: 2}}>
                             {tempProject.tag.map((work, index) => (
-                                <Chip label={work} key={index} color="primary" sx={{mb:1}} clickable={false}/>
+                                <Chip label={work} key={index} color="primary" sx={{mb: 1}} clickable={false}/>
                             ))}
                         </Stack>
 
@@ -165,6 +173,7 @@ const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
             </Container>
         </Box>
     )
+
 }
 
 export default DrawerProject
