@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import {ContainerImages, DivImage, DivInput, DivLoader, DivTemplate} from "./images.view";
 
 const ImagesInput = ({
