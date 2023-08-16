@@ -192,10 +192,10 @@ export default function IndexProjectBack({pageToDisplay, setPageToDisplay, appSt
                     rows={projectParse}
                     columns={columns}
                     pageSize={10}
-                    rowsPerPageOptions={[5]}
+                    pageSizeOptions={[5]}
                     checkboxSelection
-                    disableSelectionOnClick
-                    onSelectionModelChange={e => setSelectMultiple(e)}
+                    disableRowSelectionOnClick
+                    onRowSelectionModelChange={e => setSelectMultiple(e)}
                     components={{
                         Toolbar: CustomToolbar
                     }}

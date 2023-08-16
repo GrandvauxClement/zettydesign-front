@@ -182,10 +182,9 @@ export default function IndexMessageBack({pageToDisplay, setPageToDisplay, appSt
                     rows={messageParse}
                     columns={columns}
                     pageSize={10}
-                    rowsPerPageOptions={[5]}
+                    pageSizeOptions={[5]}
                     checkboxSelection
-                    // disableSelectionOnClick
-                    onSelectionModelChange={e => setSelectMultiple(e)}
+                    onRowSelectionModelChange={e => setSelectMultiple(e)}
                     components={{
                         Toolbar: CustomToolbar
                     }}
