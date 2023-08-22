@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Container from 'react-bootstrap/Container';
-import logoWhite from "../../assets/images/LOGO-2023-blanc-fondtransparent.png";
+import logoWhite from "../../assets/images/logo.png";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -9,13 +9,14 @@ const NavBar = () => {
 
     return (
         <Navbar style={{
-            backgroundColor: '#7d9fd3',
-            padding: 0
+            backgroundColor: '#033375',
+            padding: 0,
+            height: "70px"
         }} expand="lg" fixed="top"
         >
             <Container>
                 <Navbar.Brand href="/" style={{color: "white"}}>
-                    <img src={logoWhite} alt="zetty design" style={{height: "70px"}}/>
+                    <img src={logoWhite} alt="zetty design" style={{height: "70px", position: "absolute",left: "10vw", top: "15px"}}/>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -37,11 +38,11 @@ const NavBar = () => {
                         <Nav.Link style={{color: "white", fontSize: "1.3em"}} className="ms-3" href="/mes-realisations">
                             Mes Réalisations
                         </Nav.Link>
-                        <Nav.Link style={{color: "white", fontSize: "1.3em"}} href="#contact" className="ms-3">
-                            Contact
-                        </Nav.Link>
                         <Nav.Link style={{color: "white", fontSize: "1.3em"}} href="/qui-suis-je" className="ms-3">
                             Qui suis-je ?
+                        </Nav.Link>
+                        <Nav.Link style={{color: "white", fontSize: "1.3em"}} href="#contact" className="ms-3">
+                            Contact
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

@@ -2,6 +2,10 @@ import React from "react";
 import ServiceDetail from "../ServiceDetail";
 import {Typography} from "@mui/material";
 import vecteurRedactionArticle from "../../../assets/images/services/RedactionArticleWeb.png";
+import articleUn from "../../../assets/images/services/Articles.png";
+import articleDeux from "../../../assets/images/services/articlesLMDT.png";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 
 function RedactionArticleWeb() {
 
@@ -45,13 +49,27 @@ function RedactionArticleWeb() {
 )
 
     return (
-        <ServiceDetail
-            titleHeader={titleHeader}
-            textHeader={textHeader}
-            principalText={principalText()}
-            imgPrincipal={vecteurRedactionArticle}
-            altImgPrincipal={altImgPrincipal}
-        />
+        <>
+            <ServiceDetail
+                titleHeader={titleHeader}
+                textHeader={textHeader}
+                principalText={principalText()}
+                imgPrincipal={vecteurRedactionArticle}
+                altImgPrincipal={altImgPrincipal}
+            />
+            <Container style={{marginBottom: 3}}>
+                <img
+                    src={articleUn}
+                    alt={"rédaction d'articles web"}
+                    className="img-fluid"
+                />
+                <img
+                    src={articleDeux}
+                    alt={"rédaction d'articles web"}
+                    className="img-fluid"
+                />
+            </Container>
+        </>
     );
 }
 

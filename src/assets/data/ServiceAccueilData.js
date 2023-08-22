@@ -4,14 +4,7 @@ import redactionArticleWeb from "../images/services/RedactionArticleWeb.png";
 import websiteBuilding from "../images/services/websiteBuilding.png";
 
 const ServiceAccueilData = [
-    {
-        title: 'Rédaction article web',
-        subTitle: 'Développez votre visibilité sur le web!',
-        description: 'Web rédacteur, article web, blogging… Une discipline souvent mise de côté, pourtant elle a ' +
-            'apport une plus-value primordiales pour votre entreprise',
-        image: redactionArticleWeb,
-        url: '/redaction-article-web#main'
-    },
+
     {
         title: 'Design Graphique',
         subTitle: 'Pour créer une image de marque pertinente et qui vous ressemble!',
@@ -20,6 +13,14 @@ const ServiceAccueilData = [
             ' proposez.',
         image: creationGraphique,
         url: '/design-graphique#main'
+    },
+    {
+        title: 'Rédaction article web',
+        subTitle: 'Développez votre visibilité sur le web!',
+        description: 'Web rédacteur, article web, blogging… Une discipline souvent mise de côté, pourtant elle a ' +
+            'apport une plus-value primordiales pour votre entreprise',
+        image: redactionArticleWeb,
+        url: '/redaction-article-web#main'
     },
     {
         title: 'Community Management',

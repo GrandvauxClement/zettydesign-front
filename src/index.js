@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -11,7 +11,9 @@ import Login from "./components/Login/Login";
 import BackOfficeContainer from "./components/BackOffice/BackOfficeContainer";
 import {SnackbarProvider} from "notistack";
 
-ReactDOM.render(
+const container =  document.getElementById('root');
+const root = createRoot(container)
+root.render(
     <BrowserRouter>
         <React.StrictMode>
             <ThemeProvider theme={theme}>
@@ -25,7 +27,7 @@ ReactDOM.render(
             </ThemeProvider>
         </React.StrictMode>
     </BrowserRouter>,
-  document.getElementById('root')
+
 );
 
 // If you want to start measuring performance in your app, pass a function

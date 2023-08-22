@@ -1,6 +1,5 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import yoProfil from "../../assets/images/yo_photo_profil.jpg";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Header from "../Header/header";
@@ -26,7 +25,7 @@ const Presentation = () => {
                 </Typography>
                 <Grid container spacing={2}>
                     <Grid item md={3} justifyContent="center" sx={{display: {xs: "none", md: "flex"}}}>
-                        <img src={yoProfil} alt="profil yohann franzetti" className="img-fluid"/>
+                       {/* <img src={yoProfil} alt="profil yohann franzetti" className="img-fluid"/>*/}
                     </Grid>
                     <Grid item md={9} xs={12} alignItems="center" sx={{display: "flex"}}>
                         <Box>
