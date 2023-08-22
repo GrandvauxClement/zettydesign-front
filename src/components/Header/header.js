@@ -17,21 +17,22 @@ const Header = (props) => {
     return (
             <Box sx={{
                 backgroundImage: {xs: headerFondMobile, lg:headerFond},
-                backgroundSize: {xs: "contain", sm: "cover",lg: "cover"},
+                backgroundSize: {xs: "cover", sm: "cover",lg: "cover"},
                 backgroundRepeat: "no-repeat",
                 height: {xs: "40vh",md: "500px"},
-                mt: "70px"
+                mt: "70px",
             }}>
                     <Grid
                         container
                         sx={{
-                            height:{xs: "70%", lg: "90%"} ,
+                            height:{xs: "100%", lg: "90%"} ,
                             pl:{xs: 0,lg: "210px"},
+                            pt: 10,
                             alignItems: {xs: "center", lg: "end"},
                             justifyContent: {xs: "center", lg: "start"}
                         }}
                     >
-                        <Grid item xs={12} md={8}
+                        <Grid item xs={12} md={12}
                               sx={{
                                   display: "flex",
                                   height: "100%",
@@ -46,7 +47,7 @@ const Header = (props) => {
                                 sx={{
                                     // fontWeight: {xs: 500, md: 600},
                                     fontSize: {xs: '2.0em', md: '4.1em'},
-                                    width: {xs: "100%", lg:"900px"},
+                                    width: {xs: "100%", lg:"800px"},
                                     lineHeight: "1.0",
                                     mb: 2
                                 }}
@@ -58,15 +59,16 @@ const Header = (props) => {
                                 variant="h6"
                                 sx={{
                                     fontSize: {xs: '0.7em', md: '1.5em'},
+                                    zIndex: 2
                                 }}
                             >
                                 {props.text}
                             </Typography>
                             <Box sx={{
-                                height: {xs: "100px", md:"200px"},
+                                height: {xs: "100px", md:"450px"},
                                 position: "absolute",
-                                right: {xs: "50px", md:"100px"},
-                                top: {xs: "35vh", md:"350px"}
+                                right: {xs: "20px", md:"50px"},
+                                top: {xs: "300px", md:"100px"}
                             }}>
                                 <img
                                     src={vecteurHeader}
@@ -76,8 +78,6 @@ const Header = (props) => {
                                     }}
                                 />
                             </Box>
-
-
                         </Grid>
                     </Grid>
             </Box>

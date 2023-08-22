@@ -5,7 +5,7 @@ import IndexProject from "../Project";
 
 function AccueilApp() {
     const title = "Votre Freelance en Communication";
-    const text = "Création visuelle, Création de site web, Rédacteur web"
+    const text = "Graphisme - Social Média - Sites Web"
     useEffect(() => {
         window.scrollTo(0,0);
     })
