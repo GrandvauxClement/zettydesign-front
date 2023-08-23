@@ -19,9 +19,9 @@ const NavBar = () => {
                     <img src={logoWhite} alt="zetty design" style={{height: "70px", position: "absolute",left: "10vw", top: "15px"}}/>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto ms-3">
-                        <NavDropdown title="Mes Services" id="basic-nav-dropdown" className="ms-3">
+                <Navbar.Collapse id="basic-navbar-nav" >
+                    <Nav className=" ms-md-5" style={{backgroundColor: "#033375", justifyContent: {xs: 'end'}}}>
+                        <NavDropdown title="Mes Services" id="basic-nav-dropdown" className="ms-md-5">
                             <NavDropdown.Item href="/design-graphique">
                                 Design Graphique
                             </NavDropdown.Item>

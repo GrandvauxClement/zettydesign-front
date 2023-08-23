@@ -4,7 +4,6 @@ import {
     Typography,
 } from "@mui/material";
 import ServiceList from "./servicesList";
-import BannerDisplayNumber from "./bannerDisplayNumber";
 import Grid from "@mui/material/Grid";
 import ServiceAccueilData from "../../assets/data/ServiceAccueilData";
 
@@ -31,7 +30,7 @@ const Accueil = () => {
                         ))}
                     </Grid>
                 </Container>
-                <BannerDisplayNumber/>
+
             </>
         );
 

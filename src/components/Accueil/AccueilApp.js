@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import Header from "../Header/header";
 import Accueil from "../Accueil/accueil";
 import IndexProject from "../Project";
+import BannerDisplayNumber from "./bannerDisplayNumber";
 
 function AccueilApp() {
     const title = "Votre Freelance en Communication";
@@ -14,6 +15,7 @@ function AccueilApp() {
             <Header title={title} text={text} />
             <Accueil />
             <IndexProject />
+            <BannerDisplayNumber/>
         </div>
     );
 }

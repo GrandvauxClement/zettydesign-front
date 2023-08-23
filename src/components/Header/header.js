@@ -5,9 +5,10 @@ import {
 import Box from "@mui/material/Box";
 import React from "react";
 import header from "../../assets/images/bann-nue.png";
+import theme from "../../theme";
 
 import headerMobile from "../../assets/images/banMobile.png";
-import vecteurHeader from "../../assets/images/vector-header-v2.png"
+import vecteurHeader from "../../assets/images/vector-header-v2.png";
 
 const Header = (props) => {
   //  const headerFond = 'linear-gradient(rgba(42,177,234,0.44), rgba(42,177,234,0.44)), url(' + props.header + ') no-repeat center center / cover'
@@ -17,22 +18,22 @@ const Header = (props) => {
     return (
             <Box sx={{
                 backgroundImage: {xs: headerFondMobile, lg:headerFond},
-                backgroundSize: {xs: "cover", sm: "cover",lg: "cover"},
+                backgroundSize: {xs: "contain", sm: "contain",lg: "cover"},
                 backgroundRepeat: "no-repeat",
-                height: {xs: "40vh",md: "500px"},
+                height: {xs: "35vh",md: "500px"},
                 mt: "70px",
             }}>
                     <Grid
                         container
                         sx={{
-                            height:{xs: "100%", lg: "90%"} ,
+                            height:{xs: "70%", lg: "90%"} ,
                             pl:{xs: 0,lg: "210px"},
                             pt: 10,
                             alignItems: {xs: "center", lg: "end"},
                             justifyContent: {xs: "center", lg: "start"}
                         }}
                     >
-                        <Grid item xs={12} md={12}
+                        <Grid item xs={8} md={12}
                               sx={{
                                   display: "flex",
                                   height: "100%",
@@ -46,29 +47,32 @@ const Header = (props) => {
                                 variant="h1"
                                 sx={{
                                     // fontWeight: {xs: 500, md: 600},
-                                    fontSize: {xs: '2.0em', md: '4.1em'},
+                                  //  position : {xs : 'absolute', md: 'flex'},
+                                    fontSize: {xs: '1.4em', md: '4.1em'},
                                     width: {xs: "100%", lg:"800px"},
                                     lineHeight: "1.0",
-                                    mb: 2
+                                    mb: 1,
+                                    zIndex: 2
                                 }}
                             >
                                 {props.title}
                             </Typography>
                             <Typography
                                 align="center"
-                                variant="h6"
+                                variant="h2"
                                 sx={{
                                     fontSize: {xs: '0.7em', md: '1.5em'},
+                                    color: theme.palette.primary.main,
                                     zIndex: 2
                                 }}
                             >
                                 {props.text}
                             </Typography>
                             <Box sx={{
-                                height: {xs: "100px", md:"450px"},
+                                height: {xs: "110px", md:"40vh"},
                                 position: "absolute",
-                                right: {xs: "20px", md:"50px"},
-                                top: {xs: "300px", md:"100px"}
+                                right: {xs: "-12px", md:"0vw", xl: "5vw"},
+                                top: {xs: "24vh", md:"20vh"}
                             }}>
                                 <img
                                     src={vecteurHeader}
