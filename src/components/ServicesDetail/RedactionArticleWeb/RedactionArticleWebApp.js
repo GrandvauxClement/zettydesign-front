@@ -47,16 +47,9 @@ function RedactionArticleWeb() {
             </>
 )
 
-    return (
-        <>
-            <ServiceDetail
-                titleHeader={titleHeader}
-                textHeader={textHeader}
-                principalText={principalText()}
-                imgPrincipal={vecteurRedactionArticle}
-                altImgPrincipal={altImgPrincipal}
-            />
-            <Container style={{marginBottom: 3}}>
+    const displayArticleWrite = () => {
+        return (
+            <>
                 <img
                     src={articleUn}
                     alt={"rédaction d'articles web"}
@@ -65,9 +58,21 @@ function RedactionArticleWeb() {
                 <img
                     src={articleDeux}
                     alt={"rédaction d'articles web"}
-                    className="img-fluid"
+                    className="img-fluid mb-2"
                 />
-            </Container>
+           </>
+        )
+    }
+    return (
+        <>
+            <ServiceDetail
+                titleHeader={titleHeader}
+                textHeader={textHeader}
+                principalText={principalText()}
+                imgPrincipal={vecteurRedactionArticle}
+                altImgPrincipal={altImgPrincipal}
+                specialComponent={displayArticleWrite()}
+            />
         </>
     );
 }

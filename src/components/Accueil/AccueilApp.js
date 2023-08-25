@@ -13,8 +13,8 @@ function AccueilApp() {
     return (
         <div>
             <Header title={title} text={text} />
-            <Accueil />
             <IndexProject />
+            <Accueil />
             <BannerDisplayNumber/>
         </div>
     );

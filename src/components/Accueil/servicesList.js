@@ -14,26 +14,26 @@ import theme from "../../theme";
 const ServiceList = ({service}) => {
 
     return (
-        <Card sx={{ height: 500, backgroundColor: theme.palette.primary.main }}>
+        <Card sx={{ height: {xs: 350,md: 400}, backgroundColor: theme.palette.primary.main, borderRadius: 8 }}>
             <CardMedia
                 component="img"
-                height="300"
+                height="45%"
                 image={service.image}
                 alt={`vecteur-${service.title}`}
                 sx={{objectFit: 'contain', backgroundColor: "white"}}
             />
-            <CardContent sx={{py: 1, height: 160, pt: 3}}>
-                <Grid container sx={{display: "flex", justifyContent: "space-around", height: "100%"}}>
+            <CardContent sx={{py: 1, height: "50%", pt: 3}}>
+                <Grid container sx={{display: "flex", justifyContent: "space-around", height: "70%"}}>
                     <Grid item xs>
-                        <Typography gutterBottom variant="h3" color="white" textAlign="center" >
+                        <Typography gutterBottom variant="h3" color="white" textAlign="center" sx={{fontSize: {xs: "1em", md: "1.6em"}}}>
                             {service.title}
                         </Typography>
-                        <Typography paragraph textAlign="center" color="white">
+                        <Typography paragraph textAlign="center" color="white" sx={{fontSize: {xs: "0.8rem", md: "1rem"}}}>
                             {service.subTitle}
                         </Typography>
                     </Grid>
                 </Grid>
-                <Grid item xs sx={{py: 2, display: "flex", justifyContent: "center"}}>
+                <Grid item xs sx={{pt: 4, display: "flex", justifyContent: "center"}}>
                     <Link to={service.url}>
                         <Button variant="contained"
                                 endIcon={<AddCircleIcon />}

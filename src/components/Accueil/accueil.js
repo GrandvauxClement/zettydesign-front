@@ -24,7 +24,7 @@ const Accueil = () => {
                     </Typography>
                     <Grid container spacing={2}>
                         {ServiceAccueilData.map((service, index) => (
-                            <Grid item xs={12} md={6} lg={3} key={index}>
+                            <Grid item xs={6} md={6} lg={3} key={index}>
                                 <ServiceList  service={service} index={index}/>
                             </Grid>
                         ))}

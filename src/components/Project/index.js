@@ -30,7 +30,7 @@ const IndexProject = () => {
         )
     }else {
         return (
-            <Container sx={{mt: 3}}>
+            <Container sx={{mt: 5}}>
                <Typography variant="h2" color="primary"
                     sx={{ textAlign:{xs: 'center', md: 'left'}, fontSize:{xs: '2.3em', md: '3.3em'}}}
                >

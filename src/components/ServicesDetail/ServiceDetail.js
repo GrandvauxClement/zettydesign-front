@@ -8,7 +8,7 @@ import epicanin from "../../assets/images/logo_partenaire/epicanin.png";
 import trouveTonTransport from "../../assets/images/logo_partenaire/trouve_ton_transport.jpg";
 import collegePasteur from "../../assets/images/logo_partenaire/logo_academie-besancon.png";
 
-function ServiceDetail({titleHeader, textHeader, principalText, imgPrincipal, altImgPrincipal}) {
+function ServiceDetail({titleHeader, textHeader, principalText, imgPrincipal, altImgPrincipal, specialComponent = null}) {
 
     const imagesPartenaires = [
         {
@@ -53,7 +53,7 @@ function ServiceDetail({titleHeader, textHeader, principalText, imgPrincipal, al
                         {principalText}
                     </Grid>
                 </Grid>
-
+                {specialComponent}
                 <MesPartenaires images={imagesPartenaires} />
             </Container>
         </div>

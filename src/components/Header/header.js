@@ -22,6 +22,7 @@ const Header = (props) => {
                 backgroundRepeat: "no-repeat",
                 height: {xs: "35vh",md: "500px"},
                 mt: "70px",
+                boxShadow: "5px 5px 15px rgba(0, 0, 0, 0.3)"
             }}>
                     <Grid
                         container

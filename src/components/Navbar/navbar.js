@@ -16,7 +16,15 @@ const NavBar = () => {
         >
             <Container>
                 <Navbar.Brand href="/" style={{color: "white"}}>
-                    <img src={logoWhite} alt="zetty design" style={{height: "70px", position: "absolute",left: "10vw", top: "15px"}}/>
+                    <img
+                        src={logoWhite}
+                        alt="zetty design"
+                        style={{
+                            height: "50px",
+                          //  position: "absolute",left: "10vw", top: "15px"
+                    }}
+                        className={"img-fluid"}
+                    />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" >
