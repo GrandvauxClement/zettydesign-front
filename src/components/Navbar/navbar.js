@@ -4,6 +4,7 @@ import logoWhite from "../../assets/images/logo.png";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const NavBar = () => {
 
@@ -21,14 +22,17 @@ const NavBar = () => {
                         alt="zetty design"
                         style={{
                             height: "50px",
-                          //  position: "absolute",left: "10vw", top: "15px"
                     }}
                         className={"img-fluid"}
                     />
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle
+                    aria-controls="basic-navbar-nav"
+                >
+                    <MenuIcon sx={{color: 'white'}}/>
+                </Navbar.Toggle>
                 <Navbar.Collapse id="basic-navbar-nav" >
-                    <Nav className=" ms-md-5" style={{backgroundColor: "#033375", justifyContent: {xs: 'end'}}}>
+                    <Nav className="ms-md-5" style={{backgroundColor: "#033375", justifyContent: {xs: 'end'}}}>
                         <NavDropdown title="Mes Services" id="basic-nav-dropdown" className="ms-md-5">
                             <NavDropdown.Item href="/design-graphique">
                                 Design Graphique

@@ -11,10 +11,10 @@ const Accueil = () => {
 
         return(
             <>
-                <Container sx={{mb:2}}>
+                <Container sx={{ mb: 8}}>
                     <Typography variant="h2"
                                 sx={{
-                                    my: 2,
+                                    my: 8,
                                     textAlign:{xs: 'center', md: 'left'},
                                     fontSize:{xs: '2.3em', md: '3.3em'}
                                 }}

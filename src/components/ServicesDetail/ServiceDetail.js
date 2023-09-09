@@ -41,7 +41,7 @@ function ServiceDetail({titleHeader, textHeader, principalText, imgPrincipal, al
             <Header title={titleHeader} text={textHeader} />
             <Container>
 
-                <Grid container sx={{mb: 4}} spacing={2}>
+                <Grid container sx={{my: 4}} spacing={2}>
                     <Grid item xs={12} md={4}>
                         <img
                             src={imgPrincipal}

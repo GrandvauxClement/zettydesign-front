@@ -5,6 +5,7 @@ import {
 } from "@mui/material";
 import theme from "../../theme";
 import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
+import Box from "@mui/material/Box";
 
 const BannerDisplayNumber = () => {
 
@@ -15,8 +16,14 @@ const BannerDisplayNumber = () => {
     }
 
     return(
-        <div style={{backgroundColor: theme.palette.primary.main, width:'100%', marginTop: 6}}>
-            <Container sx={{py: 6}}>
+        <Box
+            style={{
+                backgroundColor: theme.palette.primary.main,
+                width:'100%',
+                my: 8
+            }}
+        >
+            <Container sx={{py: 6, mt: 3}}>
                 <Grid container item xs={12} direction="row">
                     <Grid item xs={12} md={4} sx={{textAlign:"center"}}>
                         <Typography color="white" sx={{fontWeight:'bold'}} variant="h2">{numYearFromStared()}</Typography>
@@ -34,7 +41,7 @@ const BannerDisplayNumber = () => {
                     </Grid>
                 </Grid>
             </Container>
-        </div>
+        </Box>
     );
 }
 

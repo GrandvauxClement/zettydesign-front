@@ -11,13 +11,13 @@ import {Button} from "@mui/material";
 
 function Contact(){
     return (
-        <div className='bg-light pb-4 pt-2' id="contact">
+        <div className='bg-light pb-5 pt-2' id="contact">
             <Container>
                 <Typography
                     variant="h2"
                     sx={{
                         textAlign: "center",
-                        my: 1,
+                        my: 4,
                         color: theme.palette.primary.main,
                         fontSize:{xs: '2.3em', md: '3.3em'}
                     }}

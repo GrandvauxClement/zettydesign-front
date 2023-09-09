@@ -30,9 +30,13 @@ const IndexProject = () => {
         )
     }else {
         return (
-            <Container sx={{mt: 5}}>
+            <Container sx={{mt: 8, mb: 4}}>
                <Typography variant="h2" color="primary"
-                    sx={{ textAlign:{xs: 'center', md: 'left'}, fontSize:{xs: '2.3em', md: '3.3em'}}}
+                    sx={{
+                        textAlign:{xs: 'center', md: 'left'},
+                        fontSize:{xs: '2.3em', md: '3.3em'},
+                        mt: 8
+                    }}
                >
                    Mes Réalisations
                </Typography>
@@ -44,7 +48,11 @@ const IndexProject = () => {
                            ))}
                    </Masonry>
                    <Link to="/mes-realisations">
-                       <Button variant="contained" endIcon={<ArrowForwardIosOutlinedIcon />}>
+                       <Button
+                           variant="contained"
+                           endIcon={<ArrowForwardIosOutlinedIcon />}
+                           sx={{my: 4}}
+                       >
                            Voir toutes mes réalisations
                        </Button>
                    </Link>

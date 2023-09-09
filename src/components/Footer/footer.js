@@ -32,6 +32,7 @@ const Root = styled('div')((
         width: "100%",
         backgroundColor: theme.palette.primary.main,
         color: "white",
+        paddingY: 4
     },
 
     [`& .${classes.footerItem}`]: {
@@ -63,7 +64,7 @@ const Footer = (props) => {
     return(
         <Root className={classes.root}>
             <Container>
-                <Grid item xs={12}>
+                <Grid item xs={12} sx={{pt: 2}}>
                     <Typography align='center'>
                         <Link to="redaction-article-web" style={{color: "white", textDecoration: "none"}}>
                             Rédaction article web | {" "}
@@ -86,7 +87,7 @@ const Footer = (props) => {
 
                     </Typography>
                 </Grid>
-                <Grid item container xs={12} direction='row' justifyContent="center">
+                <Grid item container xs={12} direction='row' justifyContent="center" sx={{py: 2}}>
                     <Grid item>
 
                         <IconButton
@@ -127,7 +128,7 @@ const Footer = (props) => {
                 </Grid>
             </Container>
             <Box sx={{backgroundColor: theme.palette.primary.dark}}>
-                <Grid item container xs={12} sx={{justifyContent: 'center'}}>
+                <Grid item container xs={12} sx={{justifyContent: 'center', pt: 1}}>
                     <Typography paragraph>
                         <Link to="mentions-legales" style={{color: "white", textDecoration: "none"}}>
                             Mentions légales {" "}

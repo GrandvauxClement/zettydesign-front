@@ -64,16 +64,17 @@ const Header = (props) => {
                                 sx={{
                                     fontSize: {xs: '0.7em', md: '1.5em'},
                                     color: theme.palette.primary.main,
-                                    zIndex: 2
+                                    zIndex: 2,
+                                    width: "60%"
                                 }}
                             >
                                 {props.text}
                             </Typography>
                             <Box sx={{
-                                height: {xs: "110px", md:"40vh"},
+                                height: {xs: "110px", md:"45vh"},
                                 position: "absolute",
                                 right: {xs: "-12px", md:"0vw", xl: "5vw"},
-                                top: {xs: "24vh", md:"20vh"}
+                                top: {xs: "24vh", md:"20vh", xl: "10vh"}
                             }}>
                                 <img
                                     src={vecteurHeader}
