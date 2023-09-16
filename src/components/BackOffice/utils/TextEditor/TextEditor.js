@@ -27,7 +27,7 @@ const HOTKEYS = {
 const LIST_TYPES = ['numbered-list', 'bulleted-list']
 
 const TextEditor = ({placeholder, value, setValue}) => {
-
+    console.log("Editor value received --> ", value);
     const renderElement = useCallback(props => <Element {...props} />, [])
     const renderLeaf = useCallback(props => <Leaf {...props} />, [])
     const editor = useMemo(() => withHistory(withReact(createEditor())), [])
@@ -35,8 +35,10 @@ const TextEditor = ({placeholder, value, setValue}) => {
     return (
         <Slate
             editor={editor}
-            value={value}
-            onChange={newValue => setValue(newValue)}>
+            //value={value}
+            onChange={newValue => setValue(newValue)}
+            initialValue={value}
+        >
             <Box sx={{
                 border: 1,
                 borderColor: 'rgba(0, 0, 0, 0.12)',

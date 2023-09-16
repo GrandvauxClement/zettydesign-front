@@ -15,7 +15,6 @@ import Container from "@mui/material/Container";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import {urlAwsImageStorage} from "../../constant/globalConstant";
 import Carousel from "react-material-ui-carousel";
-import CircularProgress from "@mui/material/CircularProgress";
 
 const DrawerProject = ({project, toggleDrawer, index, otherProjects}) => {
 

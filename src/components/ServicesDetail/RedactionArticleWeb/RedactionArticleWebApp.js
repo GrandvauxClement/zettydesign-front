@@ -4,7 +4,6 @@ import {Typography} from "@mui/material";
 import vecteurRedactionArticle from "../../../assets/images/services/RedactionArticleWeb.png";
 import articleUn from "../../../assets/images/services/Articles.png";
 import articleDeux from "../../../assets/images/services/articlesLMDT.png";
-import Container from "@mui/material/Container";
 
 function RedactionArticleWeb() {
 

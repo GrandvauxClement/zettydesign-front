@@ -133,7 +133,7 @@ const Footer = (props) => {
                         <Link to="mentions-legales" style={{color: "white", textDecoration: "none"}}>
                             Mentions légales {" "}
                         </Link>
-                        | © Copyright 2022 - Zetty Design. Tous droits réservés
+                        | © Copyright {new Date().getFullYear()} - Zetty Design. Tous droits réservés
                     </Typography>
                 </Grid>
             </Box>
