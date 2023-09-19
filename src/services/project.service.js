@@ -18,13 +18,23 @@ class ProjectService {
 
     addProject(projectFromData){
         return Api.functionAxios().post('api/project',
-            projectFromData
+            projectFromData,
+            {
+                headers: {
+                    "Content-Type" : "multipart/form-data"
+                }
+            }
         )
     }
 
     updateProject(id, formUploadData){
         return Api.functionAxios().post('api/project/' + id,
-            formUploadData
+            formUploadData,
+            {
+                headers: {
+                    "Content-Type" : "multipart/form-data"
+                }
+            }
         )
     }
 

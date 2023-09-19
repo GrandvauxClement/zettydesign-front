@@ -9,7 +9,8 @@ export default function EditProject({setPageToDisplay, projectSelected}) {
 
     const handleSubmit = () => {
         // Upload on a first Time all images
-        ProjectService.updateProject(project._id, parseProjectDataToFormData(project))
+        const formData = parseProjectDataToFormData(project)
+        ProjectService.updateProject(project._id, formData)
             .then((res) => {
                 // Add project done redirect to index and display popup to say is good
                 setPageToDisplay({
