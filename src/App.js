@@ -17,6 +17,7 @@ import CreationSiteWebApp from "./components/ServicesDetail/CreationSiteWeb/Crea
 import MentionsLegales from "./components/MentionsLegales/mentionsLegales";
 import Error404 from "./components/Error404/Error404";
 import Presentation from "./components/Presentation/Presentation";
+import PolitiqueToolyGame from "./components/PolitiqueToolyGame";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/community-management" element={<CommunityManagementApp />} />
             <Route path="/mes-realisations" element={<ProjectDetail />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
+            <Route path="/politique-confidentialite-tooly-game" element={<PolitiqueToolyGame />} />
             <Route path="/qui-suis-je" element={<Presentation />} />
             <Route path="/" element={<AccueilApp />}/>
             <Route path="/*" element={<Error404 />} />
